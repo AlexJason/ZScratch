@@ -1,4 +1,4 @@
-/** ZScratch.cpp - ZScratch
+/** Scratch.cpp - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,26 +16,26 @@
 */
 
 /**
-* ZScratch.cpp
+* Scratch.cpp
 * Alex Cui, March 2018
 *
 * This is the main class of the program.
 */
 
-#include "ZScratch.h"
+#include "Scratch.h"
 #include "..\gui\Paint.h"
 
-LPCWSTR ZScratch::ClassName = L"ClipCC-ZE";
-LPCWSTR ZScratch::WindowTitle = L"Z-Editor";
-HWND ZScratch::WindowHandle = nullptr;
-HWND ZScratch::ConsoleHandle = nullptr;
-HINSTANCE ZScratch::ProgramInstance = nullptr;
+LPCWSTR Scratch::ClassName = L"ClipCC-ZE";
+LPCWSTR Scratch::WindowTitle = L"Z-Editor";
+HWND Scratch::WindowHandle = nullptr;
+HWND Scratch::ConsoleHandle = nullptr;
+HINSTANCE Scratch::ProgramInstance = nullptr;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
-	return ZScratch::WndProc(hwnd, msg, wParam, lParam);
+	return Scratch::WndProc(hwnd, msg, wParam, lParam);
 }
 
-ATOM ZScratch::RegisterWindowClass() {
+ATOM Scratch::RegisterWindowClass() {
 	WNDCLASSEXW wcex = { 0 };
 	wcex.cbSize = sizeof(WNDCLASSEX);
 	wcex.style = CS_HREDRAW | CS_VREDRAW;
@@ -52,7 +52,7 @@ ATOM ZScratch::RegisterWindowClass() {
 	return RegisterClassExW(&wcex);
 }
 
-BOOL ZScratch::CreateMainWindow() {
+BOOL Scratch::CreateMainWindow() {
 	HWND WindowHandle = CreateWindowEx(0, ClassName, WindowTitle, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, NULL, 0);
 	if (!WindowHandle)
 		return FALSE;
@@ -62,7 +62,7 @@ BOOL ZScratch::CreateMainWindow() {
 	return TRUE;
 }
 
-WPARAM ZScratch::MessageLoop() {
+WPARAM Scratch::MessageLoop() {
 	MSG msg = { 0 };
 	while (true) {
 		if (PeekMessageW(&msg, NULL, 0, 0, PM_REMOVE)) {
@@ -78,7 +78,7 @@ WPARAM ZScratch::MessageLoop() {
 	return msg.wParam;
 }
 
-WPARAM ZScratch::MessageLoop(int) {
+WPARAM Scratch::MessageLoop(int) {
 	MSG msg = { 0 };
 	while (GetMessage(&msg, NULL, 0, 0)) {
 		TranslateMessage(&msg);
@@ -87,7 +87,7 @@ WPARAM ZScratch::MessageLoop(int) {
 	return msg.wParam;
 }
 
-LRESULT ZScratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+LRESULT Scratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	switch (msg) {
 	case WM_CREATE: {
 		break;
@@ -96,7 +96,9 @@ LRESULT ZScratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		Paint::BeginPaint(hwnd);
 		HBRUSH hbr;
 		hbr = CreateSolidBrush(0xffffff);
-
+		FrameRect(Paint::mdc, &Paint::rc, hbr);
+		FillRect(Paint::mdc, &Paint::rc, hbr);
+		DeleteObject(hbr);
 		Paint::EndPaint();
 		break;
 	}
@@ -111,11 +113,11 @@ LRESULT ZScratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	return 0;
 }
 
-ZScratch::ZScratch() {
+Scratch::Scratch() {
 
 }
 
 
-ZScratch::~ZScratch() {
+Scratch::~Scratch() {
 
 }

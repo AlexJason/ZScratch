@@ -1,4 +1,4 @@
-/** ScratchObject.h - ZScratch
+/** ScratchValue.h - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,31 +16,34 @@
 */
 
 /**
-* ScratchObject.h
+* ScratchValue.h
 * Alex Cui, March 2018
 *
-* The class of scratch object.
+* The class that none-type variable value for scratch.
 */
 
 #pragma once
-#ifndef SCRATCH_OBJECT
-#define SCRATCH_OBJECT
+#ifndef SCRATCH_VALUE
+#define SCRATCH_VALUE
 #include <string>
-#include <vector>
-
-#include "ScratchCostume.h"
-#include "ScratchSound.h"
-
-class ScratchObject {
+class ScratchValue {
 public:
-	std::string objName;
-	int scripts;
-	std::vector<ScratchSound> sounds;
-	std::vector<ScratchCostume> costumes;
-	unsigned int currentCostumeIndex;
+	enum Type {
+		INTEGER,
+		FLOAT,
+		STRING,
+		BOOLEAN
+	};
+public:
+	std::string value;
+public:
+	ScratchValue();
+	~ScratchValue();
 
-
-	ScratchObject();
-	~ScratchObject();
+	long asInt();//This'll be changed into ScratchNumber class.
+	double asFloat();//This'll be deleted.
+	std::string asString();
+	bool asBool();
 };
 #endif
+

@@ -1,0 +1,27 @@
+Project		:ZScratch
+Version		:0.1a
+License		:
+	GNU Affero General Public License v3
+Language	:
+	C++[C++17]
+	Python[3.6]
+	Lua
+Syestem		:
+	Windows 7/8/8.1/10
+	Linux RedHat/Ubuntu/Centos/Kylin Wine
+	OS X 10.0 Wine
+SupportLang	:
+	English[en-us]
+Author		:
+	Alex Cui
+Copyrights	:
+	Copyright(c) 2017-2018 Alex Cui
+	Copyright(c) 2017-2018 ClipCC Team
+	Copyright(c) 2017-2018 Ble Studio
+Library		:
+	winsdk
+	jsoncpp
+	tinyxml
+	python lib
+	lua lib
+

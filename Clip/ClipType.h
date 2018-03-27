@@ -1,4 +1,4 @@
-/** ScratchObject.h - ZScratch
+/**
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -15,32 +15,23 @@
 *	along with this program.If not, see <https://www.gnu.org/licenses/>.
 */
 
-/**
-* ScratchObject.h
-* Alex Cui, March 2018
-*
-* The class of scratch object.
-*/
-
 #pragma once
-#ifndef SCRATCH_OBJECT
-#define SCRATCH_OBJECT
+#ifndef CLIP_TYPE
+#define CLIP_TYPE
+
+#include <map>
 #include <string>
-#include <vector>
+#include <utility>
 
-#include "ScratchCostume.h"
-#include "ScratchSound.h"
+static const std::map<std::string, int> ClipTypeLength = {
+	std::pair<std::string, int>("byte", sizeof(char)),
+	std::pair<std::string, int>("bool", sizeof(bool)),
+	std::pair<std::string, int>("char", sizeof(char)),
+	std::pair<std::string, int>("float", sizeof(double)),
+	std::pair<std::string, int>("int", sizeof(long long)),
+	std::pair<std::string, int>("pointer", sizeof(int*)),
+	std::pair<std::string, int>("string", sizeof(std::string)),
+}
 
-class ScratchObject {
-public:
-	std::string objName;
-	int scripts;
-	std::vector<ScratchSound> sounds;
-	std::vector<ScratchCostume> costumes;
-	unsigned int currentCostumeIndex;
 
-
-	ScratchObject();
-	~ScratchObject();
-};
 #endif

@@ -1,4 +1,4 @@
-/** ScratchObject.h - ZScratch
+/** Scratch.h - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,31 +16,34 @@
 */
 
 /**
-* ScratchObject.h
+* Scratch.h
 * Alex Cui, March 2018
 *
-* The class of scratch object.
+* This is the main class of the program.
 */
 
 #pragma once
-#ifndef SCRATCH_OBJECT
-#define SCRATCH_OBJECT
-#include <string>
-#include <vector>
-
-#include "ScratchCostume.h"
-#include "ScratchSound.h"
-
-class ScratchObject {
+#ifndef ZSCRATCH_CLASS
+#define ZSCRATCH_CLASS
+#include <Windows.h>
+class Scratch {
 public:
-	std::string objName;
-	int scripts;
-	std::vector<ScratchSound> sounds;
-	std::vector<ScratchCostume> costumes;
-	unsigned int currentCostumeIndex;
+	static LPCWSTR ClassName;
+	static LPCWSTR WindowTitle;
 
+	static HWND WindowHandle;
+	static HWND ConsoleHandle;
+	static HINSTANCE ProgramInstance;
 
-	ScratchObject();
-	~ScratchObject();
+	static ATOM RegisterWindowClass();
+	static BOOL CreateMainWindow();
+	static WPARAM MessageLoop();
+	static WPARAM MessageLoop(int);
+	static LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
+	Scratch();
+	~Scratch();
 };
 #endif
+
+

@@ -1,4 +1,4 @@
-/** ScratchObject.h - ZScratch
+/** Json.h - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,31 +16,28 @@
 */
 
 /**
-* ScratchObject.h
+* Json.h
 * Alex Cui, March 2018
 *
-* The class of scratch object.
+* The class of the read and write to json file with jsoncpp.
 */
 
 #pragma once
-#ifndef SCRATCH_OBJECT
-#define SCRATCH_OBJECT
+#ifndef UTIL_JSON
+#define UTIL_JSON
 #include <string>
-#include <vector>
-
-#include "ScratchCostume.h"
-#include "ScratchSound.h"
-
-class ScratchObject {
+#include <fstream>
+class Json {
 public:
-	std::string objName;
-	int scripts;
-	std::vector<ScratchSound> sounds;
-	std::vector<ScratchCostume> costumes;
-	unsigned int currentCostumeIndex;
-
-
-	ScratchObject();
-	~ScratchObject();
+	std::fstream file;
+public:
+	template<typename T>
+	T ReadValue(std::string key, T defaultValue = T());
+	template<typename T>
+	void WriteValue(std::string key, T value);
+public:
+	Json();
+	~Json();
 };
 #endif
+

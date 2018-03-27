@@ -1,4 +1,5 @@
-/** ScratchObject.h - ZScratch
+--[[ 
+*	Scratch.lua - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -13,34 +14,15 @@
 *
 *	You should have received a copy of the GNU Affero General Public License
 *	along with this program.If not, see <https://www.gnu.org/licenses/>.
-*/
-
-/**
-* ScratchObject.h
-* Alex Cui, March 2018
 *
-* The class of scratch object.
-*/
+*	=============================================
+*	Scratch.lua
+*	Alex Cui, March 2018
+*
+*	The interface of scratch for lua.
+*	=============================================
+]]--
 
-#pragma once
-#ifndef SCRATCH_OBJECT
-#define SCRATCH_OBJECT
-#include <string>
-#include <vector>
-
-#include "ScratchCostume.h"
-#include "ScratchSound.h"
-
-class ScratchObject {
-public:
-	std::string objName;
-	int scripts;
-	std::vector<ScratchSound> sounds;
-	std::vector<ScratchCostume> costumes;
-	unsigned int currentCostumeIndex;
+if not scratch then scratch = {} end
 
 
-	ScratchObject();
-	~ScratchObject();
-};
-#endif

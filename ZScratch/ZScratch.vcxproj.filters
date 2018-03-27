@@ -38,6 +38,15 @@
     <ClCompile Include="scratch\ScratchSound.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
+    <ClCompile Include="util\Json.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\Spec.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchValue.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="scratch">
@@ -124,11 +133,26 @@
     <ClInclude Include="scratch\ScratchSound.h">
       <Filter>scratch</Filter>
     </ClInclude>
+    <ClInclude Include="util\Json.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\Spec.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchValue.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="LICENSE" />
     <None Include="config\style.json">
       <Filter>config</Filter>
+    </None>
+    <None Include="python\scratch.py">
+      <Filter>python</Filter>
+    </None>
+    <None Include="lua\scratch.lua">
+      <Filter>lua</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -143,11 +167,14 @@
     <Xml Include="config\path.xml">
       <Filter>config</Filter>
     </Xml>
-    <Xml Include="config\module.xml">
+    <Xml Include="config\plugin.xml">
       <Filter>config</Filter>
     </Xml>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ZScratch.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="INFORMATION" />
   </ItemGroup>
 </Project>

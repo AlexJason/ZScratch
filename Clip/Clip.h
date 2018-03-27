@@ -1,4 +1,4 @@
-/** ScratchObject.h - ZScratch
+/**
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -15,32 +15,16 @@
 *	along with this program.If not, see <https://www.gnu.org/licenses/>.
 */
 
-/**
-* ScratchObject.h
-* Alex Cui, March 2018
-*
-* The class of scratch object.
-*/
-
 #pragma once
-#ifndef SCRATCH_OBJECT
-#define SCRATCH_OBJECT
-#include <string>
-#include <vector>
+#ifndef CLIP_CLIP
+#define CLIP_CLIP
 
-#include "ScratchCostume.h"
-#include "ScratchSound.h"
+#include "ClipDefine.h"
 
-class ScratchObject {
-public:
-	std::string objName;
-	int scripts;
-	std::vector<ScratchSound> sounds;
-	std::vector<ScratchCostume> costumes;
-	unsigned int currentCostumeIndex;
+#include "ClipKeyword.h"
+#include "ClipMemory.h"
+#include "ClipToken.h"
+#include "ClipType.h"
 
-
-	ScratchObject();
-	~ScratchObject();
-};
 #endif
+

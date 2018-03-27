@@ -1,4 +1,4 @@
-/** ScratchObject.h - ZScratch
+/** ScratchScriptPart.h - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,31 +16,17 @@
 */
 
 /**
-* ScratchObject.h
+* ScratchScriptPart.h
 * Alex Cui, March 2018
 *
-* The class of scratch object.
+* The class of script parts in scratch.
 */
 
 #pragma once
-#ifndef SCRATCH_OBJECT
-#define SCRATCH_OBJECT
-#include <string>
-#include <vector>
-
-#include "ScratchCostume.h"
-#include "ScratchSound.h"
-
-class ScratchObject {
+class ScratchScriptPart
+{
 public:
-	std::string objName;
-	int scripts;
-	std::vector<ScratchSound> sounds;
-	std::vector<ScratchCostume> costumes;
-	unsigned int currentCostumeIndex;
-
-
-	ScratchObject();
-	~ScratchObject();
+	ScratchScriptPart();
+	~ScratchScriptPart();
 };
-#endif
+

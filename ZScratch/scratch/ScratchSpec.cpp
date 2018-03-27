@@ -1,4 +1,4 @@
-/** ScratchObject.h - ZScratch
+/** ScratchSpec.cpp - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,31 +16,22 @@
 */
 
 /**
-* ScratchObject.h
+* ScratchSpec.cpp
 * Alex Cui, March 2018
 *
-* The class of scratch object.
+* The static class that defines the commands, parts, and blocks.
 */
 
-#pragma once
-#ifndef SCRATCH_OBJECT
-#define SCRATCH_OBJECT
-#include <string>
-#include <vector>
+#include "ScratchSpec.h"
 
-#include "ScratchCostume.h"
-#include "ScratchSound.h"
+std::vector<ScratchSpec::Category> ScratchSpec::category(0);
+std::vector<ScratchSpec::Command> ScratchSpec::command(0);
 
-class ScratchObject {
-public:
-	std::string objName;
-	int scripts;
-	std::vector<ScratchSound> sounds;
-	std::vector<ScratchCostume> costumes;
-	unsigned int currentCostumeIndex;
+ScratchSpec::ScratchSpec()
+{
+}
 
 
-	ScratchObject();
-	~ScratchObject();
-};
-#endif
+ScratchSpec::~ScratchSpec()
+{
+}
