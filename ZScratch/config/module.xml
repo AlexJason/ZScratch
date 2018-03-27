@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Module name="scratch-original" version="2.0.0" enable="true"></Module>
+  <Module name="z-scratch-extension" version="0.1.1" enable="true"></Module>
+</Root>
