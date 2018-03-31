@@ -246,6 +246,11 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="config\style.json" />
+    <None Include="interface\java\Scratch.java" />
+    <None Include="interface\python\Interface.py" />
+    <None Include="interface\python\Scratch.py" />
+    <None Include="plugin\scratch-original\info.json" />
+    <None Include="plugin\scratch-original\plugin.py" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\python\python3.lib" />

@@ -26,5 +26,11 @@ class ScratchExtension(object):
     exttitle = str();
     def __init__(self):
         return super().__init__()
+    def pre_init(self):
+        pass
+    def init(self):
+        pass
+    def post_init(self):
+        pass
     pass
 

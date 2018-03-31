@@ -25,4 +25,21 @@
 
 if not scratch then scratch = {} end
 
+ScratchExtension = class();
 
+function ScratchExtension:ctor(x)
+    self.extid = ""
+	self.title = ""
+end
+
+function ScratchExtension:pre_init()
+    
+end
+
+function ScratchExtension:init()
+    
+end
+
+function ScratchExtension:post_init()
+	
+end

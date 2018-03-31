@@ -100,6 +100,18 @@
     <Filter Include="lib\python">
       <UniqueIdentifier>{d8e51738-00c8-4fe3-8807-abc92bbaf5a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="plugin\scratch-original">
+      <UniqueIdentifier>{eda4d3cd-c8ed-48e8-a575-6240ab37de6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="interface">
+      <UniqueIdentifier>{a083dce6-9962-4a6f-9f4c-2a4d72209fbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="interface\python">
+      <UniqueIdentifier>{ed5573f4-371c-41de-96c4-9ed8500aa297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="interface\java">
+      <UniqueIdentifier>{94953a5b-91ee-4c90-9a5f-ce8bce48f63d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\Console.h">
@@ -167,6 +179,21 @@
   <ItemGroup>
     <None Include="config\style.json">
       <Filter>config</Filter>
+    </None>
+    <None Include="plugin\scratch-original\info.json">
+      <Filter>plugin\scratch-original</Filter>
+    </None>
+    <None Include="plugin\scratch-original\plugin.py">
+      <Filter>plugin\scratch-original</Filter>
+    </None>
+    <None Include="interface\python\Interface.py">
+      <Filter>interface\python</Filter>
+    </None>
+    <None Include="interface\python\Scratch.py">
+      <Filter>interface\python</Filter>
+    </None>
+    <None Include="interface\java\Scratch.java">
+      <Filter>interface\java</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
