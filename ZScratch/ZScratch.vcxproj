@@ -247,6 +247,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
   <ItemGroup>
     <None Include="config\style.json" />
     <None Include="lua\Scratch.lua" />
+    <None Include="python\Interface.py" />
     <None Include="python\Scratch.py" />
   </ItemGroup>
   <ItemGroup>
