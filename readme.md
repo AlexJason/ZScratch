@@ -21,6 +21,7 @@ You need to push these librays to ./ZScratch/lib , and rename them, like:
 >   ├-lua  
 >   ├-jsoncpp  
 >   └-tinyxml  
+
 And you need to copy the include files to these forders.  
 The library files have already exsited, if not, you need to copy the lib in to each forder.  
 
