@@ -64,7 +64,7 @@ std::vector<std::vector<std::string>> CLIPAPI GetWordList(std::ifstream &f) {
 	return ret;
 }
 
-char CLIPAPI GetAsciiChar(char c)
-{
+char CLIPAPI GetAsciiChar(char c) {
+
 	return 0;
 }

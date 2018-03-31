@@ -19,19 +19,13 @@
 #ifndef CLIP_TYPE
 #define CLIP_TYPE
 
-#include <map>
-#include <string>
-#include <utility>
+#include "ClipDefine.h"
 
-static const std::map<std::string, int> ClipTypeLength = {
-	std::pair<std::string, int>("byte", sizeof(char)),
-	std::pair<std::string, int>("bool", sizeof(bool)),
-	std::pair<std::string, int>("char", sizeof(char)),
-	std::pair<std::string, int>("float", sizeof(double)),
-	std::pair<std::string, int>("int", sizeof(long long)),
-	std::pair<std::string, int>("pointer", sizeof(int*)),
-	std::pair<std::string, int>("string", sizeof(std::string)),
+enum ClipType {
+	Cbyte, Cbool, Cchar, Cfloat, Cint, Cpointer, Cstring
 };
+
+unsigned int CLIPAPI GetOriginalTypeLength(ClipType t);
 
 
 #endif

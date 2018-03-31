@@ -53,6 +53,7 @@
     <ClCompile Include="scratch\ScratchSpec.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
+    <ClCompile Include="util\Color.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="scratch">
@@ -151,6 +152,7 @@
     <ClInclude Include="scratch\ScratchSpec.h">
       <Filter>scratch</Filter>
     </ClInclude>
+    <ClInclude Include="util\Color.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LICENSE" />

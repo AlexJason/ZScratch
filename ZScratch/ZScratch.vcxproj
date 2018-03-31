@@ -213,6 +213,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClCompile Include="scratch\ScratchSpec.cpp" />
     <ClCompile Include="scratch\Scratch.cpp" />
     <ClCompile Include="translate\Translate.cpp" />
+    <ClCompile Include="util\Color.cpp" />
     <ClCompile Include="util\Console.cpp" />
     <ClCompile Include="util\FileLoader.cpp" />
     <ClCompile Include="util\Json.cpp" />
@@ -233,6 +234,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClInclude Include="scratch\ScratchSpec.h" />
     <ClInclude Include="scratch\Scratch.h" />
     <ClInclude Include="translate\Translate.h" />
+    <ClInclude Include="util\Color.h" />
     <ClInclude Include="util\Console.h" />
     <ClInclude Include="util\FileLoader.h" />
     <ClInclude Include="util\Json.h" />
