@@ -16,16 +16,15 @@
 */
 
 #pragma once
-#ifndef CLIP_TOKEN
-#define CLIP_TOKEN
+#ifndef CLIP_CLIP
+#define CLIP_CLIP
 
 #include "ClipDefine.h"
 
-#include <fstream>
-#include <vector>
-#include <string>
-
-std::vector<std::vector<std::string>> CLIPAPI GetWordList(std::ifstream &f);
-char CLIPAPI GetAsciiChar(char c);
+#include "ClipKeyword.h"
+#include "ClipMemory.h"
+#include "ClipToken.h"
+#include "ClipType.h"
 
 #endif
+

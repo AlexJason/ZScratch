@@ -1,4 +1,4 @@
-/**
+/** Color.h - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -15,17 +15,19 @@
 *	along with this program.If not, see <https://www.gnu.org/licenses/>.
 */
 
+/**
+* Color.h
+* Alex Cui, March 2018
+*
+* 
+*/
+
 #pragma once
-#ifndef CLIP_TOKEN
-#define CLIP_TOKEN
-
-#include "ClipDefine.h"
-
-#include <fstream>
-#include <vector>
-#include <string>
-
-std::vector<std::vector<std::string>> CLIPAPI GetWordList(std::ifstream &f);
-char CLIPAPI GetAsciiChar(char c);
-
+#ifndef UTIL_COLOR
+#define UTIL_COLOR
+class Color {
+public:
+	Color();
+	~Color();
+};
 #endif

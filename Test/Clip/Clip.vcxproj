@@ -23,13 +23,11 @@
     <ClInclude Include="ClipDefine.h" />
     <ClInclude Include="ClipKeyword.h" />
     <ClInclude Include="ClipMemory.h" />
-    <ClInclude Include="ClipStatement.h" />
     <ClInclude Include="ClipToken.h" />
     <ClInclude Include="ClipType.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClipToken.cpp" />
-    <ClCompile Include="ClipType.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

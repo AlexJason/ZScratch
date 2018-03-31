@@ -27,9 +27,15 @@
 #define SCRATCH_SPEC
 #include <string>
 #include <vector>
+#include "ScratchValue.h"
 class ScratchSpec {
 public:
 	struct Category {
+		Category(unsigned int id, std::string name, unsigned long color) {
+			this->id = id;
+			this->name = name;
+			this->color = color;
+		}
 		unsigned int id;
 		std::string name;
 		unsigned long color;
@@ -40,6 +46,7 @@ public:
 		std::string type;
 		unsigned int category;
 		std::string command;
+		std::vector<ScratchValue> defaultValue;
 	};
 public:
 	static std::vector<Category> category;

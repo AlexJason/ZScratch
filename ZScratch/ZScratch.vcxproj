@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -204,12 +204,14 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClCompile Include="scratch\ScratchCostume.cpp" />
     <ClCompile Include="scratch\ScratchInfo.cpp" />
     <ClCompile Include="scratch\ScratchObject.cpp" />
+    <ClCompile Include="scratch\ScratchScript.cpp" />
+    <ClCompile Include="scratch\ScratchScriptPart.cpp" />
     <ClCompile Include="scratch\ScratchSound.cpp" />
     <ClCompile Include="scratch\ScratchSprite.cpp" />
     <ClCompile Include="scratch\ScratchStage.cpp" />
     <ClCompile Include="scratch\ScratchValue.cpp" />
-    <ClCompile Include="scratch\Spec.cpp" />
-    <ClCompile Include="scratch\ZScratch.cpp" />
+    <ClCompile Include="scratch\ScratchSpec.cpp" />
+    <ClCompile Include="scratch\Scratch.cpp" />
     <ClCompile Include="translate\Translate.cpp" />
     <ClCompile Include="util\Console.cpp" />
     <ClCompile Include="util\FileLoader.cpp" />
@@ -218,18 +220,18 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gui\Paint.h" />
-    <ClInclude Include="lib\tinyxml\tinystr.h" />
-    <ClInclude Include="lib\tinyxml\tinyxml.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="scratch\ScratchCostume.h" />
     <ClInclude Include="scratch\ScratchInfo.h" />
     <ClInclude Include="scratch\ScratchObject.h" />
+    <ClInclude Include="scratch\ScratchScript.h" />
+    <ClInclude Include="scratch\ScratchScriptPart.h" />
     <ClInclude Include="scratch\ScratchSound.h" />
     <ClInclude Include="scratch\ScratchSprite.h" />
     <ClInclude Include="scratch\ScratchStage.h" />
     <ClInclude Include="scratch\ScratchValue.h" />
-    <ClInclude Include="scratch\Spec.h" />
-    <ClInclude Include="scratch\ZScratch.h" />
+    <ClInclude Include="scratch\ScratchSpec.h" />
+    <ClInclude Include="scratch\Scratch.h" />
     <ClInclude Include="translate\Translate.h" />
     <ClInclude Include="util\Console.h" />
     <ClInclude Include="util\FileLoader.h" />
@@ -239,10 +241,13 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
   <ItemGroup>
     <None Include="config\style.json" />
     <None Include="LICENSE" />
-    <None Include="lua\scratch.lua" />
-    <None Include="python\scratch.py" />
+    <None Include="lua\Scratch.lua" />
+    <None Include="python\Scratch.py" />
   </ItemGroup>
   <ItemGroup>
+    <Library Include="lib\python\python3.lib" />
+    <Library Include="lib\python\python36.lib" />
+    <Library Include="lib\python\_tkinter.lib" />
     <Library Include="lib\tinyxml\tinyxmlSTL.lib" />
   </ItemGroup>
   <ItemGroup>

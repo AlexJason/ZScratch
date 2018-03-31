@@ -15,17 +15,22 @@
 *	along with this program.If not, see <https://www.gnu.org/licenses/>.
 */
 
-#pragma once
-#ifndef CLIP_TOKEN
-#define CLIP_TOKEN
+#include "ClipType.h"
 
-#include "ClipDefine.h"
-
-#include <fstream>
-#include <vector>
+#include <map>
 #include <string>
+#include <utility>
 
-std::vector<std::vector<std::string>> CLIPAPI GetWordList(std::ifstream &f);
-char CLIPAPI GetAsciiChar(char c);
+const std::map<ClipType, unsigned int> ClipTypeLength = {
+	std::pair<ClipType, unsigned int>(ClipType::Cbyte, sizeof(char)),
+	std::pair<ClipType, unsigned int>(ClipType::Cbool, sizeof(bool)),
+	std::pair<ClipType, unsigned int>(ClipType::Cchar, sizeof(char)),
+	std::pair<ClipType, unsigned int>(ClipType::Cfloat, sizeof(double)),
+	std::pair<ClipType, unsigned int>(ClipType::Cint, sizeof(long long)),
+	std::pair<ClipType, unsigned int>(ClipType::Cpointer, sizeof(int*)),
+	std::pair<ClipType, unsigned int>(ClipType::Cstring, sizeof(std::string)),
+};
 
-#endif
+unsigned int CLIPAPI GetOriginalTypeLength(ClipType t) {
+	return ClipTypeLength.at(t);
+}

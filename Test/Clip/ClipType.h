@@ -16,16 +16,22 @@
 */
 
 #pragma once
-#ifndef CLIP_TOKEN
-#define CLIP_TOKEN
+#ifndef CLIP_TYPE
+#define CLIP_TYPE
 
-#include "ClipDefine.h"
-
-#include <fstream>
-#include <vector>
+#include <map>
 #include <string>
+#include <utility>
 
-std::vector<std::vector<std::string>> CLIPAPI GetWordList(std::ifstream &f);
-char CLIPAPI GetAsciiChar(char c);
+static const std::map<std::string, int> ClipTypeLength = {
+	std::pair<std::string, int>("byte", sizeof(char)),
+	std::pair<std::string, int>("bool", sizeof(bool)),
+	std::pair<std::string, int>("char", sizeof(char)),
+	std::pair<std::string, int>("float", sizeof(double)),
+	std::pair<std::string, int>("int", sizeof(long long)),
+	std::pair<std::string, int>("pointer", sizeof(int*)),
+	std::pair<std::string, int>("string", sizeof(std::string)),
+};
+
 
 #endif
