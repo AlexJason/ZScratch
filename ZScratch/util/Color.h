@@ -29,5 +29,7 @@ class Color {
 public:
 	Color();
 	~Color();
+
+	
 };
 #endif
