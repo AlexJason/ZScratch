@@ -112,6 +112,9 @@
     <Filter Include="interface\java">
       <UniqueIdentifier>{94953a5b-91ee-4c90-9a5f-ce8bce48f63d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="interface\lua">
+      <UniqueIdentifier>{e9cde459-d054-4ca4-bd89-0d4f66cfa4e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\Console.h">
@@ -186,14 +189,14 @@
     <None Include="plugin\scratch-original\plugin.py">
       <Filter>plugin\scratch-original</Filter>
     </None>
-    <None Include="interface\python\Interface.py">
-      <Filter>interface\python</Filter>
-    </None>
     <None Include="interface\python\Scratch.py">
       <Filter>interface\python</Filter>
     </None>
     <None Include="interface\java\Scratch.java">
       <Filter>interface\java</Filter>
+    </None>
+    <None Include="interface\lua\Scratch.lua">
+      <Filter>interface\lua</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
