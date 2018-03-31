@@ -204,6 +204,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClCompile Include="scratch\ScratchCostume.cpp" />
     <ClCompile Include="scratch\ScratchInfo.cpp" />
     <ClCompile Include="scratch\ScratchObject.cpp" />
+    <ClCompile Include="scratch\ScratchRuntime.cpp" />
     <ClCompile Include="scratch\ScratchScript.cpp" />
     <ClCompile Include="scratch\ScratchScriptPart.cpp" />
     <ClCompile Include="scratch\ScratchSound.cpp" />
@@ -225,6 +226,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClInclude Include="scratch\ScratchCostume.h" />
     <ClInclude Include="scratch\ScratchInfo.h" />
     <ClInclude Include="scratch\ScratchObject.h" />
+    <ClInclude Include="scratch\ScratchRuntime.h" />
     <ClInclude Include="scratch\ScratchScript.h" />
     <ClInclude Include="scratch\ScratchScriptPart.h" />
     <ClInclude Include="scratch\ScratchSound.h" />
