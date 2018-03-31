@@ -53,11 +53,15 @@
     <ClCompile Include="scratch\ScratchSpec.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
-    <ClCompile Include="util\Color.cpp" />
     <ClCompile Include="scratch\ScratchRuntime.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
-    <ClCompile Include="scratch\ScratchVariable.cpp" />
+    <ClCompile Include="util\Color.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchVariable.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="scratch">
@@ -83,12 +87,6 @@
     </Filter>
     <Filter Include="config">
       <UniqueIdentifier>{20867a64-1c68-4da3-8f6f-b93bc4b2d3ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lua">
-      <UniqueIdentifier>{a89c619e-e0bb-4af2-84c1-6e1cf80c69cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="python">
-      <UniqueIdentifier>{220af64c-9119-4e21-ab22-9d1f6f8a053b}</UniqueIdentifier>
     </Filter>
     <Filter Include="media">
       <UniqueIdentifier>{10e70b03-d7a3-4d5c-a2cc-fe5f2e6db661}</UniqueIdentifier>
@@ -159,21 +157,19 @@
     <ClInclude Include="scratch\ScratchSpec.h">
       <Filter>scratch</Filter>
     </ClInclude>
-    <ClInclude Include="util\Color.h" />
     <ClInclude Include="scratch\ScratchRuntime.h">
       <Filter>scratch</Filter>
     </ClInclude>
-    <ClInclude Include="scratch\ScratchVariable.h" />
+    <ClInclude Include="util\Color.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchVariable.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="config\style.json">
       <Filter>config</Filter>
-    </None>
-    <None Include="python\scratch.py">
-      <Filter>python</Filter>
-    </None>
-    <None Include="lua\scratch.lua">
-      <Filter>lua</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
