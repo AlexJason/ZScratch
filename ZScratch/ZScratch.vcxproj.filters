@@ -53,15 +53,11 @@
     <ClCompile Include="scratch\ScratchSpec.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
+    <ClCompile Include="util\Color.cpp" />
     <ClCompile Include="scratch\ScratchRuntime.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
-    <ClCompile Include="util\Color.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchVariable.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
+    <ClCompile Include="scratch\ScratchVariable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="scratch">
@@ -105,9 +101,6 @@
     </Filter>
     <Filter Include="lib\python">
       <UniqueIdentifier>{d8e51738-00c8-4fe3-8807-abc92bbaf5a7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="plugin\scratch-original">
-      <UniqueIdentifier>{d1e93787-19ac-4184-ab12-67766f9f761c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -163,15 +156,11 @@
     <ClInclude Include="scratch\ScratchSpec.h">
       <Filter>scratch</Filter>
     </ClInclude>
+    <ClInclude Include="util\Color.h" />
     <ClInclude Include="scratch\ScratchRuntime.h">
       <Filter>scratch</Filter>
     </ClInclude>
-    <ClInclude Include="util\Color.h">
-      <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchVariable.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
+    <ClInclude Include="scratch\ScratchVariable.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="config\style.json">
@@ -182,9 +171,6 @@
     </None>
     <None Include="lua\scratch.lua">
       <Filter>lua</Filter>
-    </None>
-    <None Include="python\Interface.py">
-      <Filter>python</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
