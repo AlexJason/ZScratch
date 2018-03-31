@@ -8,8 +8,8 @@ Z-Editor
 
 Library requires
 -----
-- python [python]
-- lua [lua]
-- jsoncpp [jsoncpp]
-- tinyxml [tinyxml]
+- [python]
+- [lua]
+- [jsoncpp]
+- [tinyxml]
 
