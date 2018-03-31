@@ -34,4 +34,5 @@ The program will be outputed in these files:
 > x86_Release:  ./Release/ZScratch.exe  
 > x64_Debug:    ./x64/Debug/ZScratch.exe  
 > x64_Release:  ./x64/Release/ZScratch.exe  
-  
+
+
