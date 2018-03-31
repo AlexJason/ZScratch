@@ -1,0 +1,10 @@
+{
+	"extid": "scratch-original",
+	"title": "Original Scratch",
+	"version": "2.0.0",
+	"plugin": "python.1",
+	"author": [ "Alex Jason" ],
+	"address": "https://www.clipteam.com/",
+	"email": "cuizhihui030925@outlook.com",
+	"description": "This is the original scratch extension for z-editor."
+}

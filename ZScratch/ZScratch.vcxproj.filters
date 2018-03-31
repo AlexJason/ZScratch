@@ -102,6 +102,9 @@
     <Filter Include="lib\python">
       <UniqueIdentifier>{d8e51738-00c8-4fe3-8807-abc92bbaf5a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="plugin\scratch-original">
+      <UniqueIdentifier>{03481d75-9f52-4ea9-acf1-ebdc27b1b843}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\Console.h">
@@ -200,5 +203,13 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ZScratch.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="plugin\scratch-original\info.json">
+      <Filter>plugin\scratch-original</Filter>
+    </Text>
+    <Text Include="plugin\scratch-original\plugin.py">
+      <Filter>plugin\scratch-original</Filter>
+    </Text>
   </ItemGroup>
 </Project>

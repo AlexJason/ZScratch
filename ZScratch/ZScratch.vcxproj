@@ -263,7 +263,16 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
   <ItemGroup>
     <ResourceCompile Include="ZScratch.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="plugin\scratch-original\info.json" />
+    <Text Include="plugin\scratch-original\plugin.py" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
