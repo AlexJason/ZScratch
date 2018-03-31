@@ -35,13 +35,18 @@ public:
 	std::function<void()> body;
 };
 
-class ifndef_prebuild :public ifdef_prebuild, public prebuild_statement {
+class ifndef_prebuild :public ifdef_prebuild {
 public:
 };
 
 class define_prebuild :public prebuild_statement {
 public:
+	define_prebuild() {
+		define = "0";
+		str.clear();
+	}
 	std::string define;
+	std::string str;
 };
 
 class statement {
@@ -68,7 +73,7 @@ public:
 	std::function<void()> ifpart;
 };
 
-class if_else_statement :public if_statement, public statement {
+class if_else_statement :public if_statement {
 public:
 	std::function<void()> elsepart;
 };
@@ -87,7 +92,7 @@ public:
 	std::function<void()> body;
 };
 
-class dowhile_statement :public while_statement, public statement {
+class dowhile_statement :public while_statement {
 public:
 };
 

@@ -213,6 +213,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClCompile Include="scratch\ScratchValue.cpp" />
     <ClCompile Include="scratch\ScratchSpec.cpp" />
     <ClCompile Include="scratch\Scratch.cpp" />
+    <ClCompile Include="scratch\ScratchVariable.cpp" />
     <ClCompile Include="translate\Translate.cpp" />
     <ClCompile Include="util\Color.cpp" />
     <ClCompile Include="util\Console.cpp" />
@@ -235,6 +236,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClInclude Include="scratch\ScratchValue.h" />
     <ClInclude Include="scratch\ScratchSpec.h" />
     <ClInclude Include="scratch\Scratch.h" />
+    <ClInclude Include="scratch\ScratchVariable.h" />
     <ClInclude Include="translate\Translate.h" />
     <ClInclude Include="util\Color.h" />
     <ClInclude Include="util\Console.h" />
@@ -244,7 +246,6 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="config\style.json" />
-    <None Include="LICENSE" />
     <None Include="lua\Scratch.lua" />
     <None Include="python\Scratch.py" />
   </ItemGroup>
@@ -261,9 +262,6 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ZScratch.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="INFORMATION" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

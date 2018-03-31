@@ -1,4 +1,5 @@
-/*#include "Clip\Clip.h"
+#include "Clip\Clip.h"
+#include "Clip\ClipRuntime.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -15,19 +16,13 @@ int main() {
 		t = GetWordList(file);
 	else
 		cout << "ERR";
-	for (auto c : t)
+	for (auto c : t) {
 		for (auto c2 : c)
 			cout << c2 << endl;
+		cout << "==========" << endl;
+	}
+	Run(t);
 	getchar();
 	return 0;
 }
-*/
 
-#include <stdio.h>
-int main() {
-	int x, y = 0xcccccccc;
-	(x = y) = 12 / 4;
-	printf("%d %d", x, y);
-	getchar();
-	return 0;
-}

@@ -21,7 +21,9 @@
 #   The interface of scratch for python.
 #   =============================================
 
-class Scratch(object):
+class ScratchExtension(object):
+    extid = str();
+    exttitle = str();
     def __init__(self):
         return super().__init__()
     pass

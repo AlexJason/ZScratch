@@ -26,8 +26,10 @@
     <ClInclude Include="ClipStatement.h" />
     <ClInclude Include="ClipToken.h" />
     <ClInclude Include="ClipType.h" />
+    <ClInclude Include="ClipRuntime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ClipRuntime.cpp" />
     <ClCompile Include="ClipToken.cpp" />
     <ClCompile Include="ClipType.cpp" />
   </ItemGroup>

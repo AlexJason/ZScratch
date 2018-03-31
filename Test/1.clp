@@ -7,13 +7,10 @@
 
 #pragma comment lib "a.lib"
 
-int main() {
-	print("Hello,   world");	
+function int main() {
+	var int range = 1;
+	print("Hello,   world");	 //PR
+	print(__clip);
 	return 0;     
 }
 
-//EEEEE
-
-/*
-EEEEEEE
-*/

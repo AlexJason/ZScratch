@@ -1,3 +1,19 @@
+/**
+*	Copyright(C) 2017-2018 Alex Cui
+*
+*	This program is free software : you can redistribute it and/or modify
+*	it under the terms of the GNU Affero General Public License as
+*	published by the Free Software Foundation, either version 3 of the
+*	License, or (at your option) any later version.
+*
+*	This program is distributed in the hope that it will be useful,
+*	but WITHOUT ANY WARRANTY; without even the implied warranty of
+*	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+*	GNU Affero General Public License for more details.
+*
+*	You should have received a copy of the GNU Affero General Public License
+*	along with this program.If not, see <https://www.gnu.org/licenses/>.
+*/
 #include "ClipToken.h"
 
 #include <string>
@@ -32,10 +48,12 @@ std::vector<std::vector<std::string>> CLIPAPI GetWordList(std::ifstream &f) {
 		for (size_t i = 0; i < strin.size(); i++) {
 			if (strin[i] == '\"') {
 				if (inString) {
+					temp.push_back('\"');
 					strln.push_back(temp);
 					temp.clear();
 				}
 				inString = !inString;
+				continue;
 			}
 			if (inString) {
 				if (strin[i] == '\\') {
@@ -44,6 +62,12 @@ std::vector<std::vector<std::string>> CLIPAPI GetWordList(std::ifstream &f) {
 				}
 				temp.push_back(strin[i]);
 				continue;
+			}
+			if (strin[i] == '/') {
+				if (strin[i + 1] == '/') {
+					i = strin.size();
+					continue;
+				}
 			}
 			std::string tstr = strin.substr(i);
 			if (std::regex_search(tstr, match, std::regex("[_a-zA-Z]+[_a-zA-Z0-9]*")) && \

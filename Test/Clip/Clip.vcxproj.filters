@@ -7,9 +7,13 @@
     <ClInclude Include="ClipMemory.h" />
     <ClInclude Include="ClipToken.h" />
     <ClInclude Include="ClipType.h" />
+    <ClInclude Include="ClipStatement.h" />
+    <ClInclude Include="ClipRuntime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClipToken.cpp" />
+    <ClCompile Include="ClipType.cpp" />
+    <ClCompile Include="ClipRuntime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Clip">
