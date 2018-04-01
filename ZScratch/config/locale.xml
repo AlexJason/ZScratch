@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <Locale name="en-us" path="en-us.cfg" enable="true"></Locale>
-  <Locale name="zh-cn" path="zh-cn.cfg" enable="false"></Locale>
-  <Locale name="zh-tw" path="zh-tw.cfg" enable="false"></Locale>
-  <Locale name="ja-jp" path="ja-jp.cfg" enable="false"></Locale>
+  <Locale name="en-us" path="en-us" enable="true"></Locale>
+  <Locale name="zh-cn" path="zh-cn" enable="false"></Locale>
+  <Locale name="zh-tw" path="zh-tw" enable="false"></Locale>
+  <Locale name="ja-jp" path="ja-jp" enable="false"></Locale>
 </Root>
