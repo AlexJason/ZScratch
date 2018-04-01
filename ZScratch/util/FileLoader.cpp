@@ -28,20 +28,26 @@
 
 
 
-void FileLoader::getPath(std::string s) {
-
-}
-
-void FileLoader::LoadTranslator() {
+std::string FileLoader::getPath(std::string s) {
 	TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
 	file->LoadFile();
 	TiXmlElement *root = file->RootElement();
-	TiXmlElement *locale = root->FirstChildElement();
 	TiXmlNode *node = nullptr;
-	node = root->IterateChildren("Path", node);
-	while (node->NextSibling("Path")->ToElement()->Attribute("name") != "Locale") {
+	for (node = root->IterateChildren("Path", node); \
+		node->ToElement()->Attribute("name") != s.c_str() || node; \
+		node = node->NextSibling("Path")) {	}
+	if (!node)
+		return "";
+	return node->ToElement()->Attribute("path");
+}
 
-	}
+void FileLoader::LoadTranslator() {
+	auto path = getPath("Locale");
+	TiXmlDocument *file = new TiXmlDocument("./config/locale.xml");
+	file->LoadFile();
+	TiXmlElement *root = file->RootElement();
+	TiXmlNode *node = nullptr;
+
 }
 
 FileLoader::FileLoader()

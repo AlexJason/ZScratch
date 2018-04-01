@@ -29,7 +29,7 @@
 #include <string>
 class FileLoader {
 public:
-	static void getPath(std::string s);
+	static std::string getPath(std::string s);
 	static void LoadTranslator();
 public:
 	FileLoader();
