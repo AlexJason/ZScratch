@@ -31,6 +31,7 @@
 class ScratchSpec {
 public:
 	struct Category {
+		Category() {};
 		Category(unsigned int id, std::string name, unsigned long color) {
 			this->id = id;
 			this->name = name;

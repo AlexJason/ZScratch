@@ -22,15 +22,15 @@
 * This is the main function of the program.
 */
 
-#include "scratch\ZScratch.h"
+#include "scratch\Scratch.h"
 #include "util\Console.h"
 
 int main(int argc, char **argv) {
-	ZScratch::WindowTitle = L"Z-Editor";
-	ZScratch::ProgramInstance = GetModuleHandle(NULL);
-	ZScratch::ConsoleHandle = Console::GetConsoleHanle();
-	ZScratch::RegisterWindowClass();
-	ZScratch::CreateMainWindow();
-	int result = ZScratch::MessageLoop();
+	Scratch::WindowTitle = L"Z-Editor";
+	Scratch::ProgramInstance = GetModuleHandle(NULL);
+	Scratch::ConsoleHandle = Console::GetConsoleHanle();
+	Scratch::RegisterWindowClass();
+	Scratch::CreateMainWindow();
+	int result = Scratch::MessageLoop();
 	return result;
 }

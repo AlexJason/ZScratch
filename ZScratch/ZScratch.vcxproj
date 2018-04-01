@@ -130,10 +130,8 @@ MKDIR $(OutputPath)media
 COPY /Y $(ProjectDir)media\ $(OutputPath)media\
 MKDIR $(OutputPath)plugin
 COPY /Y $(ProjectDir)plugin\ $(OutputPath)plugin\
-MKDIR $(OutputPath)lua
-COPY /Y $(ProjectDir)lua\ $(OutputPath)lua\
-MKDIR $(OutputPath)python
-COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
+MKDIR $(OutputPath)interface
+COPY /Y $(ProjectDir)interface\ $(OutputPath)interface\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
