@@ -30,8 +30,9 @@
 #include <map>
 
 class Translate {
-private:
+public:
 	using Translator = std::map<std::string, std::map<std::string, std::string>>;
+private:
 	static Translator Strings;
 public:
 	Translate();

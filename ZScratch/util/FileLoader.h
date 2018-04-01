@@ -25,7 +25,12 @@
 #pragma once
 #ifndef UTIL_FILELOADER
 #define UTIL_FILELOADER
+#include "../translate/Translate.h"
+#include <string>
 class FileLoader {
+public:
+	static void getPath(std::string s);
+	static void LoadTranslator();
 public:
 	FileLoader();
 	~FileLoader();

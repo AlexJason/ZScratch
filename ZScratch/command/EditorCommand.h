@@ -1,4 +1,4 @@
-/** FileLoader.cpp - ZScratch
+/** EditorCommand.h - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,39 +16,20 @@
 */
 
 /**
-* FileLoader.cpp
+* EditorCommand.h
 * Alex Cui, March 2018
 *
-* The class for loading the local files.
+*
 */
 
-#include "FileLoader.h"
+#pragma once
+#ifndef COMMAND_COMMAND
+#define COMMAND_COMMAND
+class EditorCommand {
+public:
 
-#include "../lib/tinyxml/tinyxml.h"
-
-
-
-void FileLoader::getPath(std::string s) {
-
-}
-
-void FileLoader::LoadTranslator() {
-	TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
-	file->LoadFile();
-	TiXmlElement *root = file->RootElement();
-	TiXmlElement *locale = root->FirstChildElement();
-	TiXmlNode *node = nullptr;
-	node = root->IterateChildren("Path", node);
-	while (node->NextSibling("Path")->ToElement()->Attribute("name") != "Locale") {
-
-	}
-}
-
-FileLoader::FileLoader()
-{
-}
-
-
-FileLoader::~FileLoader()
-{
-}
+public:
+	EditorCommand();
+	~EditorCommand();
+};
+#endif

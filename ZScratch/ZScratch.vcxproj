@@ -197,6 +197,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="command\EditorCommand.cpp" />
     <ClCompile Include="gui\Paint.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scratch\ScratchCostume.cpp" />
@@ -220,6 +221,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClCompile Include="util\Rect.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="command\EditorCommand.h" />
     <ClInclude Include="gui\Paint.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="scratch\ScratchCostume.h" />

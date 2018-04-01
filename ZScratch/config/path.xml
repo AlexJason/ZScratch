@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <Path name="Language" path="./local"></Path>
+  <Path name="Language" path="./locale"></Path>
   <Path name="Media" path="./media"></Path>
 </Root>
