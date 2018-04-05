@@ -24,14 +24,10 @@
 
 #include "FileIO.h"
 
-#ifdef UNICODE
-#undef UNICODE
-#endif
 #include <Windows.h>
 #include "../lib/tinyxml/include/tinyxml.h"
 #include "../lib/ziputil/include/zip.h"
 #include "../lib/ziputil/include/unzip.h"
-
 #include <io.h>
 #include <iostream>
 
@@ -93,7 +89,7 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 	std::vector<std::string> extlist = getFileList(loadPath);
 	
 	for (auto c : extlist) {
-		std::string extp = (loadPath + '\\') + c;
+		std::wstring extp = (loadPath + '\\') + c;
 		HZIP hz = OpenZip(extp.c_str(), 0);
 		ZIPENTRY ze;
 		GetZipItem(hz, -1, &ze);

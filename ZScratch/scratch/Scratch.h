@@ -29,6 +29,25 @@
 #include <vector>
 #include "ScratchStage.h"
 #include "../interface/cpp/ScratchExtension.h"
+
+#define __winA "win32"
+#ifdef _WIN64
+#define __win "x64"
+#elif defined(_WIN32)
+#define __win "x86"
+#endif
+
+#ifdef _DEBUG
+#define __lib "_d.lib"
+#else
+#define __lib ".lib"
+#endif
+
+#pragma comment(lib, "lib/tinyxml/" __winA "/tinyxmlSTL" __lib)
+#pragma comment(lib, "lib/ziputil/" __win "/ziputil" __lib)
+#pragma comment(lib, "lib/python/" __win "/python3" __lib)
+#pragma comment(lib, "lib/python/" __win "/python36" __lib)
+
 class Scratch {
 public:
 	//Windows

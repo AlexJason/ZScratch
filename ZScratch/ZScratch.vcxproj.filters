@@ -68,6 +68,9 @@
     <ClCompile Include="util\FileIO.cpp">
       <Filter>util</Filter>
     </ClCompile>
+    <ClCompile Include="util\String.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="scratch">
@@ -179,6 +182,9 @@
       <Filter>command</Filter>
     </ClInclude>
     <ClInclude Include="util\FileIO.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\String.h">
       <Filter>util</Filter>
     </ClInclude>
   </ItemGroup>
