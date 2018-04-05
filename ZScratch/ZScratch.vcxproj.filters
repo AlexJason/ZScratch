@@ -65,9 +65,6 @@
     <ClCompile Include="command\EditorCommand.cpp">
       <Filter>command</Filter>
     </ClCompile>
-    <ClCompile Include="interface\cpp\ScratchExtension.h">
-      <Filter>interface\cpp</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="scratch">
@@ -123,9 +120,6 @@
     </Filter>
     <Filter Include="command">
       <UniqueIdentifier>{aa96f2b5-73c4-4bb2-a0ff-75b608563f4d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="interface\cpp">
-      <UniqueIdentifier>{8fa8d5e7-bb00-4956-bca8-11f22c67a5e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -204,14 +198,14 @@
     <None Include="plugin\scratch-original\plugin.py">
       <Filter>plugin\scratch-original</Filter>
     </None>
-    <None Include="interface\java\ScratchExtension.java">
+    <None Include="interface\python\Scratch.py">
+      <Filter>interface\python</Filter>
+    </None>
+    <None Include="interface\java\Scratch.java">
       <Filter>interface\java</Filter>
     </None>
-    <None Include="interface\lua\ScratchExtension.lua">
+    <None Include="interface\lua\Scratch.lua">
       <Filter>interface\lua</Filter>
-    </None>
-    <None Include="interface\python\ScratchExtension.py">
-      <Filter>interface\python</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

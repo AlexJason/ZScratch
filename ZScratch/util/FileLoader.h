@@ -25,17 +25,12 @@
 #pragma once
 #ifndef UTIL_FILELOADER
 #define UTIL_FILELOADER
-#include "../interface/cpp/ScratchExtension.h"
 #include "../translate/Translate.h"
 #include <string>
-
 class FileLoader {
 public:
-	static std::vector<std::string> getFileList(std::string path);
 	static std::string getPath(std::string s);
 	static void LoadTranslator();
-	static void LoadExtension(std::vector<ScratchExtension*> &ext);
-	static bool ExsistExtension();
 public:
 	FileLoader();
 	~FileLoader();

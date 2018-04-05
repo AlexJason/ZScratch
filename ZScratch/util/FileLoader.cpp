@@ -26,34 +26,13 @@
 
 #include "../lib/tinyxml/tinyxml.h"
 
+<<<<<<< HEAD
 #include <io.h>
 #include <iostream>
 #include <fstream>
+=======
+>>>>>>> parent of 8761e69... 2018040501
 
-std::vector<std::string> FileLoader::getFileList(std::string path) {
-	std::vector<std::string> find;
-	
-	intptr_t handle;
-	_finddata_t findData;
-
-	handle = _findfirst(path.c_str(), &findData);
-	if (handle == -1) {
-		find.clear();
-		return find;
-	}
-
-	do {
-		if (findData.attrib & _A_SUBDIR
-			&& strcmp(findData.name, ".") == 0
-			&& strcmp(findData.name, "..") == 0
-			)
-			find.push_back(findData.name);
-	} while (_findnext(handle, &findData) == 0);
-
-	_findclose(handle);
-	
-	return find;
-}
 
 std::string FileLoader::getPath(std::string s) {
 	TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
@@ -77,6 +56,7 @@ void FileLoader::LoadTranslator() {
 
 }
 
+<<<<<<< HEAD
 
 
 void FileLoader::LoadExtension(std::vector<ScratchExtension*> &ext) {
@@ -94,6 +74,8 @@ bool FileLoader::ExsistExtension()
 	return false;
 }
 
+=======
+>>>>>>> parent of 8761e69... 2018040501
 FileLoader::FileLoader()
 {
 }

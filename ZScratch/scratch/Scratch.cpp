@@ -25,13 +25,11 @@
 #include "Scratch.h"
 #include "..\gui\Paint.h"
 
-LPCWSTR					Scratch::ClassName			= L"ClipCC-ZE";
-LPCWSTR					Scratch::WindowTitle		= L"Z-Editor";
-HWND					Scratch::WindowHandle		= nullptr;
-HWND					Scratch::ConsoleHandle		= nullptr;
-HINSTANCE				Scratch::ProgramInstance	= nullptr;
-ScratchStage			Scratch::stage				= ScratchStage();
-decltype(Scratch::ext)	Scratch::ext				= std::vector<ScratchExtension*>();
+LPCWSTR Scratch::ClassName = L"ClipCC-ZE";
+LPCWSTR Scratch::WindowTitle = L"Z-Editor";
+HWND Scratch::WindowHandle = nullptr;
+HWND Scratch::ConsoleHandle = nullptr;
+HINSTANCE Scratch::ProgramInstance = nullptr;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	return Scratch::WndProc(hwnd, msg, wParam, lParam);

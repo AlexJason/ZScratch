@@ -26,12 +26,8 @@
 #ifndef ZSCRATCH_CLASS
 #define ZSCRATCH_CLASS
 #include <Windows.h>
-#include <vector>
-#include "ScratchStage.h"
-#include "../interface/cpp/ScratchExtension.h"
 class Scratch {
 public:
-	//Windows
 	static LPCWSTR ClassName;
 	static LPCWSTR WindowTitle;
 
@@ -44,12 +40,6 @@ public:
 	static WPARAM MessageLoop();
 	static WPARAM MessageLoop(int);
 	static LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
-
-	//Scratch
-	static ScratchStage stage;
-	static std::vector<ScratchExtension*> ext;
-
-	static void InstallExtension();
 
 	Scratch();
 	~Scratch();
