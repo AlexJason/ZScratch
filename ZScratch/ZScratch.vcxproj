@@ -199,6 +199,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
   <ItemGroup>
     <ClCompile Include="command\EditorCommand.cpp" />
     <ClCompile Include="gui\Paint.cpp" />
+    <ClCompile Include="interface\cpp\ScratchExtension.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scratch\ScratchCostume.cpp" />
     <ClCompile Include="scratch\ScratchInfo.cpp" />
@@ -246,9 +247,9 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="config\style.json" />
-    <None Include="interface\java\Scratch.java" />
-    <None Include="interface\lua\Scratch.lua" />
-    <None Include="interface\python\Scratch.py" />
+    <None Include="interface\java\ScratchExtension.java" />
+    <None Include="interface\lua\ScratchExtension.lua" />
+    <None Include="interface\python\ScratchExtension.py" />
     <None Include="plugin\scratch-original\info.json" />
     <None Include="plugin\scratch-original\plugin.py" />
   </ItemGroup>

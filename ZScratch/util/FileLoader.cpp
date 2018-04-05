@@ -26,7 +26,33 @@
 
 #include "../lib/tinyxml/tinyxml.h"
 
+#include <io.h>
+#include <iostream>
 
+std::vector<std::string> FileLoader::getFileList(std::string path) {
+	std::vector<std::string> find;
+	
+	intptr_t handle;
+	_finddata_t findData;
+
+	handle = _findfirst(path.c_str(), &findData);
+	if (handle == -1) {
+		find.clear();
+		return find;
+	}
+
+	do {
+		if (findData.attrib & _A_SUBDIR
+			&& strcmp(findData.name, ".") == 0
+			&& strcmp(findData.name, "..") == 0
+			)
+			find.push_back(findData.name);
+	} while (_findnext(handle, &findData) == 0);
+
+	_findclose(handle);
+	
+	return find;
+}
 
 std::string FileLoader::getPath(std::string s) {
 	TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
@@ -48,6 +74,23 @@ void FileLoader::LoadTranslator() {
 	TiXmlElement *root = file->RootElement();
 	TiXmlNode *node = nullptr;
 
+}
+
+
+
+void FileLoader::LoadExtension(std::vector<ScratchExtension*> &ext) {
+	std::string loadPath = getPath("Plugin");
+	std::vector<std::string> folder = getFileList(loadPath);
+	
+	for (auto c : folder) {
+		std::string extp = (loadPath + '/') + c;
+
+	}
+}
+
+bool FileLoader::ExsistExtension()
+{
+	return false;
 }
 
 FileLoader::FileLoader()

@@ -2,4 +2,5 @@
 <Root>
   <Path name="Locale" path="./locale"></Path>
   <Path name="Media" path="./media"></Path>
+  <Path name="Plugin" path="./plugin"></Path>
 </Root>
