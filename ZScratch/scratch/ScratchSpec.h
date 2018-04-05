@@ -50,8 +50,8 @@ public:
 		std::vector<ScratchValue> defaultValue;
 	};
 public:
-	static std::vector<Category> category;
-	static std::vector<Command> command;
+	std::vector<Category> category;
+	std::vector<Command> command;
 public:
 	ScratchSpec();
 	~ScratchSpec();

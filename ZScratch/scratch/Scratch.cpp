@@ -26,17 +26,12 @@
 #include "..\gui\Paint.h"
 #include "..\util\FileIO.h"
 #include "..\util\Console.h"
+#include "..\util\AppArgu.h"
 
-LPCWSTR					Scratch::ClassName			= L"ClipCC-ZE";
-LPCWSTR					Scratch::WindowTitle		= L"Z-Editor";
-HWND					Scratch::WindowHandle		= nullptr;
-HWND					Scratch::ConsoleHandle		= nullptr;
-HINSTANCE				Scratch::ProgramInstance	= nullptr;
-ScratchStage			Scratch::stage				= ScratchStage();
-decltype(Scratch::ext)	Scratch::ext				= std::vector<ScratchExtension*>();
+Scratch sc;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
-	return Scratch::WndProc(hwnd, msg, wParam, lParam);
+	return sc.WndProc(hwnd, msg, wParam, lParam);
 }
 
 ATOM Scratch::RegisterWindowClass() {
@@ -66,6 +61,7 @@ BOOL Scratch::CreateMainWindow() {
 	return TRUE;
 }
 
+DECLSPEC_DEPRECATED
 WPARAM Scratch::MessageLoop() {
 	MSG msg = { 0 };
 	while (true) {
@@ -84,26 +80,24 @@ WPARAM Scratch::MessageLoop() {
 
 WPARAM Scratch::MessageLoop(int) {
 	MSG msg = { 0 };
-	while (GetMessage(&msg, NULL, 0, 0)) {
+	while (GetMessageW(&msg, NULL, 0, 0)) {
 		TranslateMessage(&msg);
-		DispatchMessage(&msg);
+		DispatchMessageW(&msg);
 	}
 	return msg.wParam;
 }
 
 LRESULT Scratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	switch (msg) {
-	case WM_CREATE: {
-		break;
-	}
 	case WM_PAINT: {
-		Paint::BeginPaint(hwnd);
+		static Paint p;
+		p.BeginPaint(hwnd);
 		HBRUSH hbr;
 		hbr = CreateSolidBrush(0xffffff);
-		FrameRect(Paint::mdc, &Paint::rc, hbr);
-		FillRect(Paint::mdc, &Paint::rc, hbr);
+		FrameRect(p.mdc, &p.rc, hbr);
+		FillRect(p.mdc, &p.rc, hbr);
 		DeleteObject(hbr);
-		Paint::EndPaint();
+		p.EndPaint();
 		break;
 	}
 	case WM_DESTROY: {
@@ -118,25 +112,37 @@ LRESULT Scratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 }
 
 int Scratch::AppMain(int argc, char **argv) {
-	Scratch::InstallExtension();
-	Scratch::WindowTitle = L"Z-Editor";
-	Scratch::ProgramInstance = GetModuleHandle(NULL);
-	Scratch::ConsoleHandle = Console::GetConsoleHanle();
-	Scratch::RegisterWindowClass();
-	Scratch::CreateMainWindow();
-	int result = static_cast<int>(Scratch::MessageLoop());
-	return result;
+	/*for (int i = 0; i < argc; i++) {
+		if (strcmp(argv[i], "--test"))
+			argu.test = true;
+		else if (strcmp(argv[i], "--console"))
+			argu.console = true;
+		else if (strcmp(argv[i], "-printPluginName"))
+			argu.printPluginName = true;
+		else if (strcmp(argv[i], "-printPluginVersion"))
+			argu.printPluginVersion = true;
+	}*/
+	InstallExtension();
+	ProgramInstance = GetModuleHandle(NULL);
+	ConsoleHandle = Console::GetConsoleHanle();
+	RegisterWindowClass();
+	CreateMainWindow();
+	int result;
+	result = MessageLoop(0);
+	//Sleep(1000);
+	return 0;
 }
 
 void Scratch::InstallExtension() {
-	Scratch::ext.clear();
-	FileIO::LoadExtension(Scratch::ext);
+	//ext.clear();
+	FileIO fio;
+	//fio.LoadExtension(ext);
 }
 
 Scratch::Scratch() {
-
+	sc.ClassName	= L"Z-Editor";
+	sc.WindowTitle	= L"Z-Editor";
 }
-
 
 Scratch::~Scratch() {
 

@@ -27,8 +27,9 @@
 #define ZSCRATCH_CLASS
 #include <Windows.h>
 #include <vector>
-#include "ScratchStage.h"
+//#include "ScratchStage.h"
 #include "../interface/cpp/ScratchExtension.h"
+#include "../util/AppArgu.h"
 
 #define __winA "win32"
 #ifdef _WIN64
@@ -43,37 +44,42 @@
 #define __lib ".lib"
 #endif
 
-#pragma comment(lib, "lib/tinyxml/" __winA "/tinyxmlSTL" __lib)
-#pragma comment(lib, "lib/ziputil/" __win "/ziputil" __lib)
-#pragma comment(lib, "lib/python/" __win "/python3" __lib)
-#pragma comment(lib, "lib/python/" __win "/python36" __lib)
+//#pragma comment(lib, "lib/tinyxml/" __winA "/tinyxmlSTL" __lib)
+//#pragma comment(lib, "lib/ziputil/" __win "/ziputil" __lib)
+//#pragma comment(lib, "lib/python/" __win "/python3" __lib)
+//#pragma comment(lib, "lib/python/" __win "/python36" __lib)
 
 class Scratch {
 public:
 	//Windows
-	static LPCWSTR ClassName;
-	static LPCWSTR WindowTitle;
+	LPCWSTR ClassName;
+	LPCWSTR WindowTitle;
 
-	static HWND WindowHandle;
-	static HWND ConsoleHandle;
-	static HINSTANCE ProgramInstance;
+	HWND WindowHandle;
+	HWND ConsoleHandle;
+	HINSTANCE ProgramInstance;
 
-	static ATOM RegisterWindowClass();
-	static BOOL CreateMainWindow();
-	static WPARAM MessageLoop();
-	static WPARAM MessageLoop(int);
-	static LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+	ATOM RegisterWindowClass();
+	BOOL CreateMainWindow();
+	DECLSPEC_DEPRECATED
+	WPARAM MessageLoop();
+	WPARAM MessageLoop(int);
+	LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 	//Scratch
-	static ScratchStage stage;
-	static std::vector<ScratchExtension*> ext;
+	//ScratchStage stage;
+	//std::vector<ScratchExtension*> ext;
+	AppArgu argu;
 
-	static int AppMain(int argc, char **argv);
-	static void InstallExtension();
+	int AppMain(int argc, char **argv);
+	void InstallExtension();
 
 	Scratch();
 	~Scratch();
 };
+
+extern Scratch sc;
+
 #endif
 
 

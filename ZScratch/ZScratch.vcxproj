@@ -34,12 +34,13 @@
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <WholeProgramOptimization>PGOptimize</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <CLRSupport>false</CLRSupport>
   </PropertyGroup>
@@ -49,12 +50,13 @@
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>PGOptimize</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <WholeProgramOptimization>PGOptimize</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <CLRSupport>false</CLRSupport>
   </PropertyGroup>
@@ -100,26 +102,25 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <ProfileGuidedDatabase />
     </Link>
     <PostBuildEvent>
       <Command>MKDIR $(OutputPath)config
+
 COPY /Y $(ProjectDir)config\ $(OutputPath)config\
-MKDIR $(OutputPath)locale
-COPY /Y $(ProjectDir)locale\ $(OutputPath)locale\
-MKDIR $(OutputPath)media
-COPY /Y $(ProjectDir)media\ $(OutputPath)media\
-MKDIR $(OutputPath)plugin
-COPY /Y $(ProjectDir)plugin\ $(OutputPath)plugin\
-MKDIR $(OutputPath)lua
-COPY /Y $(ProjectDir)lua\ $(OutputPath)lua\
-MKDIR $(OutputPath)python
-COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
+
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -130,24 +131,24 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>MKDIR $(OutputPath)config
+
 COPY /Y $(ProjectDir)config\ $(OutputPath)config\
-MKDIR $(OutputPath)locale
-COPY /Y $(ProjectDir)locale\ $(OutputPath)locale\
-MKDIR $(OutputPath)media
-COPY /Y $(ProjectDir)media\ $(OutputPath)media\
-MKDIR $(OutputPath)plugin
-COPY /Y $(ProjectDir)plugin\ $(OutputPath)plugin\
-MKDIR $(OutputPath)interface
-COPY /Y $(ProjectDir)interface\ $(OutputPath)interface\</Command>
+
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,28 +161,24 @@ COPY /Y $(ProjectDir)interface\ $(OutputPath)interface\</Command>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>MKDIR $(OutputPath)config
+
 COPY /Y $(ProjectDir)config\ $(OutputPath)config\
-MKDIR $(OutputPath)locale
-COPY /Y $(ProjectDir)locale\ $(OutputPath)locale\
-MKDIR $(OutputPath)media
-COPY /Y $(ProjectDir)media\ $(OutputPath)media\
-MKDIR $(OutputPath)plugin
-COPY /Y $(ProjectDir)plugin\ $(OutputPath)plugin\
-MKDIR $(OutputPath)lua
-COPY /Y $(ProjectDir)lua\ $(OutputPath)lua\
-MKDIR $(OutputPath)python
-COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
+
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -194,28 +191,24 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>MKDIR $(OutputPath)config
+
 COPY /Y $(ProjectDir)config\ $(OutputPath)config\
-MKDIR $(OutputPath)locale
-COPY /Y $(ProjectDir)locale\ $(OutputPath)locale\
-MKDIR $(OutputPath)media
-COPY /Y $(ProjectDir)media\ $(OutputPath)media\
-MKDIR $(OutputPath)plugin
-COPY /Y $(ProjectDir)plugin\ $(OutputPath)plugin\
-MKDIR $(OutputPath)lua
-COPY /Y $(ProjectDir)lua\ $(OutputPath)lua\
-MKDIR $(OutputPath)python
-COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
+
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -223,24 +216,13 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClCompile Include="gui\Paint.cpp" />
     <ClCompile Include="interface\cpp\ScratchExtension.h" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="scratch\ScratchCostume.cpp" />
-    <ClCompile Include="scratch\ScratchInfo.cpp" />
-    <ClCompile Include="scratch\ScratchObject.cpp" />
-    <ClCompile Include="scratch\ScratchRuntime.cpp" />
-    <ClCompile Include="scratch\ScratchScript.cpp" />
-    <ClCompile Include="scratch\ScratchScriptPart.cpp" />
-    <ClCompile Include="scratch\ScratchSound.cpp" />
-    <ClCompile Include="scratch\ScratchSprite.cpp" />
-    <ClCompile Include="scratch\ScratchStage.cpp" />
-    <ClCompile Include="scratch\ScratchValue.cpp" />
-    <ClCompile Include="scratch\ScratchSpec.cpp" />
     <ClCompile Include="scratch\Scratch.cpp" />
-    <ClCompile Include="scratch\ScratchVariable.cpp" />
     <ClCompile Include="translate\Translate.cpp" />
     <ClCompile Include="util\Color.cpp" />
     <ClCompile Include="util\Console.cpp" />
     <ClCompile Include="util\FileIO.cpp" />
     <ClCompile Include="util\Json.cpp" />
+    <ClCompile Include="util\AppArgu.cpp" />
     <ClCompile Include="util\Rect.cpp" />
     <ClCompile Include="util\String.cpp" />
   </ItemGroup>
@@ -248,24 +230,13 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClInclude Include="command\EditorCommand.h" />
     <ClInclude Include="gui\Paint.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="scratch\ScratchCostume.h" />
-    <ClInclude Include="scratch\ScratchInfo.h" />
-    <ClInclude Include="scratch\ScratchObject.h" />
-    <ClInclude Include="scratch\ScratchRuntime.h" />
-    <ClInclude Include="scratch\ScratchScript.h" />
-    <ClInclude Include="scratch\ScratchScriptPart.h" />
-    <ClInclude Include="scratch\ScratchSound.h" />
-    <ClInclude Include="scratch\ScratchSprite.h" />
-    <ClInclude Include="scratch\ScratchStage.h" />
-    <ClInclude Include="scratch\ScratchValue.h" />
-    <ClInclude Include="scratch\ScratchSpec.h" />
     <ClInclude Include="scratch\Scratch.h" />
-    <ClInclude Include="scratch\ScratchVariable.h" />
     <ClInclude Include="translate\Translate.h" />
     <ClInclude Include="util\Color.h" />
     <ClInclude Include="util\Console.h" />
     <ClInclude Include="util\FileIO.h" />
     <ClInclude Include="util\Json.h" />
+    <ClInclude Include="util\AppArgu.h" />
     <ClInclude Include="util\Rect.h" />
     <ClInclude Include="util\String.h" />
   </ItemGroup>

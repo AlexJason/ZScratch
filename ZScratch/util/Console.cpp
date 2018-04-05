@@ -39,11 +39,3 @@ HWND Console::GetConsoleHanle() {
 	return hwndFound;
 }
 
-Console::Console()
-{
-}
-
-
-Console::~Console()
-{
-}

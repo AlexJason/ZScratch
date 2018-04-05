@@ -24,12 +24,6 @@
 
 #include "Paint.h"
 
-HBITMAP Paint::hbmp = nullptr;
-HDC Paint::hdc = nullptr;
-HDC Paint::mdc = nullptr;
-Rect Paint::rc = *new Rect();
-HWND Paint::hwnd = nullptr;
-
 void Paint::BeginPaint(HWND hwnd) {
 	Paint::hwnd = hwnd;
 	GetClientRect(hwnd, &rc);

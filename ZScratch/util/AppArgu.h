@@ -1,4 +1,4 @@
-/** FileIO.h - ZScratch
+/** AppArgu.h - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,28 +16,26 @@
 */
 
 /**
-* FileIO.h
-* Alex Cui, March 2018
+* AppArgu.h
+* Alex Cui, April 2018
 *
-* The class for loading the local files.
+* 
 */
 
 #pragma once
-#ifndef UTIL_FILELOADER
-#define UTIL_FILELOADER
-#include "../interface/cpp/ScratchExtension.h"
-#include "../translate/Translate.h"
+#ifndef UTIL_LOGGER
+#define UTIL_LOGGER
+#include <functional>
 #include <string>
-
-class FileIO {
+class AppArgu {
 public:
-	std::vector<std::string> getFileList(std::string path);
-	std::string getPath(std::string s);
-	void LoadTranslator();
-	void LoadExtension(std::vector<ScratchExtension*> &ext);
-	bool ExsistExtension();
+	std::string path;
+	bool printPluginName;
+	bool printPluginVersion;
+	bool test;
+	bool console;
 public:
-	FileIO();
-	~FileIO();
+	AppArgu();
+	~AppArgu();
 };
 #endif

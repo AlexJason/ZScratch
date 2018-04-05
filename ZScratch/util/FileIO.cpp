@@ -25,10 +25,14 @@
 #include "FileIO.h"
 
 #include <Windows.h>
-#include "../lib/tinyxml/include/tinyxml.h"
-#include "../lib/ziputil/include/zip.h"
-#include "../lib/ziputil/include/unzip.h"
+//#include "../lib/tinyxml/include/tinyxml.h"
+//#include "../lib/ziputil/include/zip.h"
+//#include "../lib/ziputil/include/unzip.h"
+#include "String.h"
+#include "AppArgu.h"
+#include "../scratch/Scratch.h"
 #include <io.h>
+#include <iomanip>
 #include <iostream>
 
 std::vector<std::string> FileIO::getFileList(std::string path) {
@@ -51,7 +55,9 @@ std::vector<std::string> FileIO::getFileList(std::string path) {
 			&& strcmp(findData.name, "..") == 0
 			)
 			fofind.push_back(findData.name);
-		else
+		else if (strcmp(findData.name, ".") == 0
+			&& strcmp(findData.name, "..") == 0
+			)
 			fifind.push_back(findData.name);
 	} while (_findnext(handle, &findData) == 0);
 
@@ -61,7 +67,7 @@ std::vector<std::string> FileIO::getFileList(std::string path) {
 }
 
 std::string FileIO::getPath(std::string s) {
-	TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
+	/*TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
 	file->LoadFile();
 	TiXmlElement *root = file->RootElement();
 	TiXmlNode *node = nullptr;
@@ -70,26 +76,45 @@ std::string FileIO::getPath(std::string s) {
 		node = node->NextSibling("Path")) {	}
 	if (!node)
 		return "";
-	return node->ToElement()->Attribute("path");
+	return node->ToElement()->Attribute("path");*/
+	return std::string();
 }
 
 void FileIO::LoadTranslator() {
-	auto path = getPath("Locale");
+	/*auto path = getPath("Locale");
 	TiXmlDocument *file = new TiXmlDocument("./config/locale.xml");
 	file->LoadFile();
 	TiXmlElement *root = file->RootElement();
-	TiXmlNode *node = nullptr;
+	TiXmlNode *node = nullptr;*/
 
 }
 
 
 
 void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
-	std::string loadPath = getPath("Plugin");
+	std::string loadPath = "./plugin/*.zsp";
 	std::vector<std::string> extlist = getFileList(loadPath);
 	
+	int w[] = {16, 8};
+
+	auto funcPrintName = [&]()->void {
+		std::cout << "Plugin Lists:" << std::endl;
+		if (sc.argu.printPluginVersion)
+			std::cout << "\t" << std::setw(w[0]) << "PluginName" << std::setw(w[1]) << "PluginVersion" << std::endl;
+		else
+			std::cout << "\t" << std::setw(w[0]) << "PluginName" << std::endl;
+		auto funcPrint = [&]()->void {
+
+		};
+		for (size_t i = 0; i < extlist.size(); i++) {
+			if (extlist[i] == "." || extlist[i] == "..")
+				continue;
+			funcPrint();
+		}
+	};
+
 	for (auto c : extlist) {
-		std::wstring extp = (loadPath + '\\') + c;
+		/*std::wstring extp = (StringToWString(loadPath) + L'\\') + StringToWString(c);
 		HZIP hz = OpenZip(extp.c_str(), 0);
 		ZIPENTRY ze;
 		GetZipItem(hz, -1, &ze);
@@ -99,17 +124,17 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 			GetZipItem(hz, zi, &ze);
 			UnzipItem(hz, zi, ze.name);
 		}
-		CloseZip(hz);
+		CloseZip(hz);*/
 	}
 }
 
-bool FileIO::ExsistExtension()
-{
+bool FileIO::ExsistExtension() {
+
 	return false;
 }
 
-FileIO::FileIO()
-{
+FileIO::FileIO() {
+
 }
 
 

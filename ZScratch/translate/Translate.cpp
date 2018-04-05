@@ -25,8 +25,6 @@
 #include "Translate.h"
 #include <utility>
 
-Translate::Translator Translate::Strings = *new Translate::Translator();
-
 Translate::Translate() {
 }
 

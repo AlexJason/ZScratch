@@ -33,13 +33,13 @@ class Translate {
 public:
 	using Translator = std::map<std::string, std::map<std::string, std::string>>;
 private:
-	static Translator Strings;
+	Translator Strings;
 public:
 	Translate();
 	~Translate();
 
-	static void AddTranslation(std::string str, std::string lang, std::string trans);
-	static std::string GetTranslation(std::string str, std::string lang);
+	void AddTranslation(std::string str, std::string lang, std::string trans);
+	std::string GetTranslation(std::string str, std::string lang);
 };
 
 #endif

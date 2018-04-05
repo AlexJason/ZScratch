@@ -14,50 +14,11 @@
     <ClCompile Include="translate\Translate.cpp">
       <Filter>translate</Filter>
     </ClCompile>
-    <ClCompile Include="scratch\ScratchObject.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchStage.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchSprite.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchInfo.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchCostume.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchSound.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
     <ClCompile Include="util\Json.cpp">
       <Filter>util</Filter>
     </ClCompile>
-    <ClCompile Include="scratch\ScratchValue.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\Scratch.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchScript.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchScriptPart.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchSpec.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchRuntime.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
     <ClCompile Include="util\Color.cpp">
       <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch\ScratchVariable.cpp">
-      <Filter>scratch</Filter>
     </ClCompile>
     <ClCompile Include="command\EditorCommand.cpp">
       <Filter>command</Filter>
@@ -71,11 +32,14 @@
     <ClCompile Include="util\String.cpp">
       <Filter>util</Filter>
     </ClCompile>
+    <ClCompile Include="util\AppArgu.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\Scratch.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="scratch">
-      <UniqueIdentifier>{2510788f-e5e9-4ca8-8024-68357286e9a2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="util">
       <UniqueIdentifier>{9d1d6c7c-02f5-43c3-bbe3-62305116d09e}</UniqueIdentifier>
     </Filter>
@@ -118,6 +82,9 @@
     <Filter Include="interface\cpp">
       <UniqueIdentifier>{8fa8d5e7-bb00-4956-bca8-11f22c67a5e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="scratch">
+      <UniqueIdentifier>{c0f63a48-486d-4828-9218-8de4066f97c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\Console.h">
@@ -132,51 +99,12 @@
     <ClInclude Include="translate\Translate.h">
       <Filter>translate</Filter>
     </ClInclude>
-    <ClInclude Include="scratch\ScratchObject.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchStage.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchSprite.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="scratch\ScratchInfo.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchCostume.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchSound.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
     <ClInclude Include="util\Json.h">
       <Filter>util</Filter>
     </ClInclude>
-    <ClInclude Include="scratch\ScratchValue.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\Scratch.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchScript.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchScriptPart.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchSpec.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchRuntime.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
     <ClInclude Include="util\Color.h">
       <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchVariable.h">
-      <Filter>scratch</Filter>
     </ClInclude>
     <ClInclude Include="command\EditorCommand.h">
       <Filter>command</Filter>
@@ -186,6 +114,12 @@
     </ClInclude>
     <ClInclude Include="util\String.h">
       <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\AppArgu.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\Scratch.h">
+      <Filter>scratch</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

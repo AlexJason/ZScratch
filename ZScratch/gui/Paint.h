@@ -29,14 +29,14 @@
 #include "..\util\Rect.h"
 class Paint {
 public:
-	static HWND hwnd;
-	static Rect rc;
-	static HDC hdc;
-	static HDC mdc;
-	static HBITMAP hbmp;
+	HWND hwnd;
+	Rect rc;
+	HDC hdc;
+	HDC mdc;
+	HBITMAP hbmp;
 public:
-	static void BeginPaint(HWND hwnd);
-	static void EndPaint(int x = 0, int y = 0);
+	void BeginPaint(HWND hwnd);
+	void EndPaint(int x = 0, int y = 0);
 	Paint();
 	~Paint();
 };

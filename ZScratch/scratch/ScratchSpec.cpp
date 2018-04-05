@@ -24,9 +24,6 @@
 
 #include "ScratchSpec.h"
 
-std::vector<ScratchSpec::Category> ScratchSpec::category(0);
-std::vector<ScratchSpec::Command> ScratchSpec::command(0);
-
 ScratchSpec::ScratchSpec()
 {
 }

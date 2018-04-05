@@ -25,5 +25,5 @@
 #include "scratch\Scratch.h"
 
 int main(int argc, char **argv) {
-	return Scratch::AppMain(argc, argv);
+	return sc.AppMain(argc, argv);
 }

@@ -26,12 +26,8 @@
 #ifndef UTIL_CONSOLE
 #define UTIL_CONSOLE
 #include <Windows.h>
-class Console {
-public:
-	static const int CONSOLE_BUFSIZE = 1024;
-	static HWND GetConsoleHanle();
-
-	Console();
-	~Console();
-};
+namespace Console {
+	const int CONSOLE_BUFSIZE = 1024;
+	HWND GetConsoleHanle();
+}
 #endif
