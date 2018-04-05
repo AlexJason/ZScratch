@@ -258,7 +258,6 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <Library Include="lib\python\python36.lib" />
     <Library Include="lib\python\_tkinter.lib" />
     <Library Include="lib\tinyxml\tinyxmlSTL.lib" />
-    <Library Include="lib\ziputil\ziputil.lib" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="config\locale.xml" />
