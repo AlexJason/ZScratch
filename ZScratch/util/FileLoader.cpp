@@ -26,12 +26,9 @@
 
 #include "../lib/tinyxml/tinyxml.h"
 
-<<<<<<< HEAD
 #include <io.h>
 #include <iostream>
 #include <fstream>
-=======
->>>>>>> parent of 8761e69... 2018040501
 
 
 std::string FileLoader::getPath(std::string s) {
@@ -56,7 +53,6 @@ void FileLoader::LoadTranslator() {
 
 }
 
-<<<<<<< HEAD
 
 
 void FileLoader::LoadExtension(std::vector<ScratchExtension*> &ext) {
@@ -74,8 +70,7 @@ bool FileLoader::ExsistExtension()
 	return false;
 }
 
-=======
->>>>>>> parent of 8761e69... 2018040501
+
 FileLoader::FileLoader()
 {
 }
