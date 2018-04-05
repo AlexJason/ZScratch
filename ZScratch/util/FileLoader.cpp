@@ -28,6 +28,7 @@
 
 #include <io.h>
 #include <iostream>
+#include <fstream>
 
 std::vector<std::string> FileLoader::getFileList(std::string path) {
 	std::vector<std::string> find;
@@ -84,7 +85,7 @@ void FileLoader::LoadExtension(std::vector<ScratchExtension*> &ext) {
 	
 	for (auto c : folder) {
 		std::string extp = (loadPath + '/') + c;
-
+		
 	}
 }
 
