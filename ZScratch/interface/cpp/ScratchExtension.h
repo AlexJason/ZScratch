@@ -1,3 +1,6 @@
+#pragma once
+//#ifndef SCEXT
+//#define SCEXT "C++1.0"
 #include <string>
 class ScratchExtension {
 public:
@@ -19,7 +22,5 @@ public:
 	virtual void postInitialisation() {
 
 	}
-	virtual void eventCallback() {
-
-	}
 };
+//#endif

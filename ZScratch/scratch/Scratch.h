@@ -28,6 +28,7 @@
 #include <Windows.h>
 class Scratch {
 public:
+	//Window
 	static LPCWSTR ClassName;
 	static LPCWSTR WindowTitle;
 

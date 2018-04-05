@@ -30,6 +30,30 @@
 #include <iostream>
 #include <fstream>
 
+std::vector<std::string> FileLoader::getFileList(std::string path) {
+	std::vector<std::string> find;
+	
+	intptr_t handle;
+	_finddata_t findData;
+
+	handle = _findfirst(path.c_str(), &findData);
+	if (handle == -1) {
+		find.clear();
+		return find;
+	}
+
+	do {
+		if (findData.attrib & _A_SUBDIR
+			&& strcmp(findData.name, ".") == 0
+			&& strcmp(findData.name, "..") == 0
+			)
+			find.push_back(findData.name);
+	} while (_findnext(handle, &findData) == 0);
+
+	_findclose(handle);
+	
+	return find;
+}
 
 std::string FileLoader::getPath(std::string s) {
 	TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
@@ -70,7 +94,10 @@ bool FileLoader::ExsistExtension()
 	return false;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of d1df058... 2018040503
 FileLoader::FileLoader()
 {
 }

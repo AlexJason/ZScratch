@@ -262,6 +262,5 @@ __pycache__/
 
 # Library
 ZScratch/lib/*/*.cpp
-ZScratch/lib/*/*.h
 ZScratch/lib/*/*.c
 

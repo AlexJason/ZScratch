@@ -127,9 +127,12 @@
     <Filter Include="interface\cpp">
       <UniqueIdentifier>{8fa8d5e7-bb00-4956-bca8-11f22c67a5e1}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
     <Filter Include="lib\ziputil">
       <UniqueIdentifier>{08e680a9-0e7f-439d-b3fb-da51bea63f5b}</UniqueIdentifier>
     </Filter>
+=======
+>>>>>>> parent of d1df058... 2018040503
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\Console.h">
