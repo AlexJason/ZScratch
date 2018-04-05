@@ -217,7 +217,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClCompile Include="translate\Translate.cpp" />
     <ClCompile Include="util\Color.cpp" />
     <ClCompile Include="util\Console.cpp" />
-    <ClCompile Include="util\FileLoader.cpp" />
+    <ClCompile Include="util\FileIO.cpp" />
     <ClCompile Include="util\Json.cpp" />
     <ClCompile Include="util\Rect.cpp" />
   </ItemGroup>
@@ -241,7 +241,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <ClInclude Include="translate\Translate.h" />
     <ClInclude Include="util\Color.h" />
     <ClInclude Include="util\Console.h" />
-    <ClInclude Include="util\FileLoader.h" />
+    <ClInclude Include="util\FileIO.h" />
     <ClInclude Include="util\Json.h" />
     <ClInclude Include="util\Rect.h" />
   </ItemGroup>
@@ -258,6 +258,7 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <Library Include="lib\python\python36.lib" />
     <Library Include="lib\python\_tkinter.lib" />
     <Library Include="lib\tinyxml\tinyxmlSTL.lib" />
+    <Library Include="lib\ziputil\ziputil.lib" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="config\locale.xml" />

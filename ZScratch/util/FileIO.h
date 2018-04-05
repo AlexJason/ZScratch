@@ -1,4 +1,4 @@
-/** FileLoader.h - ZScratch
+/** FileIO.h - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 */
 
 /**
-* FileLoader.h
+* FileIO.h
 * Alex Cui, March 2018
 *
 * The class for loading the local files.
@@ -29,7 +29,7 @@
 #include "../translate/Translate.h"
 #include <string>
 
-class FileLoader {
+class FileIO {
 public:
 	static std::vector<std::string> getFileList(std::string path);
 	static std::string getPath(std::string s);
@@ -37,7 +37,7 @@ public:
 	static void LoadExtension(std::vector<ScratchExtension*> &ext);
 	static bool ExsistExtension();
 public:
-	FileLoader();
-	~FileLoader();
+	FileIO();
+	~FileIO();
 };
 #endif

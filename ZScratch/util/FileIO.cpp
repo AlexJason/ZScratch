@@ -1,4 +1,4 @@
-/** FileLoader.cpp - ZScratch
+/** FileIO.cpp - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,20 +16,21 @@
 */
 
 /**
-* FileLoader.cpp
+* FileIO.cpp
 * Alex Cui, March 2018
 *
 * The class for loading the local files.
 */
 
-#include "FileLoader.h"
+#include "FileIO.h"
 
 #include "../lib/tinyxml/tinyxml.h"
+#include "../lib/ziputil/unzip.h"
 
 #include <io.h>
 #include <iostream>
 
-std::vector<std::string> FileLoader::getFileList(std::string path) {
+std::vector<std::string> FileIO::getFileList(std::string path) {
 	std::vector<std::string> find;
 	
 	intptr_t handle;
@@ -54,7 +55,7 @@ std::vector<std::string> FileLoader::getFileList(std::string path) {
 	return find;
 }
 
-std::string FileLoader::getPath(std::string s) {
+std::string FileIO::getPath(std::string s) {
 	TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
 	file->LoadFile();
 	TiXmlElement *root = file->RootElement();
@@ -67,7 +68,7 @@ std::string FileLoader::getPath(std::string s) {
 	return node->ToElement()->Attribute("path");
 }
 
-void FileLoader::LoadTranslator() {
+void FileIO::LoadTranslator() {
 	auto path = getPath("Locale");
 	TiXmlDocument *file = new TiXmlDocument("./config/locale.xml");
 	file->LoadFile();
@@ -78,7 +79,7 @@ void FileLoader::LoadTranslator() {
 
 
 
-void FileLoader::LoadExtension(std::vector<ScratchExtension*> &ext) {
+void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 	std::string loadPath = getPath("Plugin");
 	std::vector<std::string> folder = getFileList(loadPath);
 	
@@ -88,16 +89,16 @@ void FileLoader::LoadExtension(std::vector<ScratchExtension*> &ext) {
 	}
 }
 
-bool FileLoader::ExsistExtension()
+bool FileIO::ExsistExtension()
 {
 	return false;
 }
 
-FileLoader::FileLoader()
+FileIO::FileIO()
 {
 }
 
 
-FileLoader::~FileLoader()
+FileIO::~FileIO()
 {
 }

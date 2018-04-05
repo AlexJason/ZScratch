@@ -14,9 +14,6 @@
     <ClCompile Include="translate\Translate.cpp">
       <Filter>translate</Filter>
     </ClCompile>
-    <ClCompile Include="util\FileLoader.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
     <ClCompile Include="scratch\ScratchObject.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
@@ -67,6 +64,9 @@
     </ClCompile>
     <ClCompile Include="interface\cpp\ScratchExtension.h">
       <Filter>interface\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="util\FileIO.cpp">
+      <Filter>util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +127,9 @@
     <Filter Include="interface\cpp">
       <UniqueIdentifier>{8fa8d5e7-bb00-4956-bca8-11f22c67a5e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib\ziputil">
+      <UniqueIdentifier>{c50a306f-18c9-4eff-9544-6d60670d39fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\Console.h">
@@ -140,9 +143,6 @@
     </ClInclude>
     <ClInclude Include="translate\Translate.h">
       <Filter>translate</Filter>
-    </ClInclude>
-    <ClInclude Include="util\FileLoader.h">
-      <Filter>util</Filter>
     </ClInclude>
     <ClInclude Include="scratch\ScratchObject.h">
       <Filter>scratch</Filter>
@@ -193,6 +193,9 @@
     <ClInclude Include="command\EditorCommand.h">
       <Filter>command</Filter>
     </ClInclude>
+    <ClInclude Include="util\FileIO.h">
+      <Filter>util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="config\style.json">
@@ -226,6 +229,9 @@
     </Library>
     <Library Include="lib\python\_tkinter.lib">
       <Filter>lib\python</Filter>
+    </Library>
+    <Library Include="lib\ziputil\ziputil.lib">
+      <Filter>lib\ziputil</Filter>
     </Library>
   </ItemGroup>
   <ItemGroup>
