@@ -82,12 +82,6 @@
     <Filter Include="locale">
       <UniqueIdentifier>{919e2004-9f1c-465c-85a9-b3f1f9f7e84c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib">
-      <UniqueIdentifier>{e4c09c75-4490-49fd-bade-367f87dc77d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\tinyxml">
-      <UniqueIdentifier>{caaf1e79-903d-45d9-b3ca-2d9216b060cd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="translate">
       <UniqueIdentifier>{592d461a-5a46-4f0b-89de-9213fa161681}</UniqueIdentifier>
     </Filter>
@@ -99,12 +93,6 @@
     </Filter>
     <Filter Include="plugin">
       <UniqueIdentifier>{fc104ca8-bd19-43b2-8d93-9cddc59b2132}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\jsoncpp">
-      <UniqueIdentifier>{567d80b8-02e3-4de3-bea3-7248b5fdf587}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\python">
-      <UniqueIdentifier>{d8e51738-00c8-4fe3-8807-abc92bbaf5a7}</UniqueIdentifier>
     </Filter>
     <Filter Include="plugin\scratch-original">
       <UniqueIdentifier>{eda4d3cd-c8ed-48e8-a575-6240ab37de6e}</UniqueIdentifier>
@@ -126,9 +114,6 @@
     </Filter>
     <Filter Include="interface\cpp">
       <UniqueIdentifier>{8fa8d5e7-bb00-4956-bca8-11f22c67a5e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\ziputil">
-      <UniqueIdentifier>{c50a306f-18c9-4eff-9544-6d60670d39fa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -216,23 +201,6 @@
     <None Include="interface\python\ScratchExtension.py">
       <Filter>interface\python</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="lib\tinyxml\tinyxmlSTL.lib">
-      <Filter>lib\tinyxml</Filter>
-    </Library>
-    <Library Include="lib\python\python3.lib">
-      <Filter>lib\python</Filter>
-    </Library>
-    <Library Include="lib\python\python36.lib">
-      <Filter>lib\python</Filter>
-    </Library>
-    <Library Include="lib\python\_tkinter.lib">
-      <Filter>lib\python</Filter>
-    </Library>
-    <Library Include="lib\ziputil\ziputil.lib">
-      <Filter>lib\ziputil</Filter>
-    </Library>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="config\locale.xml">

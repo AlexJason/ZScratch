@@ -23,14 +23,7 @@
 */
 
 #include "scratch\Scratch.h"
-#include "util\Console.h"
 
 int main(int argc, char **argv) {
-	Scratch::WindowTitle = L"Z-Editor";
-	Scratch::ProgramInstance = GetModuleHandle(NULL);
-	Scratch::ConsoleHandle = Console::GetConsoleHanle();
-	Scratch::RegisterWindowClass();
-	Scratch::CreateMainWindow();
-	int result = Scratch::MessageLoop();
-	return result;
+	return Scratch::AppMain(argc, argv);
 }

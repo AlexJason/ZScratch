@@ -49,6 +49,7 @@ public:
 	static ScratchStage stage;
 	static std::vector<ScratchExtension*> ext;
 
+	static int AppMain(int argc, char **argv);
 	static void InstallExtension();
 
 	Scratch();

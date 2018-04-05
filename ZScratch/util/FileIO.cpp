@@ -24,22 +24,29 @@
 
 #include "FileIO.h"
 
-#include "../lib/tinyxml/tinyxml.h"
-#include "../lib/ziputil/unzip.h"
+#ifdef UNICODE
+#undef UNICODE
+#endif
+#include <Windows.h>
+#include "../lib/tinyxml/include/tinyxml.h"
+#include "../lib/ziputil/include/zip.h"
+#include "../lib/ziputil/include/unzip.h"
 
 #include <io.h>
 #include <iostream>
 
 std::vector<std::string> FileIO::getFileList(std::string path) {
-	std::vector<std::string> find;
-	
+	std::vector<std::string> fofind;
+	std::vector<std::string> fifind;
+
 	intptr_t handle;
 	_finddata_t findData;
 
 	handle = _findfirst(path.c_str(), &findData);
 	if (handle == -1) {
-		find.clear();
-		return find;
+		fofind.clear();
+		fifind.clear();
+		return fifind;
 	}
 
 	do {
@@ -47,12 +54,14 @@ std::vector<std::string> FileIO::getFileList(std::string path) {
 			&& strcmp(findData.name, ".") == 0
 			&& strcmp(findData.name, "..") == 0
 			)
-			find.push_back(findData.name);
+			fofind.push_back(findData.name);
+		else
+			fifind.push_back(findData.name);
 	} while (_findnext(handle, &findData) == 0);
 
 	_findclose(handle);
 	
-	return find;
+	return fifind;
 }
 
 std::string FileIO::getPath(std::string s) {
@@ -81,11 +90,20 @@ void FileIO::LoadTranslator() {
 
 void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 	std::string loadPath = getPath("Plugin");
-	std::vector<std::string> folder = getFileList(loadPath);
+	std::vector<std::string> extlist = getFileList(loadPath);
 	
-	for (auto c : folder) {
-		std::string extp = (loadPath + '/') + c;
-
+	for (auto c : extlist) {
+		std::string extp = (loadPath + '\\') + c;
+		HZIP hz = OpenZip(extp.c_str(), 0);
+		ZIPENTRY ze;
+		GetZipItem(hz, -1, &ze);
+		int numitems = ze.index;
+		for (int zi = 0; zi < numitems; zi++) {
+			ZIPENTRY ze;
+			GetZipItem(hz, zi, &ze);
+			UnzipItem(hz, zi, ze.name);
+		}
+		CloseZip(hz);
 	}
 }
 

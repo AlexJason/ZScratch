@@ -72,15 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>D:\GitHub\ZScratch\ZScratch\lib\python\x86;D:\GitHub\ZScratch\ZScratch\lib\ziputil\x86;D:\GitHub\ZScratch\ZScratch\lib\tinyxml\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>D:\GitHub\ZScratch\ZScratch\lib\python\x64;D:\GitHub\ZScratch\ZScratch\lib\ziputil\x64;D:\GitHub\ZScratch\ZScratch\lib\tinyxml\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>D:\GitHub\ZScratch\ZScratch\lib\python\x86;D:\GitHub\ZScratch\ZScratch\lib\ziputil\x86;D:\GitHub\ZScratch\ZScratch\lib\tinyxml\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>D:\GitHub\ZScratch\ZScratch\lib\python\x64;D:\GitHub\ZScratch\ZScratch\lib\ziputil\x64;D:\GitHub\ZScratch\ZScratch\lib\tinyxml\win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -89,6 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -252,13 +257,6 @@ COPY /Y $(ProjectDir)python\ $(OutputPath)python\</Command>
     <None Include="interface\python\ScratchExtension.py" />
     <None Include="plugin\scratch-original\info.json" />
     <None Include="plugin\scratch-original\plugin.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="lib\python\python3.lib" />
-    <Library Include="lib\python\python36.lib" />
-    <Library Include="lib\python\_tkinter.lib" />
-    <Library Include="lib\tinyxml\tinyxmlSTL.lib" />
-    <Library Include="lib\ziputil\ziputil.lib" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="config\locale.xml" />

@@ -24,6 +24,8 @@
 
 #include "Scratch.h"
 #include "..\gui\Paint.h"
+#include "..\util\FileIO.h"
+#include "..\util\Console.h"
 
 LPCWSTR					Scratch::ClassName			= L"ClipCC-ZE";
 LPCWSTR					Scratch::WindowTitle		= L"Z-Editor";
@@ -113,6 +115,22 @@ LRESULT Scratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	}
 	}
 	return 0;
+}
+
+int Scratch::AppMain(int argc, char **argv) {
+	Scratch::InstallExtension();
+	Scratch::WindowTitle = L"Z-Editor";
+	Scratch::ProgramInstance = GetModuleHandle(NULL);
+	Scratch::ConsoleHandle = Console::GetConsoleHanle();
+	Scratch::RegisterWindowClass();
+	Scratch::CreateMainWindow();
+	int result = static_cast<int>(Scratch::MessageLoop());
+	return result;
+}
+
+void Scratch::InstallExtension() {
+	Scratch::ext.clear();
+	FileIO::LoadExtension(Scratch::ext);
 }
 
 Scratch::Scratch() {

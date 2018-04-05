@@ -261,12 +261,4 @@ __pycache__/
 *.pyc
 
 # Library
-ZScratch/lib/*/*.c
-ZScratch/lib/*/*.cpp
-ZScratch/lib/*/*.cc
-ZScratch/lib/*/*.cp
-ZScratch/lib/*/*.cxx
-ZScratch/lib/*/*.h
-ZScratch/lib/*/*.hpp
-ZScratch/lib/*/*.hxx
-ZScratch/lib/java/win32
+ZScratch/lib/*/include/
