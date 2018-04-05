@@ -112,7 +112,7 @@ LRESULT Scratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 }
 
 int Scratch::AppMain(int argc, char **argv) {
-	/*for (int i = 0; i < argc; i++) {
+	for (int i = 0; i < argc; i++) {
 		if (strcmp(argv[i], "--test"))
 			argu.test = true;
 		else if (strcmp(argv[i], "--console"))
@@ -121,7 +121,7 @@ int Scratch::AppMain(int argc, char **argv) {
 			argu.printPluginName = true;
 		else if (strcmp(argv[i], "-printPluginVersion"))
 			argu.printPluginVersion = true;
-	}*/
+	}
 	InstallExtension();
 	ProgramInstance = GetModuleHandle(NULL);
 	ConsoleHandle = Console::GetConsoleHanle();
@@ -129,14 +129,13 @@ int Scratch::AppMain(int argc, char **argv) {
 	CreateMainWindow();
 	int result;
 	result = MessageLoop(0);
-	//Sleep(1000);
 	return 0;
 }
 
 void Scratch::InstallExtension() {
-	//ext.clear();
+	ext.clear();
 	FileIO fio;
-	//fio.LoadExtension(ext);
+	fio.LoadExtension(ext);
 }
 
 Scratch::Scratch() {

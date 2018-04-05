@@ -26,8 +26,8 @@
 
 #include <Windows.h>
 //#include "../lib/tinyxml/include/tinyxml.h"
-//#include "../lib/ziputil/include/zip.h"
-//#include "../lib/ziputil/include/unzip.h"
+#include "../lib/ziputil/include/zip.h"
+#include "../lib/ziputil/include/unzip.h"
 #include "String.h"
 #include "AppArgu.h"
 #include "../scratch/Scratch.h"
@@ -50,7 +50,8 @@ std::vector<std::string> FileIO::getFileList(std::string path) {
 	}
 
 	do {
-		if (findData.attrib & _A_SUBDIR
+		//======UNUSED:USE IF NEED TO SELECT THE FILE
+		/*if (findData.attrib & _A_SUBDIR
 			&& strcmp(findData.name, ".") == 0
 			&& strcmp(findData.name, "..") == 0
 			)
@@ -58,7 +59,9 @@ std::vector<std::string> FileIO::getFileList(std::string path) {
 		else if (strcmp(findData.name, ".") == 0
 			&& strcmp(findData.name, "..") == 0
 			)
-			fifind.push_back(findData.name);
+			fifind.push_back(findData.name);*/
+		//======INSTEAD:ONLY SELECT THE FILE EXTNAME SELECTED
+		fifind.push_back(findData.name);
 	} while (_findnext(handle, &findData) == 0);
 
 	_findclose(handle);
@@ -114,7 +117,7 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 	};
 
 	for (auto c : extlist) {
-		/*std::wstring extp = (StringToWString(loadPath) + L'\\') + StringToWString(c);
+		std::wstring extp = L"./plugin/" + StringToWString(c);
 		HZIP hz = OpenZip(extp.c_str(), 0);
 		ZIPENTRY ze;
 		GetZipItem(hz, -1, &ze);
@@ -124,7 +127,7 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 			GetZipItem(hz, zi, &ze);
 			UnzipItem(hz, zi, ze.name);
 		}
-		CloseZip(hz);*/
+		CloseZip(hz);
 	}
 }
 

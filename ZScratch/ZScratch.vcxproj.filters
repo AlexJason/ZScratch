@@ -38,6 +38,42 @@
     <ClCompile Include="scratch\Scratch.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
+    <ClCompile Include="scratch\ScratchCostume.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchInfo.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchObject.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchRuntime.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchScript.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchScriptPart.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchSound.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchSpec.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchSprite.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchStage.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchValue.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch\ScratchVariable.cpp">
+      <Filter>scratch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
@@ -119,6 +155,42 @@
       <Filter>util</Filter>
     </ClInclude>
     <ClInclude Include="scratch\Scratch.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchCostume.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchInfo.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchObject.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchRuntime.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchScript.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchScriptPart.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchSound.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchSpec.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchSprite.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchStage.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchValue.h">
+      <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch\ScratchVariable.h">
       <Filter>scratch</Filter>
     </ClInclude>
   </ItemGroup>

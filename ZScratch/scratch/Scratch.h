@@ -27,7 +27,7 @@
 #define ZSCRATCH_CLASS
 #include <Windows.h>
 #include <vector>
-//#include "ScratchStage.h"
+#include "ScratchStage.h"
 #include "../interface/cpp/ScratchExtension.h"
 #include "../util/AppArgu.h"
 
@@ -44,8 +44,8 @@
 #define __lib ".lib"
 #endif
 
-//#pragma comment(lib, "lib/tinyxml/" __winA "/tinyxmlSTL" __lib)
-//#pragma comment(lib, "lib/ziputil/" __win "/ziputil" __lib)
+#pragma comment(lib, "lib/tinyxml/" __winA "/tinyxmlSTL" __lib)
+#pragma comment(lib, "lib/ziputil/" __win "/ziputil" __lib)
 //#pragma comment(lib, "lib/python/" __win "/python3" __lib)
 //#pragma comment(lib, "lib/python/" __win "/python36" __lib)
 
@@ -67,8 +67,8 @@ public:
 	LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 	//Scratch
-	//ScratchStage stage;
-	//std::vector<ScratchExtension*> ext;
+	ScratchStage stage;
+	std::vector<ScratchExtension*> ext;
 	AppArgu argu;
 
 	int AppMain(int argc, char **argv);

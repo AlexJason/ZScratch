@@ -15,8 +15,12 @@
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-x64/
-x86/
+
+x64/[Dd]ebug/
+x64/[Dd]ebugPublic/
+x64/[Rr]elease/
+x64/[Rr]eleases/
+
 bld/
 [Bb]in/
 [Oo]bj/
@@ -261,4 +265,8 @@ __pycache__/
 *.pyc
 
 # Library
-ZScratch/lib/*/include/
+ZScratch/lib/java/include/
+ZScratch/lib/python/include/
+ZScratch/lib/jsoncpp/include/
+ZScratch/lib/ziputil/include/
+ZScratch/lib/tinyxml/include/
