@@ -67,11 +67,14 @@ public:
 	LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 	//Scratch
+	std::string log;
 	ScratchStage stage;
 	std::vector<ScratchExtension*> ext;
 	AppArgu argu;
 
+	void Log(std::string str);
 	int AppMain(int argc, char **argv);
+	void AppRelease();
 	void InstallExtension();
 
 	Scratch();

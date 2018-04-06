@@ -23,10 +23,19 @@
 */
 
 #include "Scratch.h"
+
 #include "..\gui\Paint.h"
+#include "..\util\Time.h"
+#include "..\util\String.h"
 #include "..\util\FileIO.h"
 #include "..\util\Console.h"
 #include "..\util\AppArgu.h"
+
+#include <fstream>
+#include <sstream>
+
+#include <direct.h>
+#include <io.h>
 
 Scratch sc;
 
@@ -111,7 +120,16 @@ LRESULT Scratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	return 0;
 }
 
+void Scratch::Log(std::string str) {
+	log.append(printTime());
+	log.append(str);
+	log.push_back('\n');
+}
+
 int Scratch::AppMain(int argc, char **argv) {
+	getLogfileName();
+	Log("Initializing program.");
+	Log("Checking arguments.");
 	for (int i = 0; i < argc; i++) {
 		if (strcmp(argv[i], "--test"))
 			argu.test = true;
@@ -122,14 +140,33 @@ int Scratch::AppMain(int argc, char **argv) {
 		else if (strcmp(argv[i], "-printPluginVersion"))
 			argu.printPluginVersion = true;
 	}
+	Log("Searching plugins.");
 	InstallExtension();
+	Log(toString(ext.size()) + "plugins has been searched");
+	Log("Initializing instance.");
 	ProgramInstance = GetModuleHandle(NULL);
 	ConsoleHandle = Console::GetConsoleHanle();
+	Log("Register window class");
 	RegisterWindowClass();
+	Log("Creating the main window.");
 	CreateMainWindow();
-	int result;
-	result = MessageLoop(0);
-	return 0;
+	Log("Running message loop.");
+	int result = MessageLoop(0);
+	Log("Program has been finished.");
+	AppRelease();
+	return result;
+}
+
+void Scratch::AppRelease() {
+	_rmdir("./temp");
+	Log("Temp file has been deleted.");
+	if (_access("./log", 00) == -1)
+		_mkdir("./log");
+	std::string f = getLogfileName();
+	std::ofstream ofs(f, std::ios::out);
+	ofs.write(log.c_str(), log.size());
+	ofs.flush();
+	ofs.close();
 }
 
 void Scratch::InstallExtension() {
@@ -139,8 +176,8 @@ void Scratch::InstallExtension() {
 }
 
 Scratch::Scratch() {
-	sc.ClassName	= L"Z-Editor";
-	sc.WindowTitle	= L"Z-Editor";
+	sc.ClassName = L"Z-Editor";
+	sc.WindowTitle = L"Z-Editor";
 }
 
 Scratch::~Scratch() {

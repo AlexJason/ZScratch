@@ -1,4 +1,4 @@
-/** String.h - ZScratch
+/**	Time.cpp - ZScratch
 *	Copyright(C) 2017-2018 Alex Cui
 *
 *	This program is free software : you can redistribute it and/or modify
@@ -16,23 +16,15 @@
 */
 
 /**
-* String.h
+* Time.cpp
 * Alex Cui, April 2018
 *
 * 
 */
 
 #pragma once
-#include <string>
-#include <sstream>
-std::wstring StringToWString(const std::string &str);
-std::string WStringToString(const std::wstring &wstr);
-template<typename T>
-std::string toString(T v) {
-	std::stringstream strm;
-	std::string ret;
-	strm << v;
-	strm >> ret;
-	strm.str("");
-	return ret;
-}
+#ifndef UTIL_TIME
+#define UTIL_TIME
+char* printTime();
+char* getLogfileName();
+#endif

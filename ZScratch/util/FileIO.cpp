@@ -25,15 +25,19 @@
 #include "FileIO.h"
 
 #include <Windows.h>
-//#include "../lib/tinyxml/include/tinyxml.h"
-#include "../lib/ziputil/include/zip.h"
-#include "../lib/ziputil/include/unzip.h"
-#include "String.h"
-#include "AppArgu.h"
-#include "../scratch/Scratch.h"
-#include <io.h>
 #include <iomanip>
 #include <iostream>
+#include <fstream>
+#include <cassert>
+#include <io.h>
+#include <direct.h>
+
+#include "../lib/tinyxml/include/tinyxml.h"
+#include "../lib/ziputil/include/zip.h"
+#include "../lib/ziputil/include/unzip.h"
+#include "../scratch/Scratch.h"
+#include "String.h"
+#include "AppArgu.h"
 
 std::vector<std::string> FileIO::getFileList(std::string path) {
 	std::vector<std::string> fofind;
@@ -70,7 +74,7 @@ std::vector<std::string> FileIO::getFileList(std::string path) {
 }
 
 std::string FileIO::getPath(std::string s) {
-	/*TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
+	TiXmlDocument *file = new TiXmlDocument("./config/path.xml");
 	file->LoadFile();
 	TiXmlElement *root = file->RootElement();
 	TiXmlNode *node = nullptr;
@@ -79,7 +83,7 @@ std::string FileIO::getPath(std::string s) {
 		node = node->NextSibling("Path")) {	}
 	if (!node)
 		return "";
-	return node->ToElement()->Attribute("path");*/
+	return node->ToElement()->Attribute("path");
 	return std::string();
 }
 
@@ -100,7 +104,7 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 	
 	int w[] = {16, 8};
 
-	auto funcPrintName = [&]()->void {
+	/*auto funcPrintName = [&]()->void {
 		std::cout << "Plugin Lists:" << std::endl;
 		if (sc.argu.printPluginVersion)
 			std::cout << "\t" << std::setw(w[0]) << "PluginName" << std::setw(w[1]) << "PluginVersion" << std::endl;
@@ -114,8 +118,12 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 				continue;
 			funcPrint();
 		}
-	};
-
+	};*/
+	std::wstring tempPath = L"./temp/plugin/";
+	if (_waccess(L"./temp", 00) == -1)
+		_wmkdir(L"./temp");
+	if (_waccess(tempPath.c_str(), 00) == -1)
+		_wmkdir(tempPath.c_str());
 	for (auto c : extlist) {
 		std::wstring extp = L"./plugin/" + StringToWString(c);
 		HZIP hz = OpenZip(extp.c_str(), 0);
@@ -125,7 +133,18 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 		for (int zi = 0; zi < numitems; zi++) {
 			ZIPENTRY ze;
 			GetZipItem(hz, zi, &ze);
-			UnzipItem(hz, zi, ze.name);
+			std::wstring s = ze.name;
+			if (*--s.end() == '/') {
+				_wmkdir((tempPath + s).c_str());
+				continue;
+			}
+			char *ibuf = new char[ze.unc_size];
+			UnzipItem(hz, zi, ibuf, ze.unc_size);
+			std::ofstream ofs((tempPath + ze.name).c_str(), std::ios::out);
+			ofs.write(ibuf, ze.unc_size);
+			ofs.flush();
+			ofs.close();
+			delete[] ibuf;
 		}
 		CloseZip(hz);
 	}

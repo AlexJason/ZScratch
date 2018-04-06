@@ -74,6 +74,9 @@
     <ClCompile Include="scratch\ScratchVariable.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
+    <ClCompile Include="util\Time.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
@@ -192,6 +195,9 @@
     </ClInclude>
     <ClInclude Include="scratch\ScratchVariable.h">
       <Filter>scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Time.h">
+      <Filter>util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

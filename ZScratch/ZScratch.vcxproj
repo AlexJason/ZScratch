@@ -237,6 +237,7 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
     <ClCompile Include="util\AppArgu.cpp" />
     <ClCompile Include="util\Rect.cpp" />
     <ClCompile Include="util\String.cpp" />
+    <ClCompile Include="util\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="command\EditorCommand.h" />
@@ -263,6 +264,7 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
     <ClInclude Include="util\AppArgu.h" />
     <ClInclude Include="util\Rect.h" />
     <ClInclude Include="util\String.h" />
+    <ClInclude Include="util\Time.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="config\style.json" />
