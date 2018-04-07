@@ -21,7 +21,7 @@
 *
 *
 */
-
+#pragma warning(disable:4244)
 #include "String.h"
 std::wstring StringToWString(const std::string &str) {
 	std::wstring wstr(str.length(), L' ');

@@ -99,8 +99,7 @@ void FileIO::LoadTranslator() {
 
 
 void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
-	std::string loadPath = "./plugin/*.zsp";
-	std::vector<std::string> extlist = getFileList(loadPath);
+	std::vector<std::string> extlist = getFileList("./plugin/*.zsp");
 	
 	int w[] = {16, 8};
 
@@ -124,6 +123,7 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 		_wmkdir(L"./temp");
 	if (_waccess(tempPath.c_str(), 00) == -1)
 		_wmkdir(tempPath.c_str());
+	//TODO: Unzip the zipped file to temp file.
 	for (auto c : extlist) {
 		std::wstring extp = L"./plugin/" + StringToWString(c);
 		HZIP hz = OpenZip(extp.c_str(), 0);
@@ -147,6 +147,15 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 			delete[] ibuf;
 		}
 		CloseZip(hz);
+	}
+
+	//TODO: Read the file
+	std::vector<std::string> exttemp = getFileList("./temp/plugin/*.*");
+	for (auto c : exttemp) {
+		if (*c.rbegin() != '/')
+			continue;
+		std::string extname = "./temp/plugin/" + c;
+
 	}
 }
 
