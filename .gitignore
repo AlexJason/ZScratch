@@ -270,6 +270,7 @@ ZScratch/lib/python/include/
 ZScratch/lib/jsoncpp/include/
 ZScratch/lib/ziputil/include/
 ZScratch/lib/tinyxml/include/
+ZScratch/lib/lua/include/
 
 # Program Runtime
 ZScratch/temp/
