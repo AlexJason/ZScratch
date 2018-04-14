@@ -25,7 +25,7 @@
 #pragma once
 #ifndef UTIL_FILELOADER
 #define UTIL_FILELOADER
-#include "../interface/cpp/ScratchExtension.h"
+#include "../interface/cpp_interface/IScratchExtension.h"
 #include "../translate/Translate.h"
 #include <string>
 
@@ -34,7 +34,7 @@ public:
 	std::vector<std::string> getFileList(std::string path);
 	std::string getPath(std::string s);
 	void LoadTranslator();
-	void LoadExtension(std::vector<ScratchExtension*> &ext);
+	void LoadExtension(std::vector<IScratchExtension*> &ext);
 	bool ExsistExtension();
 public:
 	FileIO();

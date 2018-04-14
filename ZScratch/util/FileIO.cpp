@@ -65,7 +65,9 @@ std::vector<std::string> FileIO::getFileList(std::string path) {
 			)
 			fifind.push_back(findData.name);*/
 		//======INSTEAD:ONLY SELECT THE FILE EXTNAME SELECTED
-		fifind.push_back(findData.name);
+		int a, b;
+		if ((a = strcmp(findData.name, ".") != 0) && (b = strcmp(findData.name, "..") != 0))
+			fifind.push_back(findData.name);
 	} while (_findnext(handle, &findData) == 0);
 
 	_findclose(handle);
@@ -98,26 +100,11 @@ void FileIO::LoadTranslator() {
 
 
 
-void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
+void FileIO::LoadExtension(std::vector<IScratchExtension*> &ext) {
 	std::vector<std::string> extlist = getFileList("./plugin/*.zsp");
 	
 	int w[] = {16, 8};
 
-	/*auto funcPrintName = [&]()->void {
-		std::cout << "Plugin Lists:" << std::endl;
-		if (sc.argu.printPluginVersion)
-			std::cout << "\t" << std::setw(w[0]) << "PluginName" << std::setw(w[1]) << "PluginVersion" << std::endl;
-		else
-			std::cout << "\t" << std::setw(w[0]) << "PluginName" << std::endl;
-		auto funcPrint = [&]()->void {
-
-		};
-		for (size_t i = 0; i < extlist.size(); i++) {
-			if (extlist[i] == "." || extlist[i] == "..")
-				continue;
-			funcPrint();
-		}
-	};*/
 	std::wstring tempPath = L"./temp/plugin/";
 	if (_waccess(L"./temp", 00) == -1)
 		_wmkdir(L"./temp");
@@ -150,12 +137,21 @@ void FileIO::LoadExtension(std::vector<ScratchExtension*> &ext) {
 	}
 
 	//TODO: Read the file
-	std::vector<std::string> exttemp = getFileList("./temp/plugin/*.*");
+	std::vector<std::string> exttemp = getFileList("./temp/plugin/*");
 	for (auto c : exttemp) {
-		if (*c.rbegin() != '/')
+		std::string extpath = "./temp/plugin/" + c;
+		std::ifstream json(extpath + "/info.json", std::ios::in | std::ios::_Nocreate);
+		if (!json.is_open())
 			continue;
-		std::string extname = "./temp/plugin/" + c;
+		HMODULE lib = LoadLibraryA((extpath + "/plugin.dll").c_str());
+		IScratchExtension*(*c)()  = (IScratchExtension*(*)())GetProcAddress(lib, MAKEINTRESOURCEA(1));
+		IScratchExtension* plugin = c();
+		ext.push_back(plugin);
+	}
 
+	//TODO: Load the class
+	for (auto &c : ext) {
+		c->construct();
 	}
 }
 

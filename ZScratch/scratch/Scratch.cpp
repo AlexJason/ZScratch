@@ -24,12 +24,15 @@
 
 #include "Scratch.h"
 
-#include "..\gui\Paint.h"
+#include "..\util\Paint.h"
 #include "..\util\Time.h"
 #include "..\util\String.h"
 #include "..\util\FileIO.h"
 #include "..\util\Console.h"
 #include "..\util\AppArgu.h"
+
+#include "..\interface\cpp_interface\ScratchEvent.h"
+#include "..\interface\cpp_interface\RegisterInfo.h"
 
 #include <fstream>
 #include <sstream>
@@ -61,13 +64,16 @@ ATOM Scratch::RegisterWindowClass() {
 }
 
 BOOL Scratch::CreateMainWindow() {
-	HWND WindowHandle = CreateWindowEx(0, ClassName, WindowTitle, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, NULL, 0);
+	WindowHandle = CreateWindowEx(0, ClassName, WindowTitle, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, NULL, 0);
 	if (!WindowHandle)
 		return FALSE;
+	return TRUE;
+}
+
+VOID Scratch::ShowMainWindow() {
 	ShowWindow(WindowHandle, SW_NORMAL);
 	UpdateWindow(WindowHandle);
 	SendMessage(WindowHandle, WM_SYSCOMMAND, SC_MAXIMIZE, 0);
-	return TRUE;
 }
 
 DECLSPEC_DEPRECATED
@@ -106,7 +112,41 @@ LRESULT Scratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		FrameRect(p.mdc, &p.rc, hbr);
 		FillRect(p.mdc, &p.rc, hbr);
 		DeleteObject(hbr);
+		ScratchGuiStruct sgs;
+		sgs.hdc = p.mdc;
+		sgs.hwnd = p.hwnd;
+		sgs.rc = p.rc;
+		for (auto c : RegScratchGui)
+			c->onPaint(sgs);
 		p.EndPaint();
+		break;
+	}
+	case WM_MOUSEMOVE: {
+		MOUSE_MOVE->CallBack();
+		break;
+	}
+	case WM_LBUTTONDOWN: {
+		MOUSE_LDOWN->CallBack();
+		break;
+	}
+	case WM_LBUTTONUP: {
+		MOUSE_LUP->CallBack();
+		break;
+	}
+	case WM_RBUTTONDOWN: {
+		MOUSE_RDOWN->CallBack();
+		break;
+	}
+	case WM_RBUTTONUP: {
+		MOUSE_RUP->CallBack();
+		break;
+	}
+	case WM_LBUTTONDBLCLK: {
+		MOUSE_LDCLICK->CallBack();
+		break;
+	}
+	case WM_RBUTTONDBLCLK: {
+		MOUSE_RDCLICK->CallBack();
 		break;
 	}
 	case WM_DESTROY: {
@@ -150,7 +190,19 @@ int Scratch::AppMain(int argc, char **argv) {
 	RegisterWindowClass();
 	Log("Creating the main window.");
 	CreateMainWindow();
+	Log("Pre initialisate plugins.");
+	for (auto &c : ext) {
+		Log("\tPlugin Loaded: " + c->extid);
+		c->preInitialisation();
+	}
+	Log("Pre initialisate plugins.");
+	for (auto &c : ext)
+		c->preInitialisation();
+	Log("Pre initialisate plugins.");
+	for (auto &c : ext)
+		c->preInitialisation();
 	Log("Running message loop.");
+	ShowMainWindow();
 	int result = MessageLoop(0);
 	Log("Program has been finished.");
 	AppRelease();
@@ -158,7 +210,7 @@ int Scratch::AppMain(int argc, char **argv) {
 }
 
 void Scratch::AppRelease() {
-	_rmdir("./temp");
+	_rmdir("./temp/");
 	Log("Temp file has been deleted.");
 	if (_access("./log", 00) == -1)
 		_mkdir("./log");

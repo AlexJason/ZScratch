@@ -213,8 +213,6 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="command\EditorCommand.cpp" />
-    <ClCompile Include="gui\Paint.cpp" />
-    <ClCompile Include="interface\cpp\ScratchExtension.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scratch\Scratch.cpp" />
     <ClCompile Include="scratch\ScratchCostume.cpp" />
@@ -235,13 +233,13 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
     <ClCompile Include="util\FileIO.cpp" />
     <ClCompile Include="util\Json.cpp" />
     <ClCompile Include="util\AppArgu.cpp" />
+    <ClCompile Include="util\Paint.cpp" />
     <ClCompile Include="util\Rect.cpp" />
     <ClCompile Include="util\String.cpp" />
     <ClCompile Include="util\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="command\EditorCommand.h" />
-    <ClInclude Include="gui\Paint.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="scratch\Scratch.h" />
     <ClInclude Include="scratch\ScratchCostume.h" />
@@ -262,17 +260,13 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
     <ClInclude Include="util\FileIO.h" />
     <ClInclude Include="util\Json.h" />
     <ClInclude Include="util\AppArgu.h" />
+    <ClInclude Include="util\Paint.h" />
     <ClInclude Include="util\Rect.h" />
     <ClInclude Include="util\String.h" />
     <ClInclude Include="util\Time.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="config\style.json" />
-    <None Include="interface\java\ScratchExtension.java" />
-    <None Include="interface\lua\ScratchExtension.lua" />
-    <None Include="interface\python\ScratchExtension.py" />
-    <None Include="plugin\scratch-original\info.json" />
-    <None Include="plugin\scratch-original\plugin.py" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="config\locale.xml" />

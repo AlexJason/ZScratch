@@ -5,9 +5,6 @@
     <ClCompile Include="util\Console.cpp">
       <Filter>util</Filter>
     </ClCompile>
-    <ClCompile Include="gui\Paint.cpp">
-      <Filter>gui</Filter>
-    </ClCompile>
     <ClCompile Include="util\Rect.cpp">
       <Filter>util</Filter>
     </ClCompile>
@@ -22,9 +19,6 @@
     </ClCompile>
     <ClCompile Include="command\EditorCommand.cpp">
       <Filter>command</Filter>
-    </ClCompile>
-    <ClCompile Include="interface\cpp\ScratchExtension.h">
-      <Filter>interface\cpp</Filter>
     </ClCompile>
     <ClCompile Include="util\FileIO.cpp">
       <Filter>util</Filter>
@@ -77,13 +71,13 @@
     <ClCompile Include="util\Time.cpp">
       <Filter>util</Filter>
     </ClCompile>
+    <ClCompile Include="util\Paint.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
       <UniqueIdentifier>{9d1d6c7c-02f5-43c3-bbe3-62305116d09e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="gui">
-      <UniqueIdentifier>{44d241ec-2b4e-4449-a9ac-ae1eb0eb9fc6}</UniqueIdentifier>
     </Filter>
     <Filter Include="locale">
       <UniqueIdentifier>{919e2004-9f1c-465c-85a9-b3f1f9f7e84c}</UniqueIdentifier>
@@ -97,29 +91,8 @@
     <Filter Include="media">
       <UniqueIdentifier>{10e70b03-d7a3-4d5c-a2cc-fe5f2e6db661}</UniqueIdentifier>
     </Filter>
-    <Filter Include="plugin">
-      <UniqueIdentifier>{fc104ca8-bd19-43b2-8d93-9cddc59b2132}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="plugin\scratch-original">
-      <UniqueIdentifier>{eda4d3cd-c8ed-48e8-a575-6240ab37de6e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="interface">
-      <UniqueIdentifier>{a083dce6-9962-4a6f-9f4c-2a4d72209fbf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="interface\python">
-      <UniqueIdentifier>{ed5573f4-371c-41de-96c4-9ed8500aa297}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="interface\java">
-      <UniqueIdentifier>{94953a5b-91ee-4c90-9a5f-ce8bce48f63d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="interface\lua">
-      <UniqueIdentifier>{e9cde459-d054-4ca4-bd89-0d4f66cfa4e3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="command">
       <UniqueIdentifier>{aa96f2b5-73c4-4bb2-a0ff-75b608563f4d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="interface\cpp">
-      <UniqueIdentifier>{8fa8d5e7-bb00-4956-bca8-11f22c67a5e1}</UniqueIdentifier>
     </Filter>
     <Filter Include="scratch">
       <UniqueIdentifier>{c0f63a48-486d-4828-9218-8de4066f97c2}</UniqueIdentifier>
@@ -128,9 +101,6 @@
   <ItemGroup>
     <ClInclude Include="util\Console.h">
       <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="gui\Paint.h">
-      <Filter>gui</Filter>
     </ClInclude>
     <ClInclude Include="util\Rect.h">
       <Filter>util</Filter>
@@ -199,25 +169,13 @@
     <ClInclude Include="util\Time.h">
       <Filter>util</Filter>
     </ClInclude>
+    <ClInclude Include="util\Paint.h">
+      <Filter>util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="config\style.json">
       <Filter>config</Filter>
-    </None>
-    <None Include="plugin\scratch-original\info.json">
-      <Filter>plugin\scratch-original</Filter>
-    </None>
-    <None Include="plugin\scratch-original\plugin.py">
-      <Filter>plugin\scratch-original</Filter>
-    </None>
-    <None Include="interface\java\ScratchExtension.java">
-      <Filter>interface\java</Filter>
-    </None>
-    <None Include="interface\lua\ScratchExtension.lua">
-      <Filter>interface\lua</Filter>
-    </None>
-    <None Include="interface\python\ScratchExtension.py">
-      <Filter>interface\python</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

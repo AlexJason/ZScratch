@@ -28,7 +28,7 @@
 #include <Windows.h>
 #include <vector>
 #include "ScratchStage.h"
-#include "../interface/cpp/ScratchExtension.h"
+#include "../interface/cpp_interface/IScratchExtension.h"
 #include "../util/AppArgu.h"
 
 #define __winA "win32"
@@ -48,6 +48,7 @@
 #pragma comment(lib, "lib/ziputil/" __win "/ziputil" __lib)
 //#pragma comment(lib, "lib/python/" __win "/python3" __lib)
 //#pragma comment(lib, "lib/python/" __win "/python36" __lib)
+#pragma comment(lib, "cpp_interface.lib")
 
 class Scratch {
 public:
@@ -60,6 +61,7 @@ public:
 	HINSTANCE ProgramInstance;
 
 	ATOM RegisterWindowClass();
+	VOID ShowMainWindow();
 	BOOL CreateMainWindow();
 	DECLSPEC_DEPRECATED
 	WPARAM MessageLoop();
@@ -69,7 +71,7 @@ public:
 	//Scratch
 	std::string log;
 	ScratchStage stage;
-	std::vector<ScratchExtension*> ext;
+	std::vector<IScratchExtension*> ext;
 	AppArgu argu;
 
 	void Log(std::string str);
