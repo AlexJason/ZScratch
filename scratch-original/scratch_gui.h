@@ -8,32 +8,29 @@ class EXPORT Plugin final :public IScratchExtension {
 		this->extid = "scratch-gui";
 		this->title = "Scratch Gui";
 	}
+
 	virtual void preInitialisation() {
 		IScratchGui *pGui;
 		if (nullptr == (pGui = CreateGuiObject(PLUGIN_SDK_VER)))
 			return;
-		pGui->onPaint = [](ScratchGuiStruct gui) {
-			RECT rc = gui.rc;
-			HBRUSH hbr = CreateSolidBrush(0xffffff);
-			FillRect(gui.hdc, &rc, hbr);
-			FrameRect(gui.hdc, &rc, hbr);
-			DeleteObject(hbr);
-			hbr = CreateSolidBrush(0x848484);
-			rc.bottom = rc.top + 25;
-			FillRect(gui.hdc, &rc, hbr);
-			FrameRect(gui.hdc, &rc, hbr);
-			DeleteObject(hbr);
-			hbr = CreateSolidBrush(0xcccccc);
-			rc.top = rc.bottom + 10;
-			rc.bottom = rc.top + 25;
-			rc.left += 10;
-			rc.right = rc.left + 483;
-			FrameRect(gui.hdc, &rc, hbr);
-			DeleteObject(hbr);
-		};
+		pGui->onPaint = [this](ScratchGuiStruct gui) { this->GuiOnPaint(gui); };
 		RegisterObject(pGui);
+		IScratchValue *v;
+		InitObject(v);
 	}
-	virtual void Initialisation() {}
+
+	virtual void Initialisation() {
+		MOUSE_LUP->RegisterEventCallback([](void* x)->int { return 0; });
+	}
+
 	virtual void postInitialisation() {}
+
+	void GuiOnPaint(ScratchGuiStruct gui) {
+		RECT rc = gui.rc;
+		pdk::SetRect(&rc, rc.left, rc.top, rc.right, rc.top + 40);
+		pdk::DrawRectangle(gui.hdc, rc.left, rc.top, rc.right, rc.bottom, 0x848484);
+		pdk::SetRect(&rc, rc.left + 10, rc.bottom + 10, rc.left + 483, rc.top + 40);
+		pdk::DrawRectangle(gui.hdc, rc.left, rc.top, rc.right, rc.bottom, 0x848484);
+	}
 };
 #endif

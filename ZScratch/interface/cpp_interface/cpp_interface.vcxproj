@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,20 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IScratchBlock.cpp" />
+    <ClCompile Include="IScratchBlockItem.cpp" />
     <ClCompile Include="IScratchEvent.cpp" />
     <ClCompile Include="IScratchGui.cpp" />
+    <ClCompile Include="IScratchValue.cpp" />
+    <ClCompile Include="ScratchBlock.cpp" />
     <ClCompile Include="ScratchEvent.cpp" />
     <ClCompile Include="ScratchGui.cpp" />
+    <ClCompile Include="ScratchValue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IScratchBlock.h" />
+    <ClInclude Include="IScratchBlockItem.h" />
     <ClInclude Include="IScratchEvent.h" />
     <ClInclude Include="IScratchExtension.h" />
     <ClInclude Include="IScratchGui.h" />
+    <ClInclude Include="IScratchValue.h" />
     <ClInclude Include="pdk.h" />
     <ClInclude Include="RegisterInfo.h" />
+    <ClInclude Include="ScratchBlock.h" />
+    <ClInclude Include="ScratchBlockItem.h" />
     <ClInclude Include="ScratchEvent.h" />
     <ClInclude Include="ScratchGui.h" />
     <ClInclude Include="ScratchGuiStruct.h" />
+    <ClInclude Include="ScratchValue.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

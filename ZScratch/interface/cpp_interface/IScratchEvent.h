@@ -11,7 +11,7 @@ public:
 	virtual int CallBack() = 0;
 	IScratchEvent();
 	~IScratchEvent();
-	friend int RegisterEventCallback(IScratchEvent* event, std::function<int(void*)> callback);
+	int RegisterEventCallback(std::function<int(void*)> callback);
 };
 
 typedef IScratchEvent *pIScratchEvent;

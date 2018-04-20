@@ -1,9 +1,9 @@
 #pragma once
 #ifndef REGISTER_INFO
 #define REGISTER_INFO
-#include <vector>
+//#include <vector>
 
-#include "IScratchGui.h"
+//#include "IScratchGui.h"
 
 extern PDK std::vector<IScratchGui*> RegScratchGui;
 

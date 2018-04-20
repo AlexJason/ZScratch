@@ -125,22 +125,22 @@ LRESULT Scratch::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		MOUSE_MOVE->CallBack();
 		break;
 	}
-	case WM_LBUTTONDOWN: {
-		MOUSE_LDOWN->CallBack();
-		break;
-	}
-	case WM_LBUTTONUP: {
-		MOUSE_LUP->CallBack();
-		break;
-	}
-	case WM_RBUTTONDOWN: {
-		MOUSE_RDOWN->CallBack();
-		break;
-	}
-	case WM_RBUTTONUP: {
-		MOUSE_RUP->CallBack();
-		break;
-	}
+//	case WM_LBUTTONDOWN: {
+//		MOUSE_LDOWN->CallBack();
+//		break;
+//	}
+//	case WM_LBUTTONUP: {
+//		MOUSE_LUP->CallBack();
+//		break;
+//	}
+//	case WM_RBUTTONDOWN: {
+//		MOUSE_RDOWN->CallBack();
+//		break;
+//	}
+//	case WM_RBUTTONUP: {
+//		MOUSE_RUP->CallBack();
+//		break;
+//	}
 	case WM_LBUTTONDBLCLK: {
 		MOUSE_LDCLICK->CallBack();
 		break;

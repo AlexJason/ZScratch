@@ -62,9 +62,6 @@
     <ClCompile Include="scratch\ScratchStage.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
-    <ClCompile Include="scratch\ScratchValue.cpp">
-      <Filter>scratch</Filter>
-    </ClCompile>
     <ClCompile Include="scratch\ScratchVariable.cpp">
       <Filter>scratch</Filter>
     </ClCompile>
@@ -158,9 +155,6 @@
       <Filter>scratch</Filter>
     </ClInclude>
     <ClInclude Include="scratch\ScratchStage.h">
-      <Filter>scratch</Filter>
-    </ClInclude>
-    <ClInclude Include="scratch\ScratchValue.h">
       <Filter>scratch</Filter>
     </ClInclude>
     <ClInclude Include="scratch\ScratchVariable.h">

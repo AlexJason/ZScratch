@@ -7,7 +7,7 @@ IScratchEvent::IScratchEvent() {}
 
 IScratchEvent::~IScratchEvent() {}
 
-int RegisterEventCallback(IScratchEvent * event, std::function<int(void*)> callback) {
-	event->callback.push_back(callback);
-	return event->callback.size();
+int IScratchEvent::RegisterEventCallback(std::function<int(void*)> callback) {
+	this->callback.push_back(callback);
+	return this->callback.size();
 }

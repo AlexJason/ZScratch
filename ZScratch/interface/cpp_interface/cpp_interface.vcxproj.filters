@@ -27,6 +27,18 @@
     <ClCompile Include="ScratchGui.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
+    <ClCompile Include="IScratchBlock.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="IScratchBlockItem.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="ScratchValue.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="IScratchValue.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IScratchEvent.h">
@@ -51,6 +63,18 @@
       <Filter>cpp</Filter>
     </ClInclude>
     <ClInclude Include="ScratchGui.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="IScratchBlock.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="IScratchBlockItem.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="IScratchValue.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="ScratchValue.h">
       <Filter>cpp</Filter>
     </ClInclude>
   </ItemGroup>

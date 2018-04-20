@@ -27,7 +27,7 @@
 #define SCRATCH_SPEC
 #include <string>
 #include <vector>
-#include "ScratchValue.h"
+//#include "ScratchValue.h"
 class ScratchSpec {
 public:
 	struct Category {
@@ -47,7 +47,7 @@ public:
 		std::string type;
 		unsigned int category;
 		std::string command;
-		std::vector<ScratchValue> defaultValue;
+		//std::vector<ScratchValue> defaultValue;
 	};
 public:
 	std::vector<Category> category;

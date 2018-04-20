@@ -14,8 +14,11 @@
 
 #define EXPORT __declspec(dllexport)
 
+#include "IScratchBlock.h"
+#include "IScratchBlockItem.h"
 #include "IScratchEvent.h"
 #include "IScratchExtension.h"
 #include "IScratchGui.h"
+#include "IScratchValue.h"
 
 #endif
