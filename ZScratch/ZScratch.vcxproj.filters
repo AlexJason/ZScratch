@@ -71,6 +71,12 @@
     <ClCompile Include="util\Paint.cpp">
       <Filter>util</Filter>
     </ClCompile>
+    <ClCompile Include="gui\qt\MainWindow.cpp">
+      <Filter>gui\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\win32\MainWindow.cpp">
+      <Filter>gui\win32</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
@@ -85,14 +91,23 @@
     <Filter Include="config">
       <UniqueIdentifier>{20867a64-1c68-4da3-8f6f-b93bc4b2d3ae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="media">
-      <UniqueIdentifier>{10e70b03-d7a3-4d5c-a2cc-fe5f2e6db661}</UniqueIdentifier>
-    </Filter>
     <Filter Include="command">
       <UniqueIdentifier>{aa96f2b5-73c4-4bb2-a0ff-75b608563f4d}</UniqueIdentifier>
     </Filter>
     <Filter Include="scratch">
       <UniqueIdentifier>{c0f63a48-486d-4828-9218-8de4066f97c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui">
+      <UniqueIdentifier>{10e70b03-d7a3-4d5c-a2cc-fe5f2e6db661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui\header">
+      <UniqueIdentifier>{7faee4ca-9e61-492b-89e3-10ce72a5ea51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui\qt">
+      <UniqueIdentifier>{4da029fa-4ba5-43b0-9962-0bfe30959de7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui\win32">
+      <UniqueIdentifier>{38e57be7-a1ba-4ace-a359-c1ec836901ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +180,15 @@
     </ClInclude>
     <ClInclude Include="util\Paint.h">
       <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\CompileOption.h">
+      <Filter>gui\header</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\MainWindow.h">
+      <Filter>gui\header</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\Type.h">
+      <Filter>gui\header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

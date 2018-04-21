@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IColor.cpp" />
+    <ClCompile Include="IRect.cpp" />
     <ClCompile Include="IScratchBlock.cpp" />
     <ClCompile Include="IScratchBlockItem.cpp" />
     <ClCompile Include="IScratchEvent.cpp" />
@@ -30,6 +32,8 @@
     <ClCompile Include="ScratchValue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IColor.h" />
+    <ClInclude Include="IRect.h" />
     <ClInclude Include="IScratchBlock.h" />
     <ClInclude Include="IScratchBlockItem.h" />
     <ClInclude Include="IScratchEvent.h" />
@@ -37,6 +41,7 @@
     <ClInclude Include="IScratchGui.h" />
     <ClInclude Include="IScratchValue.h" />
     <ClInclude Include="pdk.h" />
+    <ClInclude Include="pdki.h" />
     <ClInclude Include="RegisterInfo.h" />
     <ClInclude Include="ScratchBlock.h" />
     <ClInclude Include="ScratchBlockItem.h" />
@@ -116,7 +121,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIBOUT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCWIN32;WIN32;_DEBUG;_LIBOUT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -131,7 +136,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCWIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -148,7 +153,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCWIN32;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -167,7 +172,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCWIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>

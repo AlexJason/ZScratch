@@ -39,6 +39,15 @@
     <ClCompile Include="IScratchValue.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
+    <ClCompile Include="ScratchBlock.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="IRect.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="IColor.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IScratchEvent.h">
@@ -75,6 +84,21 @@
       <Filter>cpp</Filter>
     </ClInclude>
     <ClInclude Include="ScratchValue.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="ScratchBlock.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="ScratchBlockItem.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="IRect.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="IColor.h">
+      <Filter>cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="pdki.h">
       <Filter>cpp</Filter>
     </ClInclude>
   </ItemGroup>
