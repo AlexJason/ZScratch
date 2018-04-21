@@ -18,7 +18,9 @@ IScratchGui * CreateGuiObject(double _PDK_VERSION) {
 }
 
 namespace pdk {
-	void PDK DrawRectangle(HDC hdc, int x0, int y0, int x1, int y1, COLORREF fill) {
+#if defined(ZSCRATCH_COMPILE_WIN32)
+#include <Windows.h>
+	void PDK DrawRectangle(IRect rc, IColor fill) {
 		HBRUSH hbr = CreateSolidBrush(fill);
 		RECT rc = { x0, y0, x1, y1 };
 		FillRect(hdc, &rc, hbr);
@@ -26,7 +28,7 @@ namespace pdk {
 		DeleteObject(hbr);
 	}
 
-	void PDK DrawRectangle(HDC hdc, int x0, int y0, int x1, int y1, COLORREF fill, COLORREF frame) {
+	void PDK DrawRectangle(IRect rc, IColor fill, IColor frame) {
 		HBRUSH hbr = CreateSolidBrush(fill);
 		RECT rc = { x0, y0, x1, y1 };
 		FillRect(hdc, &rc, hbr);
@@ -56,4 +58,7 @@ namespace pdk {
 		rc->top = y0;
 		rc->bottom = y1;
 	}
+#elif defined(ZSCRATCH_COMPILE_QT)
+
+#endif
 }

@@ -6,13 +6,7 @@
 
 #pragma warning(disable:4251)
 
-#ifdef _LIBOUT
-#define PDK __declspec(dllexport)
-#else
-#define PDK __declspec(dllimport)
-#endif
-
-#define EXPORT __declspec(dllexport)
+#include "pdki.h"
 
 #include "IScratchBlock.h"
 #include "IScratchBlockItem.h"

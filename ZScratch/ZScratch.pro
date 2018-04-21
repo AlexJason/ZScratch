@@ -64,7 +64,11 @@ SOURCES += \
     gui/qt/MainWindow.cpp \
     gui/qt/qwindow.cpp \
     gui/win32/MainWindow.cpp \
-    gui/win32/MainWindow.cpp
+    gui/win32/MainWindow.cpp \
+    interface/cpp_interface/IColor.cpp \
+    interface/cpp_interface/IRect.cpp \
+    interface/cpp_interface/IScratchBlock.cpp \
+    interface/cpp_interface/IScratchBlockItem.cpp
 
 HEADERS += \
     command/EditorCommand.h \
@@ -113,7 +117,10 @@ HEADERS += \
     gui/CompileOption.h \
     gui/MainWindow.h \
     gui/Type.h \
-    gui/win32/WPaint.h
+    gui/win32/WPaint.h \
+    interface/cpp_interface/IColor.h \
+    interface/cpp_interface/IRect.h \
+    interface/cpp_interface/IScratchBlock.h
 
 DISTFILES += \
     config/style.json \
