@@ -99,7 +99,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCWIN32;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
@@ -128,7 +128,7 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCWIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
@@ -159,7 +159,7 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCWIN32;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
@@ -189,7 +189,7 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SCWIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
@@ -214,6 +214,8 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="command\EditorCommand.cpp" />
+    <ClCompile Include="gui\qt\MainWindow.cpp" />
+    <ClCompile Include="gui\win32\MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scratch\Scratch.cpp" />
     <ClCompile Include="scratch\ScratchCostume.cpp" />
@@ -240,6 +242,9 @@ COPY /Y $(ProjectDir)config\ $(OutputPath)config\
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="command\EditorCommand.h" />
+    <ClInclude Include="gui\CompileOption.h" />
+    <ClInclude Include="gui\MainWindow.h" />
+    <ClInclude Include="gui\Type.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="scratch\Scratch.h" />
     <ClInclude Include="scratch\ScratchCostume.h" />

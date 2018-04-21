@@ -52,22 +52,6 @@
 
 class Scratch {
 public:
-	//Windows
-	LPCWSTR ClassName;
-	LPCWSTR WindowTitle;
-
-	HWND WindowHandle;
-	HWND ConsoleHandle;
-	HINSTANCE ProgramInstance;
-
-	ATOM RegisterWindowClass();
-	VOID ShowMainWindow();
-	BOOL CreateMainWindow();
-	DECLSPEC_DEPRECATED
-	WPARAM MessageLoop();
-	WPARAM MessageLoop(int);
-	LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
-
 	//Scratch
 	std::string log;
 	ScratchStage stage;
