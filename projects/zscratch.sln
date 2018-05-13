@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zscratch.app", "zscratch_vs2017.vcxproj", "{344A1A3D-4049-4B68-9DBF-DD9516F13D57}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zscratch.plugin.cpp", "plugin.cpp_vs2017.vcxproj", "{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Debug|x64.ActiveCfg = Debug|x64
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Debug|x64.Build.0 = Debug|x64
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Debug|x86.ActiveCfg = Debug|Win32
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Debug|x86.Build.0 = Debug|Win32
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Release|Any CPU.ActiveCfg = Release|Win32
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Release|x64.ActiveCfg = Release|x64
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Release|x64.Build.0 = Release|x64
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Release|x86.ActiveCfg = Release|Win32
+		{344A1A3D-4049-4B68-9DBF-DD9516F13D57}.Release|x86.Build.0 = Release|Win32
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Debug|x64.ActiveCfg = Debug|x64
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Debug|x64.Build.0 = Debug|x64
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Debug|x86.ActiveCfg = Debug|Win32
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Debug|x86.Build.0 = Debug|Win32
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Release|Any CPU.ActiveCfg = Release|Win32
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Release|x64.ActiveCfg = Release|x64
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Release|x64.Build.0 = Release|x64
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Release|x86.ActiveCfg = Release|Win32
+		{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E0A908C-A591-4EBF-8B09-0ACBB3B2E320}
+	EndGlobalSection
+EndGlobal

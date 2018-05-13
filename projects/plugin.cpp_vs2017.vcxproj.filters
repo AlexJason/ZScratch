@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{9f1e75f5-0e50-4a3f-a29c-d40295ed003e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\plugin\cpp\IScratchBlock.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\plugin\cpp\IScratchChooseBox.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\plugin\cpp\Register.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\plugin\cpp\IScratchBlock.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\plugin\cpp\IScratchBlockItem.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\plugin\cpp\pdk.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\plugin\cpp\dlldef.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\plugin\cpp\IScratchChooseBox.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\plugin\cpp\IScratchPlugin.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\plugin\cpp\Register.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

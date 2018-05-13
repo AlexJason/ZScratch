@@ -1,0 +1,16 @@
+{
+  "extid": "Your extension's id",
+  "title": "Your extension's title",
+  "description": "Description for your extension",
+  "version": "Your extension's version",
+  "versionFull": {
+    "major": 0,
+    "minor": 0,
+    "revis": 1
+  },
+  "author": [ "authors" ],
+  "email": "author/team email",
+  //"require": [ "requires >= atleastversion" ],
+  "updateUrl": "url for update",
+  "downloadUrl": "url for download"
+}

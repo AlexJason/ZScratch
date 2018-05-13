@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2827ea4b-ebb8-4a95-943b-d3a31facedbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scratch">
+      <UniqueIdentifier>{9a7b26f9-9e8c-41bc-a2eb-6426149017fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{b8f596e7-55f6-423a-a177-af494c856350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{346023d6-1c63-461a-88f9-37b69c959e66}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\scratch\Scratch.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchCostume.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchInfo.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchObject.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchRuntime.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchScript.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchScriptPart.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchSound.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchSpec.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchSprite.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchStage.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scratch\ScratchVariable.cpp">
+      <Filter>src\scratch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\AppArgu.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\Color.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\Console.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\Json.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\Rect.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\String.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\Time.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\Translate.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\Update.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ZScratch.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\File.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\PluginLoader.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\Plugin.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\scratch\Scratch.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchCostume.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchInfo.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchObject.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchRuntime.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchScript.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchScriptPart.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchSound.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchSpec.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchSprite.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchStage.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scratch\ScratchVariable.h">
+      <Filter>src\scratch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\AppArgu.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\Color.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\Console.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\Json.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\Rect.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\String.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\Time.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\Translate.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\System.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\Update.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ZScratch.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\File.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\PluginLoader.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\Plugin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\bin\config\locale.xml">
+      <Filter>config</Filter>
+    </Xml>
+    <Xml Include="..\bin\config\path.xml">
+      <Filter>config</Filter>
+    </Xml>
+    <Xml Include="..\bin\config\plugin.json">
+      <Filter>config</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\config\style.json">
+      <Filter>config</Filter>
+    </None>
+  </ItemGroup>
+</Project>

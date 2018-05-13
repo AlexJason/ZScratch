@@ -1,0 +1,149 @@
+/**
+ * This file is part of ZScratch.
+ * ZScratch is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3.
+ * ZScratch is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with ZScratch. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @file	PluginLoader.cpp
+ * @author	Alex Cui
+ * @date	May, 2018
+ * @details	Load resources from plugin.
+*/
+
+#ifndef UNICODE
+#define UNICODE
+#endif
+
+#include "PluginLoader.h"
+
+#include <io.h>
+#include <fstream>
+
+#include <Windows.h>
+
+#include "String.h"
+#include "System.h"
+#include "File.h"
+#include "../../lib/include/ziputil/unzip.h"
+#include "../../lib/include/jsoncpp/json.h"
+#include "../plugin/cpp/IScratchPlugin.h"
+
+using namespace zscratch::plugin::cpp;
+
+
+PluginLoader::PluginLoader() {
+	this->plugin.clear();
+}
+
+PluginLoader::~PluginLoader() {
+
+}
+
+std::map<PluginAPI, std::string> PluginLoader::SearchPlugin(std::string path) {
+	std::vector<std::string> find = File("./plugin/").getFileList("*.zsp");
+
+	std::wstring tempPath = L"./temp/plugin/";
+	if (_waccess(L"./temp", 00) == -1)
+		_wmkdir(L"./temp");
+	if (_waccess(tempPath.c_str(), 00) == -1)
+		_wmkdir(tempPath.c_str());
+	//TODO: Unzip the zipped file to temp file.
+	for (auto c : find) {
+		std::wstring extp = L"./plugin/" + StringToWString(c);
+		HZIP hz = OpenZip(extp.c_str(), 0);
+		ZIPENTRY ze;
+		GetZipItem(hz, -1, &ze);
+		int numitems = ze.index;
+		for (int zi = 0; zi < numitems; zi++) {
+			ZIPENTRY ze;
+			GetZipItem(hz, zi, &ze);
+			std::wstring s = ze.name;
+			if (*--s.end() == '/') {
+				_wmkdir((tempPath + s).c_str());
+				continue;
+			}
+			char *ibuf = new char[ze.unc_size];
+			UnzipItem(hz, zi, ibuf, ze.unc_size);
+			std::ofstream ofs((tempPath + ze.name).c_str(), std::ios::out);
+			ofs.write(ibuf, ze.unc_size);
+			ofs.flush();
+			ofs.close();
+			delete[] ibuf;
+		}
+		CloseZip(hz);
+	}
+
+	//TODO: Read the file
+	std::vector<std::string> exttemp = File("./temp/plugin/").getFileList("*");
+	for (auto c : exttemp) {
+		std::string extpath = "./temp/plugin/" + c;
+		std::ifstream json(extpath + "/info.json", std::ios::in | std::ios::_Nocreate);
+		if (!json.is_open())
+			continue;
+
+		/*HMODULE lib = LoadLibraryA((extpath + "/plugin.dll").c_str());
+		IScratchPlugin*(*c)() = (IScratchPlugin*(*)())GetProcAddress(lib, MAKEINTRESOURCEA(1));
+		IScratchPlugin* plugin = c();
+		ext.push_back(plugin);*/
+	}
+}
+
+PluginAPI PluginLoader::GetPluginAPI(std::ifstream info_json) {
+	
+
+}
+
+std::vector<Plugin> PluginLoader::LoadPlugin() {
+	std::vector<Plugin> ret;
+	for (const auto &c : this->tmpSP) {
+		Plugin plg;
+		switch (c.first) {
+		case PluginAPI::CPP:
+			break;
+		case PluginAPI::CS:
+			break;
+		case PluginAPI::JAVA:
+			break;
+		case PluginAPI::PYTHON:
+			break;
+		case PluginAPI::LUA:
+			break;
+		default:
+			break;
+		}
+		ret.push_back(plg);
+	}
+}
+
+Plugin PluginLoader::LoadPlugin_CPP(std::string name) {
+	Plugin ret;
+	std::string plgPath = "./temp/plugin/" + name;
+	std::ifstream json(plgPath + "/info.json", std::ios::in | std::ios::_Nocreate);
+	if (!json.is_open())
+		return ret;
+
+
+	HMODULE lib = LoadLibraryA(("./temp/plugin/" + name + "/plugin.dll").c_str());
+	IScratchPlugin*(*c)() = (IScratchPlugin*(*)())GetProcAddress(lib, MAKEINTRESOURCEA(1));
+	IScratchPlugin* plugin = c();
+	ret.plg = plugin;
+	return ret;
+}
+
+void PluginLoader::LoadPluginJson(std::string name, Plugin& plg, bool print) {
+	std::string plgPath = "./temp/plugin/" + name;
+	std::ifstream json(plgPath + "/info.json", std::ios::in | std::ios::_Nocreate);
+	if (!json.is_open())
+		return;
+
+	Json::Value root;
+	Json::Reader reader;
+	if (!reader.parse(json, root))
+		return;
+
+	plg.extid = root["extid"].asString();
+	plg.title = root["title"].asString();
+	plg.description = root["description"].asString();
+	if (!root["author"].isArray()) return;
+
+}

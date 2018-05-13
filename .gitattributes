@@ -63,5 +63,6 @@
 #*.RTF   diff=astextplain
 
 ###############################################################################
-*.clp linguist-language=Clip
+*.clp linguist-language=clip
+
 

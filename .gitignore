@@ -265,12 +265,8 @@ __pycache__/
 *.pyc
 
 # Library
-ZScratch/lib/java/include/
-ZScratch/lib/python/include/
-ZScratch/lib/jsoncpp/include/
-ZScratch/lib/ziputil/include/
-ZScratch/lib/tinyxml/include/
-ZScratch/lib/lua/include/
+lib/include/
+build/
 
 # Program Runtime
 ZScratch/temp/
