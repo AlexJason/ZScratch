@@ -4,41 +4,29 @@
  * ZScratch is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with ZScratch. If not, see <http://www.gnu.org/licenses/>.
  *
- * @file	Scratch.h
+ * @file	Error.h
  * @author	Alex Cui
- * @date	March, 2018
- * @details	This is the entry class of the program.
+ * @date	May, 2018
+ * @details	Define errors.
 */
 
 #pragma once
-#ifndef ZSCRATCH_SCRATCH_SCRATCH
-#define ZSCRATCH_SCRATCH_SCRATCH
+#ifndef ZSCRATCH_UTIL_ERROR
+#define ZSCRATCH_UTIL_ERROR
 
-#include <Windows.h>
-#include <vector>
-#include "ScratchStage.h"
-#include "..\util\AppArgu.h"
-#include "..\pluginloader\Plugin.h"
+#include <string>
 
-class Scratch {
-public:
-	//Scratch
-	std::string log;
-	ScratchStage stage;
-	std::vector<Plugin> plugins;
-	AppArgu argu;
+#define ERROR(x, n) \
+	class x { \
+	public: \
+		std::string str; \
+		bool exit; \
+		x() = default; \
+		x(std::string t, bool b) { this->str = t; this->exit = b; } \
+		operator void() {} \
+		operator int() { return n; } \
+	};
 
-	void Log(std::string str);
-	int AppMain(int argc, char **argv);
-	void AppRelease();
-	void InstallExtension();
-
-	Scratch();
-	~Scratch();
-};
-
-extern Scratch sc;
+#define DEFINE_ERROR(x) ERROR(x, 1)
 
 #endif
-
-

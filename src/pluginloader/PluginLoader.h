@@ -11,14 +11,15 @@
 */
 
 #pragma once
-#ifndef ZSCRATCH_UTIL_PLUGINLOADER
-#define ZSCRATCH_UTIL_PLUGINLOADER
+#ifndef ZSCRATCH_PLUGINLOADER_PLUGINLOADER
+#define ZSCRATCH_PLUGINLOADER_PLUGINLOADER
 
 #include <vector>
 #include <string>
 #include <map>
 
 #include "..\plugin\cpp\IScratchPlugin.h"
+#include "..\scratch\Scratch.h"
 #include "Plugin.h"
 
 class PluginLoader {
@@ -27,16 +28,17 @@ public:
 private:
 	std::map<PluginAPI, std::string> tmpSP;
 public:
-	PluginLoader();
+	PluginLoader(Scratch *);
 	~PluginLoader();
 
-	std::map<PluginAPI, std::string> SearchPlugin(std::string path);
+	Scratch *sc;
+
+	std::vector<std::string> SearchPlugin(std::string path);
 	PluginAPI GetPluginAPI(std::ifstream info_json);
 
 	std::vector<Plugin> LoadPlugin();
 private:
 	Plugin LoadPlugin_CPP(std::string name);
-	Plugin LoadPlugin_CS(std::string name);
 	void LoadPluginJson(std::string name, Plugin& plg, bool print = false);
 };
 

@@ -4,41 +4,19 @@
  * ZScratch is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with ZScratch. If not, see <http://www.gnu.org/licenses/>.
  *
- * @file	Scratch.h
+ * @file	PluginError.h
  * @author	Alex Cui
- * @date	March, 2018
- * @details	This is the entry class of the program.
+ * @date	May, 2018
+ * @details	Define errors.
 */
 
 #pragma once
-#ifndef ZSCRATCH_SCRATCH_SCRATCH
-#define ZSCRATCH_SCRATCH_SCRATCH
+#ifndef ZSCRATCH_PLUGINLOADER_PLUGINERROR
+#define ZSCRATCH_PLUGINLOADER_PLUGINERROR
 
-#include <Windows.h>
-#include <vector>
-#include "ScratchStage.h"
-#include "..\util\AppArgu.h"
-#include "..\pluginloader\Plugin.h"
+#include "../util/Error.h"
 
-class Scratch {
-public:
-	//Scratch
-	std::string log;
-	ScratchStage stage;
-	std::vector<Plugin> plugins;
-	AppArgu argu;
-
-	void Log(std::string str);
-	int AppMain(int argc, char **argv);
-	void AppRelease();
-	void InstallExtension();
-
-	Scratch();
-	~Scratch();
-};
-
-extern Scratch sc;
+DEFINE_ERROR(PLError_JsonError)
+DEFINE_ERROR(PLError_ApiError)
 
 #endif
-
-

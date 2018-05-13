@@ -14,18 +14,18 @@
 
 #include "..\util\Time.h"
 #include "..\util\String.h"
-#include "..\util\FileIO.h"
+#include "..\util\File.h"
 #include "..\util\Console.h"
 #include "..\util\AppArgu.h"
-
-#include "..\plugin\cpp\ScratchEvent.h"
-#include "..\plugin\cpp\RegisterInfo.h"
+#include "..\pluginloader\PluginLoader.h"
 
 #include <fstream>
 #include <sstream>
 
 #include <direct.h>
 #include <io.h>
+
+using namespace zscratch::plugin::cpp;
 
 void Scratch::Log(std::string str) {
 	log.append(printTime());
@@ -51,26 +51,25 @@ int Scratch::AppMain(int argc, char **argv) {
 	}
 	
 	//Search plugins
-	Log("Searching plugins.");
+	Log("Installing plugins.");
 	//InstallExtension();
-	Log(toString(ext.size()) + "plugins has been searched");
+	this->InstallExtension();
 	
 	//Call IScratchExtension::PreInitialisation
 	Log("Pre initialisate plugins.");
-	for (auto &c : ext) {
-		Log("\tPlugin Loaded: " + c->extid);
-		c->preInitialisation();
+	for (auto &c : plugins) {
+		c.plg->preInitialisation(InitialisationEvent());
 	}
 
 	//Call IScratchExtension::Initialisation
 	Log("Initialisate plugins.");
-	for (auto &c : ext)
-		c->Initialisation();
+	for (auto &c : plugins)
+		c.plg->Initialisation(InitialisationEvent());
 
 	//Call IScratchExtension::PostInitialisation
 	Log("Post initialisate plugins.");
-	for (auto &c : ext)
-		c->postInitialisation();
+	for (auto &c : plugins)
+		c.plg->postInitialisation(InitialisationEvent());
 
 	return 0;
 }
@@ -88,9 +87,8 @@ void Scratch::AppRelease() {
 }
 
 void Scratch::InstallExtension() {
-	ext.clear();
-	FileIO fio;
-	fio.LoadExtension(ext);
+	PluginLoader loader(this);
+	this->plugins = loader.LoadPlugin();
 }
 
 Scratch::Scratch() {

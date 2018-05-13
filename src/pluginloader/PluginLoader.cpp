@@ -21,9 +21,10 @@
 
 #include <Windows.h>
 
-#include "String.h"
-#include "System.h"
-#include "File.h"
+#include "PluginError.h"
+#include "../util/String.h"
+#include "../util/System.h"
+#include "../util/File.h"
 #include "../../lib/include/ziputil/unzip.h"
 #include "../../lib/include/jsoncpp/json.h"
 #include "../plugin/cpp/IScratchPlugin.h"
@@ -31,7 +32,8 @@
 using namespace zscratch::plugin::cpp;
 
 
-PluginLoader::PluginLoader() {
+PluginLoader::PluginLoader(Scratch * sc) {
+	this->sc = sc;
 	this->plugin.clear();
 }
 
@@ -39,7 +41,7 @@ PluginLoader::~PluginLoader() {
 
 }
 
-std::map<PluginAPI, std::string> PluginLoader::SearchPlugin(std::string path) {
+std::vector<std::string> PluginLoader::SearchPlugin(std::string path) {
 	std::vector<std::string> find = File("./plugin/").getFileList("*.zsp");
 
 	std::wstring tempPath = L"./temp/plugin/";
@@ -73,19 +75,7 @@ std::map<PluginAPI, std::string> PluginLoader::SearchPlugin(std::string path) {
 		CloseZip(hz);
 	}
 
-	//TODO: Read the file
-	std::vector<std::string> exttemp = File("./temp/plugin/").getFileList("*");
-	for (auto c : exttemp) {
-		std::string extpath = "./temp/plugin/" + c;
-		std::ifstream json(extpath + "/info.json", std::ios::in | std::ios::_Nocreate);
-		if (!json.is_open())
-			continue;
-
-		/*HMODULE lib = LoadLibraryA((extpath + "/plugin.dll").c_str());
-		IScratchPlugin*(*c)() = (IScratchPlugin*(*)())GetProcAddress(lib, MAKEINTRESOURCEA(1));
-		IScratchPlugin* plugin = c();
-		ext.push_back(plugin);*/
-	}
+	return find;
 }
 
 PluginAPI PluginLoader::GetPluginAPI(std::ifstream info_json) {
@@ -138,12 +128,41 @@ void PluginLoader::LoadPluginJson(std::string name, Plugin& plg, bool print) {
 
 	Json::Value root;
 	Json::Reader reader;
+	Json::Value value;
 	if (!reader.parse(json, root))
 		return;
 
-	plg.extid = root["extid"].asString();
-	plg.title = root["title"].asString();
-	plg.description = root["description"].asString();
-	if (!root["author"].isArray()) return;
-
+	try {
+		if (!root["extid"].isString())
+			throw PLError_JsonError(plgPath + ": json.extid must be string", true);
+		plg.extid = root["extid"].asString();
+		plg.title = root["title"].isString() ? root["title"].asString() : plg.extid;
+		plg.description = root["description"].asString();
+		if (!root["sdk"].isString())
+			throw PLError_ApiError(plgPath + ": json.sdk must exist", true);
+		plg.sdk = root["sdk"].asString();
+		value = root["author"];
+		if (!value.isArray())
+			throw PLError_JsonError(plgPath + ": json.author must be array", true);
+		for (int i = 0; i < value.size(); i++)
+			plg.author.push_back(value[i].asString());
+	}
+	catch (PLError_JsonError t) {
+		this->sc->Log("PluginLoader ERROR: " + t.str);
+		if (t.exit)
+			return;
+	}
+	catch (PLError_ApiError t) {
+		this->sc->Log("PluginLoader ERROR: " + t.str);
+		if (t.exit)
+			return;
+	}
+	if (print) {
+		this->sc->Log(
+			"Plugin Info"
+			"\n\tID   : " + plg.extid + 
+			"\n\tName : " + plg.title +
+			"\n\tAPI  : " + plg.sdk
+		);
+	}
 }
