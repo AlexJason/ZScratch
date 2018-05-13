@@ -26,14 +26,14 @@ class PluginLoader {
 public:
 	std::vector<Plugin> plugin;
 private:
-	std::map<PluginAPI, std::string> tmpSP;
+	std::vector<std::string> tmpSP;
 public:
 	PluginLoader(Scratch *);
 	~PluginLoader();
 
 	Scratch *sc;
 
-	std::vector<std::string> SearchPlugin(std::string path);
+	std::vector<std::string> UnzipPlugin();
 	PluginAPI GetPluginAPI(std::ifstream info_json);
 
 	std::vector<Plugin> LoadPlugin();

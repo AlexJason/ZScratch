@@ -88,6 +88,7 @@ void Scratch::AppRelease() {
 
 void Scratch::InstallExtension() {
 	PluginLoader loader(this);
+	loader.UnzipPlugin();
 	this->plugins = loader.LoadPlugin();
 }
 

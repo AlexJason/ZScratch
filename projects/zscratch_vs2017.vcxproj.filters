@@ -13,6 +13,9 @@
     <Filter Include="config">
       <UniqueIdentifier>{346023d6-1c63-461a-88f9-37b69c959e66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\pluginloader">
+      <UniqueIdentifier>{e91ac46a-63c2-4dfb-87e1-a3258e836ce2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\scratch\Scratch.cpp">
@@ -84,10 +87,12 @@
     <ClCompile Include="..\src\util\File.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\util\PluginLoader.cpp">
-      <Filter>src\util</Filter>
+    <ClCompile Include="..\src\pluginloader\Plugin.cpp">
+      <Filter>src\pluginloader</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\util\Plugin.cpp" />
+    <ClCompile Include="..\src\pluginloader\PluginLoader.cpp">
+      <Filter>src\pluginloader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\scratch\Scratch.h">
@@ -162,19 +167,27 @@
     <ClInclude Include="..\src\util\File.h">
       <Filter>src\util</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\util\PluginLoader.h">
+    <ClInclude Include="..\src\pluginloader\Plugin.h">
+      <Filter>src\pluginloader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pluginloader\PluginLoader.h">
+      <Filter>src\pluginloader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pluginloader\PluginError.h">
+      <Filter>src\pluginloader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\Error.h">
       <Filter>src\util</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\util\Plugin.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\bin\config\locale.xml">
-      <Filter>config</Filter>
-    </Xml>
     <Xml Include="..\bin\config\path.xml">
       <Filter>config</Filter>
     </Xml>
     <Xml Include="..\bin\config\plugin.json">
+      <Filter>config</Filter>
+    </Xml>
+    <Xml Include="..\bin\config\locale.json">
       <Filter>config</Filter>
     </Xml>
   </ItemGroup>

@@ -41,7 +41,7 @@ PluginLoader::~PluginLoader() {
 
 }
 
-std::vector<std::string> PluginLoader::SearchPlugin(std::string path) {
+std::vector<std::string> PluginLoader::UnzipPlugin() {
 	std::vector<std::string> find = File("./plugin/").getFileList("*.zsp");
 
 	std::wstring tempPath = L"./temp/plugin/";
@@ -75,6 +75,7 @@ std::vector<std::string> PluginLoader::SearchPlugin(std::string path) {
 		CloseZip(hz);
 	}
 
+	this->tmpSP = find;
 	return find;
 }
 
@@ -86,21 +87,7 @@ PluginAPI PluginLoader::GetPluginAPI(std::ifstream info_json) {
 std::vector<Plugin> PluginLoader::LoadPlugin() {
 	std::vector<Plugin> ret;
 	for (const auto &c : this->tmpSP) {
-		Plugin plg;
-		switch (c.first) {
-		case PluginAPI::CPP:
-			break;
-		case PluginAPI::CS:
-			break;
-		case PluginAPI::JAVA:
-			break;
-		case PluginAPI::PYTHON:
-			break;
-		case PluginAPI::LUA:
-			break;
-		default:
-			break;
-		}
+		Plugin plg = LoadPlugin_CPP(c);
 		ret.push_back(plg);
 	}
 }
@@ -111,7 +98,7 @@ Plugin PluginLoader::LoadPlugin_CPP(std::string name) {
 	std::ifstream json(plgPath + "/info.json", std::ios::in | std::ios::_Nocreate);
 	if (!json.is_open())
 		return ret;
-
+	this->LoadPluginJson(name, ret, this->sc->argu.printPluginName);
 
 	HMODULE lib = LoadLibraryA(("./temp/plugin/" + name + "/plugin.dll").c_str());
 	IScratchPlugin*(*c)() = (IScratchPlugin*(*)())GetProcAddress(lib, MAKEINTRESOURCEA(1));

@@ -31,7 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
-    <CLRSupport>true</CLRSupport>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -39,14 +39,14 @@
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <CLRSupport>true</CLRSupport>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
-    <CLRSupport>true</CLRSupport>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -54,7 +54,7 @@
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <CLRSupport>true</CLRSupport>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -101,6 +101,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
     </ClCompile>
     <BuildLog>
       <Path>..\build\log\zscratch.log</Path>
@@ -113,6 +114,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
     </ClCompile>
     <BuildLog>
       <Path>..\build\log\zscratch.log</Path>
@@ -127,6 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -145,6 +148,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -155,6 +159,8 @@
     </BuildLog>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\pluginloader\Plugin.cpp" />
+    <ClCompile Include="..\src\pluginloader\PluginLoader.cpp" />
     <ClCompile Include="..\src\scratch\Scratch.cpp" />
     <ClCompile Include="..\src\scratch\ScratchCostume.cpp" />
     <ClCompile Include="..\src\scratch\ScratchInfo.cpp" />
@@ -172,8 +178,6 @@
     <ClCompile Include="..\src\util\Console.cpp" />
     <ClCompile Include="..\src\util\File.cpp" />
     <ClCompile Include="..\src\util\Json.cpp" />
-    <ClCompile Include="..\src\util\Plugin.cpp" />
-    <ClCompile Include="..\src\util\PluginLoader.cpp" />
     <ClCompile Include="..\src\util\Rect.cpp" />
     <ClCompile Include="..\src\util\String.cpp" />
     <ClCompile Include="..\src\util\Time.cpp" />
@@ -182,6 +186,9 @@
     <ClCompile Include="..\src\ZScratch.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\pluginloader\Plugin.h" />
+    <ClInclude Include="..\src\pluginloader\PluginError.h" />
+    <ClInclude Include="..\src\pluginloader\PluginLoader.h" />
     <ClInclude Include="..\src\scratch\Scratch.h" />
     <ClInclude Include="..\src\scratch\ScratchCostume.h" />
     <ClInclude Include="..\src\scratch\ScratchInfo.h" />
@@ -197,10 +204,9 @@
     <ClInclude Include="..\src\util\AppArgu.h" />
     <ClInclude Include="..\src\util\Color.h" />
     <ClInclude Include="..\src\util\Console.h" />
+    <ClInclude Include="..\src\util\Error.h" />
     <ClInclude Include="..\src\util\File.h" />
     <ClInclude Include="..\src\util\Json.h" />
-    <ClInclude Include="..\src\util\Plugin.h" />
-    <ClInclude Include="..\src\util\PluginLoader.h" />
     <ClInclude Include="..\src\util\Rect.h" />
     <ClInclude Include="..\src\util\String.h" />
     <ClInclude Include="..\src\util\System.h" />
@@ -210,7 +216,7 @@
     <ClInclude Include="..\src\ZScratch.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\bin\config\locale.xml" />
+    <Xml Include="..\bin\config\locale.json" />
     <Xml Include="..\bin\config\path.xml" />
     <Xml Include="..\bin\config\plugin.json" />
   </ItemGroup>
