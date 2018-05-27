@@ -4,17 +4,17 @@
  * ZScratch is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with ZScratch. If not, see <http://www.gnu.org/licenses/>.
  *
- * @file	FileIO.cpp
+ * @file	File.cpp
  * @author	Alex Cui
  * @date	March, 2018
  * @details	The module for loading local files.
 */
 
-#include "FileIO.h"
-
 #ifndef UNICODE
 #define UNICODE
 #endif
+
+#include "File.h"
 
 #include <Windows.h>
 #include <iomanip>
@@ -170,7 +170,7 @@ std::vector<std::string> File::getFileList(std::string fmt) {
 	intptr_t handle;
 	_finddata_t findData;
 
-	handle = _findfirst(fmt.c_str(), &findData);
+	handle = _findfirst((this->path + fmt).c_str(), &findData);
 	if (handle == -1) {
 		find.clear();
 	}

@@ -15,16 +15,23 @@
 #define ZSCRATCH_UTIL_ERROR
 
 #include <string>
+#include <exception>
+
+#ifdef ERROR
+#undef ERROR
+#endif
 
 #define ERROR(x, n) \
-	class x { \
+	class x :public std::exception { \
 	public: \
 		std::string str; \
 		bool exit; \
-		x() = default; \
 		x(std::string t, bool b) { this->str = t; this->exit = b; } \
 		operator void() {} \
 		operator int() { return n; } \
+		virtual char const* what() const { \
+			return str.c_str(); \
+		} \
 	};
 
 #define DEFINE_ERROR(x) ERROR(x, 1)

@@ -19,7 +19,7 @@
 #include <io.h>
 #include <fstream>
 
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "PluginError.h"
 #include "../util/String.h"
@@ -81,7 +81,7 @@ std::vector<std::string> PluginLoader::UnzipPlugin() {
 
 PluginAPI PluginLoader::GetPluginAPI(std::ifstream info_json) {
 	
-
+	return PluginAPI::CPP;
 }
 
 std::vector<Plugin> PluginLoader::LoadPlugin() {
@@ -90,25 +90,22 @@ std::vector<Plugin> PluginLoader::LoadPlugin() {
 		Plugin plg = LoadPlugin_CPP(c);
 		ret.push_back(plg);
 	}
+	return ret;
 }
 
 Plugin PluginLoader::LoadPlugin_CPP(std::string name) {
 	Plugin ret;
-	std::string plgPath = "./temp/plugin/" + name;
-	std::ifstream json(plgPath + "/info.json", std::ios::in | std::ios::_Nocreate);
-	if (!json.is_open())
-		return ret;
-	this->LoadPluginJson(name, ret, this->sc->argu.printPluginName);
+	this->LoadPluginJson(name, ret, true);
 
-	HMODULE lib = LoadLibraryA(("./temp/plugin/" + name + "/plugin.dll").c_str());
-	IScratchPlugin*(*c)() = (IScratchPlugin*(*)())GetProcAddress(lib, MAKEINTRESOURCEA(1));
-	IScratchPlugin* plugin = c();
-	ret.plg = plugin;
+	//HMODULE lib = LoadLibraryA(("./temp/plugin/" + name + "/plugin.dll").c_str());
+	//IScratchPlugin*(*c)() = (IScratchPlugin*(*)())GetProcAddress(lib, MAKEINTRESOURCEA(1));
+	//IScratchPlugin* plugin = c();
+	//ret.plg = plugin;
 	return ret;
 }
 
 void PluginLoader::LoadPluginJson(std::string name, Plugin& plg, bool print) {
-	std::string plgPath = "./temp/plugin/" + name;
+	std::string plgPath = "./temp/plugin/" + name.substr(0, name.size() - 4);
 	std::ifstream json(plgPath + "/info.json", std::ios::in | std::ios::_Nocreate);
 	if (!json.is_open())
 		return;
@@ -144,9 +141,14 @@ void PluginLoader::LoadPluginJson(std::string name, Plugin& plg, bool print) {
 		if (t.exit)
 			return;
 	}
+	static unsigned int i = 0;
 	if (print) {
+		std::stringstream str;
+		str << i;
+		std::string t;
+		str >> t;
 		this->sc->Log(
-			"Plugin Info"
+			"Plugin Info(" + t + ")" +
 			"\n\tID   : " + plg.extid + 
 			"\n\tName : " + plg.title +
 			"\n\tAPI  : " + plg.sdk

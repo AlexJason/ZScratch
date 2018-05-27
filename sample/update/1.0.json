@@ -1,0 +1,10 @@
+{
+  "version": "1.0", //The version
+  "develop": "Sky", //The develop code
+  "developer": [ "" ], //Authors
+  "note": [
+    "Added new: ",
+    "Fixed bug: ",
+    "Other"
+  ] //Update Note
+}

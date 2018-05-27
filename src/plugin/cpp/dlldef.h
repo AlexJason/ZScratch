@@ -14,13 +14,11 @@
 #ifndef PDK_DLLDEF
 #define PDK_DLLDEF
 
-#ifdef _DLL
+#if defined(_DLL) && !defined(DLLAPI)
 #define DLLAPI __declspec(dllexport)
 #else
 #define DLLAPI __declspec(dllimport)
 #endif
-
-#define interface class
 
 #pragma warning(disable:4251)
 

@@ -17,20 +17,25 @@
 #include "..\util\File.h"
 #include "..\util\Console.h"
 #include "..\util\AppArgu.h"
+#include "..\util\Error.h"
 #include "..\pluginloader\PluginLoader.h"
 
+#include <iostream>
 #include <fstream>
 #include <sstream>
+#include <exception>
 
 #include <direct.h>
 #include <io.h>
 
 using namespace zscratch::plugin::cpp;
 
+DEFINE_ERROR(SCError_PlgError)
+
 void Scratch::Log(std::string str) {
-	log.append(printTime());
-	log.append(str);
-	log.push_back('\n');
+	std::string s = printTime() + str + '\n';
+	log.append(s);
+	std::cout << s;
 }
 
 int Scratch::AppMain(int argc, char **argv) {
@@ -54,22 +59,24 @@ int Scratch::AppMain(int argc, char **argv) {
 	Log("Installing plugins.");
 	//InstallExtension();
 	this->InstallExtension();
-	
+
 	//Call IScratchExtension::PreInitialisation
 	Log("Pre initialisate plugins.");
-	for (auto &c : plugins) {
-		c.plg->preInitialisation(InitialisationEvent());
-	}
+	for (auto &c : plugins)
+		if (c.plg != nullptr)
+			c.plg->preInitialisation(InitialisationEvent());
 
 	//Call IScratchExtension::Initialisation
 	Log("Initialisate plugins.");
 	for (auto &c : plugins)
-		c.plg->Initialisation(InitialisationEvent());
+		if (c.plg != nullptr)
+			c.plg->Initialisation(InitialisationEvent());
 
 	//Call IScratchExtension::PostInitialisation
 	Log("Post initialisate plugins.");
 	for (auto &c : plugins)
-		c.plg->postInitialisation(InitialisationEvent());
+		if (c.plg != nullptr)
+			c.plg->postInitialisation(InitialisationEvent());
 
 	return 0;
 }

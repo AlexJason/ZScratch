@@ -16,6 +16,9 @@
 
 #include "../plugin/cpp/IScratchPlugin.h"
 
+#include <string>
+#include <vector>
+
 enum class PluginAPI {
 	CPP,	//C++ 17 or higher
 	CS,		//.NET 4.5 or higher
