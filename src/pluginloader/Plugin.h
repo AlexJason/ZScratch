@@ -60,6 +60,7 @@ public:
 	virtual PluginAPI getAPI() = 0;
 };
 
+/*
 class PluginCpp :public Plugin {
 public:
 	PluginCpp() {}
@@ -68,12 +69,14 @@ public:
 
 	virtual PluginAPI getAPI() { return PluginAPI::CPP; }
 };
+*/
 
 class PluginPython :public Plugin {
 public:
 	PluginPython() {};
 	~PluginPython() {};
 	PyObject *pModule;
+	PyObject *pDict;
 	PyObject *py_preInitialisation;
 	PyObject *py_Initialisation;
 	PyObject *py_postInitialisation;

@@ -7,8 +7,8 @@
   "email": "cuizhihui030925@outlook.com",
   "website": "http://www.clipteam.com/",
   "require": "0.0.1",
-  "sdk": "c++",//c++, c#, java, python, lua
-  "system": "w",//w:win, l:linux, m:osx  
+  "sdk": "python",//python
+  "system": "w",//w:win
   "updateUrl": "",
   "downloadUrl": ""
 }

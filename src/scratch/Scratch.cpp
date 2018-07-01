@@ -12,13 +12,14 @@
 
 #include "Scratch.h"
 
-#include "..\util\Time.h"
-#include "..\util\String.h"
-#include "..\util\File.h"
-#include "..\util\Console.h"
-#include "..\util\AppArgu.h"
-#include "..\util\Error.h"
-#include "..\pluginloader\PluginLoader.h"
+#include "../util/Time.h"
+#include "../util/String.h"
+#include "../util/File.h"
+#include "../util/Console.h"
+#include "../util/AppArgu.h"
+#include "../util/Error.h"
+#include "../pluginloader/PluginLoader.h"
+#include "../../lib/include/python/Python.h"
 
 #include <iostream>
 #include <fstream>
@@ -53,6 +54,14 @@ int Scratch::AppMain(int argc, char **argv) {
 			argu.printPluginVersion = true;
 	}
 	
+	//Start Python
+	Log("Starting python.exe.");
+	Py_Initialize();
+	if (!Py_IsInitialized())
+		exit(-1);
+	PyRun_SimpleString("import sys");
+	PyRun_SimpleString("import plgdef");
+
 	//Search plugins
 	Log("Installing plugins.");
 	//InstallExtension();
@@ -61,25 +70,25 @@ int Scratch::AppMain(int argc, char **argv) {
 	//Call IScratchExtension::PreInitialisation
 	Log("Pre initialisate plugins.");
 	for (auto &c : plugins)
-		if (c->plg != nullptr)
-			c->plg->preInitialisation(InitialisationEvent());
+		c->preInitialisation(InitialisationEvent());
 
 	//Call IScratchExtension::Initialisation
 	Log("Initialisate plugins.");
 	for (auto &c : plugins)
-		if (c->plg != nullptr)
-			c->plg->Initialisation(InitialisationEvent());
+		c->Initialisation(InitialisationEvent());
 
 	//Call IScratchExtension::PostInitialisation
 	Log("Post initialisate plugins.");
 	for (auto &c : plugins)
-		if (c->plg != nullptr)
-			c->plg->postInitialisation(InitialisationEvent());
+		c->postInitialisation(InitialisationEvent());
 
 	return 0;
 }
 
 void Scratch::AppRelease() {
+	Log("Stop python.");
+	Py_Finalize();
+
 	_rmdir("./temp/");
 	Log("Temp file has been deleted.");
 	if (_access("./log", 00) == -1)

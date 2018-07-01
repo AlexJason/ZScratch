@@ -19,4 +19,27 @@ Plugin::Plugin() {
 Plugin::~Plugin() {
 
 }
-
+/*
+PluginCpp::PluginCpp() :Plugin() {
+	this->preInitialisation = [this](InitialisationEvent e)->void {
+		this->plg->preInitialisation(e);
+	};
+	this->Initialisation = [this](InitialisationEvent e)->void {
+		this->plg->Initialisation(e);
+	};
+	this->postInitialisation = [this](InitialisationEvent e)->void {
+		this->plg->postInitialisation(e);
+	};
+}
+*/
+PluginPython::PluginPython() :Plugin() {
+	this->preInitialisation = [this](InitialisationEvent e)->void {
+		
+	};
+	this->Initialisation = [this](InitialisationEvent e)->void {
+		this->plg->Initialisation(e);
+	};
+	this->postInitialisation = [this](InitialisationEvent e)->void {
+		this->plg->postInitialisation(e);
+	};
+}
