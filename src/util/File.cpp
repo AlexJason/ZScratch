@@ -31,8 +31,6 @@
 #include "String.h"
 #include "AppArgu.h"
 
-using namespace zscratch::plugin::cpp;
-
 std::vector<std::string> FileIO::getFileList(std::string path) {
 	std::vector<std::string> fofind;
 	std::vector<std::string> fifind;

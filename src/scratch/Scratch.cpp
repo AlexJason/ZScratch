@@ -28,8 +28,6 @@
 #include <direct.h>
 #include <io.h>
 
-using namespace zscratch::plugin::cpp;
-
 DEFINE_ERROR(SCError_PlgError)
 
 void Scratch::Log(std::string str) {
@@ -63,20 +61,20 @@ int Scratch::AppMain(int argc, char **argv) {
 	//Call IScratchExtension::PreInitialisation
 	Log("Pre initialisate plugins.");
 	for (auto &c : plugins)
-		if (c.plg != nullptr)
-			c.plg->preInitialisation(InitialisationEvent());
+		if (c->plg != nullptr)
+			c->plg->preInitialisation(InitialisationEvent());
 
 	//Call IScratchExtension::Initialisation
 	Log("Initialisate plugins.");
 	for (auto &c : plugins)
-		if (c.plg != nullptr)
-			c.plg->Initialisation(InitialisationEvent());
+		if (c->plg != nullptr)
+			c->plg->Initialisation(InitialisationEvent());
 
 	//Call IScratchExtension::PostInitialisation
 	Log("Post initialisate plugins.");
 	for (auto &c : plugins)
-		if (c.plg != nullptr)
-			c.plg->postInitialisation(InitialisationEvent());
+		if (c->plg != nullptr)
+			c->plg->postInitialisation(InitialisationEvent());
 
 	return 0;
 }

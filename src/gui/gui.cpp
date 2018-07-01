@@ -18,7 +18,7 @@
 
 #include "qt.h"
 
-void SetFillFrameColor(QPainter &p, Color frame, Color fill) {
+/*void SetFillFrameColor(QPainter &p, Color frame, Color fill) {
 	p.setPen(QColor(frame.r, frame.g, frame.b, frame.a));
 	p.setBrush(QColor(fill.r, fill.g, fill.b, fill.a));
 }
@@ -46,4 +46,4 @@ DLLAPI void DrawShape(Handle ph, Point point[], size_t s, Color frame, Color fil
 		points[i].setY(point[i].y);
 	}
 	p->drawPolygon(points, static_cast<int>(s));
-}
+}*/

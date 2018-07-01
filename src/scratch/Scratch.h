@@ -25,7 +25,7 @@ public:
 	//Scratch
 	std::string log;
 	ScratchStage stage;
-	std::vector<Plugin> plugins;
+	std::vector<Plugin*> plugins;
 	AppArgu argu;
 
 	void Log(std::string str);

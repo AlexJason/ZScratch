@@ -24,7 +24,7 @@
 
 class PluginLoader {
 public:
-	std::vector<Plugin> plugin;
+	std::vector<Plugin*> plugin;
 private:
 	std::vector<std::string> tmpSP;
 public:
@@ -34,12 +34,11 @@ public:
 	Scratch *sc;
 
 	std::vector<std::string> UnzipPlugin();
-	PluginAPI GetPluginAPI(std::ifstream info_json);
 
-	std::vector<Plugin> LoadPlugin();
+	std::vector<Plugin*> LoadPlugin();
 private:
-	Plugin LoadPlugin_CPP(std::string name);
-	void LoadPluginJson(std::string name, Plugin& plg, bool print = false);
+	Plugin *LoadPlugin(PluginAPI api, std::string name);
+	void LoadPluginJson(std::string name, Plugin*& plg, bool print = false);
 };
 
 #endif

@@ -15,9 +15,11 @@
 #define ZSCRATCH_UTIL_PLUGIN
 
 #include "../plugin/cpp/IScratchPlugin.h"
+#include "../../lib/include/python/Python.h"
 
 #include <string>
 #include <vector>
+#include <functional>
 
 enum class PluginAPI {
 	CPP,	//C++ 17 or higher
@@ -29,11 +31,16 @@ enum class PluginAPI {
 
 class Plugin {
 public:
-	Plugin() = default;
-	Plugin(zscratch::plugin::cpp::IScratchPlugin*);
+	Plugin();
 	~Plugin();
 
-	zscratch::plugin::cpp::IScratchPlugin* plg;
+	//Plugin:
+	std::function<void(InitialisationEvent)> preInitialisation;
+	std::function<void(InitialisationEvent)> Initialisation;
+	std::function<void(InitialisationEvent)> postInitialisation;
+
+	//API:
+	PluginAPI api;
 
 	//JSON:
 	std::string extid;
@@ -48,6 +55,30 @@ public:
 	std::string system;
 	std::string updateUrl;
 	std::string downloadUrl;
+
+	//GET/SET
+	virtual PluginAPI getAPI() = 0;
+};
+
+class PluginCpp :public Plugin {
+public:
+	PluginCpp() {}
+	~PluginCpp() {}
+	IScratchPlugin* plg;
+
+	virtual PluginAPI getAPI() { return PluginAPI::CPP; }
+};
+
+class PluginPython :public Plugin {
+public:
+	PluginPython() {};
+	~PluginPython() {};
+	PyObject *pModule;
+	PyObject *py_preInitialisation;
+	PyObject *py_Initialisation;
+	PyObject *py_postInitialisation;
+
+	virtual PluginAPI getAPI() { return PluginAPI::PYTHON; }
 };
 
 #endif

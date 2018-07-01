@@ -16,7 +16,53 @@
 
 #include "qt.h"
 
+Color::Color(byte r, byte g, byte b, float a) {
+	this->r = r;
+	this->g = g;
+	this->b = b;
+	this->a = a;
+}
+
 Point::Point(int x, int y) {
+	this->x = x;
+	this->y = y;
+}
+
+Rect::Rect(Point tl, Point br) {
+	this->tl = tl;
+	this->br = br;
+}
+
+Application::Application(int argc, char **argv) {
+	this->qApplication = (void*)new QApplication(argc, argv);
+}
+
+Application::~Application() {
+	delete this->qApplication;
+}
+
+int Application::exec() {
+	return static_cast<QApplication*>(this->qApplication)->exec();
+}
+
+BaseWidget::BaseWidget(Rect rc) {
+	this->rc = rc;
+}
+
+void BaseWidget::Show() {
+	static_cast<QWidget*>(this->qWidget)->show();
+}
+
+Window::Window(Rect rc) :BaseWidget(rc) {
+
+}
+
+Window& Window::SetWindowShowMode(WindowShowMode ws) {
+	this->ws = ws;
+	return *this;
+}
+
+/*Point::Point(int x, int y) {
 	this->x = x;
 	this->y = y;
 }
@@ -120,5 +166,5 @@ void Widget::Show(WindowShowMode showmode) {
 
 void Widget::Destroy(int exitcode) {
 
-}
+}*/
 

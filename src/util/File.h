@@ -23,7 +23,7 @@ public:
 	std::vector<std::string> getFileList(std::string path);
 	std::string getPath(std::string s);
 	void LoadTranslator();
-	void LoadExtension(std::vector<zscratch::plugin::cpp::IScratchPlugin*> &ext);
+	void LoadExtension(std::vector<IScratchPlugin*> &ext);
 	bool ExsistExtension();
 public:
 	FileIO();

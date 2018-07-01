@@ -22,8 +22,8 @@
 
 #pragma warning(disable:4251)
 
-#define NAMESPACE_ namespace zscratch::plugin::cpp {
-#define _NAMESPACE }
+#define NAMESPACE_ //namespace zscratch::plugin::cpp {
+#define _NAMESPACE //}
 
 
 #endif

@@ -18,7 +18,81 @@
 
 #include "gui.h"
 
+
+class DLLAPI Color {
+public:
+	Color(byte r = 0, byte g = 0, byte b = 0, float a = 1);
+public:
+	byte b;
+	byte g;
+	byte r;
+	float a;
+};
+
 class DLLAPI Point {
+public:
+	Point(int x = 0, int y = 0);
+public:
+	int x;
+	int y;
+};
+
+class DLLAPI Rect {
+public:
+	Rect(Point tl = Point(0, 0), Point br = Point(0, 0));
+public:
+	Point tl;//Top-Left
+	Point br;//Bottom-Right
+};
+
+class DLLAPI Application {
+public:
+	Application(int argc, char **argv);
+	~Application();
+	int exec();
+public:
+	QtObject qApplication;
+};
+
+class DLLAPI BaseWidget {
+public:
+	BaseWidget(Rect rc);
+	void Show();
+public:
+	QtObject qWidget;
+	Rect rc;
+};
+
+class DLLAPI Window :public BaseWidget {
+public:
+	Window(Rect rc);
+	Window& SetWindowShowMode(WindowShowMode ws);
+public:
+	WindowShowMode ws;
+};
+
+class DLLAPI Widget :public BaseWidget {
+public:
+
+};
+
+class DLLAPI Button :public BaseWidget {
+public:
+
+};
+
+class DLLAPI Label :public BaseWidget {
+public:
+
+};
+
+class DLLAPI Input :public BaseWidget {
+public:
+
+};
+
+
+/*class DLLAPI Point {
 public:
 	Point() = default;
 	Point(int x, int y);
@@ -113,7 +187,7 @@ public:
 	~Widget();
 	virtual void Show(WindowShowMode showmode = WindowShowMode::NORMAL) override final;
 	virtual void Destroy(int exitcode) override final;
-};
+};*/
 
 #endif // GUI_CLASS_H
 

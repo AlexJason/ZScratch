@@ -18,25 +18,25 @@
 
 #include "gui.h"
 
-class qtmainwindow :public QMainWindow {
+class qtMainWindow :public QMainWindow {
 	Q_OBJECT
 public:
-	explicit qtmainwindow(QWidget *parent = nullptr);
+	explicit qtMainWindow(QWidget *parent = nullptr);
 	virtual void paintEvent(QPaintEvent *event);
 public:
-	PaintFunc* func;
+	//PaintFunc* func;
 signals:
 
 public slots:
 };
 
-class qtwidget :public QWidget {
+class qtWidget :public QWidget {
 	Q_OBJECT
 public:
-	explicit qtwidget(QWidget *parent = nullptr);
+	explicit qtWidget(QWidget *parent = nullptr);
 	virtual void paintEvent(QPaintEvent *event);
 public:
-	PaintFunc* func;
+	//PaintFunc* func;
 signals:
 
 public slots:

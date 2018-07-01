@@ -6,7 +6,7 @@
  *
  * @file	gui.h
  * @author	Alex Cui
- * @date	April, 2018
+ * @date	June, 2018
  * @details	This file defines and instanses some useful class for painting.
 */
 
@@ -17,12 +17,36 @@
 
 #include "dlldef.h"
 
-//The Utility Enum Classes
-enum class DLLAPI WindowShowMode { NORMAL, MAX, MIN, FULLSCREEN };
+//Enum Classes
+enum class WindowShowMode { NORMAL, MAX, MIN, FULLSCREEN };
+
+//Value Type
+typedef unsigned char	byte, Byte;
+typedef void			*Handle, *QtObject;
+
+//Value Classes
+class DLLAPI Color;
+
+//Form Classes
+class DLLAPI Point;
+class DLLAPI Rect;
+class DLLAPI Application;
+class DLLAPI BaseWidget;
+class DLLAPI Window;
+class DLLAPI Widget;
+class DLLAPI Button;
+class DLLAPI Label;
+class DLLAPI Input;
+
+#include "class.h"
+
+/*//The Utility Enum Classes
+enum class WindowShowMode { NORMAL, MAX, MIN, FULLSCREEN };
 
 //The Value Classes
-typedef unsigned char Byte;
-typedef void* Handle;
+typedef unsigned char	Byte;
+typedef void			*Handle;
+typedef Handle			QObject;
 typedef void(*PaintFunc)(Handle);
 
 //The Window Utility Classes
@@ -44,6 +68,6 @@ DLLAPI void		DrawShape(Handle ph, Point point[], size_t s, Color fill);
 DLLAPI void		DrawShape(Handle ph, Point point[], size_t s, Color frame, Color fill);
 
 //The Class Definition
-#include "class.h"
+#include "class.h"*/
 
 #endif // GUI_H

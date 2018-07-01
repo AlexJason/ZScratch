@@ -14,29 +14,29 @@
 
 #include <QPainter>
 
-qtmainwindow::qtmainwindow(QWidget *parent): QMainWindow(parent) {
+qtMainWindow::qtMainWindow(QWidget *parent): QMainWindow(parent) {
 
 }
 
-void qtmainwindow::paintEvent(QPaintEvent *event) {
+void qtMainWindow::paintEvent(QPaintEvent *event) {
 	QPainter *p = new QPainter(this);
-	(*this->func)((void*)p);
+	//(*this->func)((void*)p);
 	//delete p;
 }
 
-qtwidget::qtwidget(QWidget *parent) : QWidget(parent)
+qtWidget::qtWidget(QWidget *parent) : QWidget(parent)
 {
 
 }
 
-void qtwidget::paintEvent(QPaintEvent *event) {
+void qtWidget::paintEvent(QPaintEvent *event) {
 	QPainter *p = new QPainter(this);
-	(*this->func)((void*)p);
+	//(*this->func)((void*)p);
 	//delete p;
 }
 
 void WidgetShow(Handle h, WindowShowMode s) {
-	qtwidget *w = (qtwidget*)h;
+	qtWidget *w = (qtWidget*)h;
 	switch(s) {
 	case WindowShowMode::MAX:
 		w->showMaximized();

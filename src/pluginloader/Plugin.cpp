@@ -12,13 +12,11 @@
 
 #include "Plugin.h"
 
-using namespace zscratch::plugin::cpp;
+Plugin::Plugin() {
 
-Plugin::Plugin(zscratch::plugin::cpp::IScratchPlugin *t) {
-	this->plg = new IScratchPlugin(*t); //Shalldow copy
 }
 
 Plugin::~Plugin() {
-	delete this->plg;
+
 }
 

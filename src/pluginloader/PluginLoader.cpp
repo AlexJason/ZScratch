@@ -27,9 +27,10 @@
 #include "../util/File.h"
 #include "../../lib/include/ziputil/unzip.h"
 #include "../../lib/include/jsoncpp/json.h"
+#include "../../lib/include/python/Python.h"
 #include "../plugin/cpp/IScratchPlugin.h"
 
-using namespace zscratch::plugin::cpp;
+//using namespace zscratch::plugin::cpp;
 
 
 PluginLoader::PluginLoader(Scratch * sc) {
@@ -79,32 +80,78 @@ std::vector<std::string> PluginLoader::UnzipPlugin() {
 	return find;
 }
 
-PluginAPI PluginLoader::GetPluginAPI(std::ifstream info_json) {
-	
-	return PluginAPI::CPP;
-}
-
-std::vector<Plugin> PluginLoader::LoadPlugin() {
-	std::vector<Plugin> ret;
+std::vector<Plugin*> PluginLoader::LoadPlugin() {
+	std::vector<Plugin*> ret;
 	for (const auto &c : this->tmpSP) {
-		Plugin plg = LoadPlugin_CPP(c);
+		Plugin *plg = LoadPlugin(plg->api, c);
 		ret.push_back(plg);
 	}
 	return ret;
 }
 
-Plugin PluginLoader::LoadPlugin_CPP(std::string name) {
-	Plugin ret;
+Plugin* PluginLoader::LoadPlugin(PluginAPI api, std::string name) {
+	Plugin *ret;
 	this->LoadPluginJson(name, ret, true);
+	switch (api) {
+	case PluginAPI::CPP: {
+		ret = new PluginCpp();
+		PluginCpp *plg = dynamic_cast<PluginCpp*>(ret);
+		if (plg == nullptr)
+			break;
+		HMODULE lib = LoadLibraryA(("./temp/plugin/" + name + "/plugin.dll").c_str());
+		IScratchPlugin*(*LoadPlugin)() = (IScratchPlugin*(*)())GetProcAddress(lib, MAKEINTRESOURCEA(1));//call LoadPlugin()
+		IScratchPlugin* plugin = LoadPlugin();
+		plg->preInitialisation = [&plg](InitialisationEvent e) {
+			plg->plg->preInitialisation(e);
+		};
+		plg->Initialisation = [&plg](InitialisationEvent e) {
+			plg->plg->Initialisation(e);
+		};
+		plg->postInitialisation = [&plg](InitialisationEvent e) {
+			plg->plg->postInitialisation(e);
+		};
+		break;
+	}
+	case PluginAPI::PYTHON: {
+		ret = new PluginPython();
+		PluginPython *plg = dynamic_cast<PluginPython*>(ret);
+		if (plg == nullptr)
+			break;
+		if (!Py_IsInitialized())
+			Py_Initialize();
+		PyObject *pySys = PyImport_ImportModule("sys");
+		PyObject *pySysPath = PyObject_GetAttrString(pySys, "path");
+		PyObject *path = PyList_New(PyList_Size(pySysPath));
+		PyObject *temp = path;
+		PyList_Append(temp, PyUnicode_FromString(("./temp/plugin/" + name).c_str()));
+		plg->pModule = PyImport_ImportModule("plugin");
 
-	//HMODULE lib = LoadLibraryA(("./temp/plugin/" + name + "/plugin.dll").c_str());
-	//IScratchPlugin*(*c)() = (IScratchPlugin*(*)())GetProcAddress(lib, MAKEINTRESOURCEA(1));
-	//IScratchPlugin* plugin = c();
-	//ret.plg = plugin;
+
+		plg->preInitialisation = [](InitialisationEvent e) {
+
+		};
+		plg->Initialisation = [](InitialisationEvent e) {
+
+		};
+		plg->postInitialisation = [](InitialisationEvent e) {
+
+		};
+		plg->py_preInitialisation = PyObject_GetAttrString(plg->pModule, "preInitialisation");
+		plg->py_Initialisation = PyObject_GetAttrString(plg->pModule, "Initialisation");
+		plg->py_postInitialisation = PyObject_GetAttrString(plg->pModule, "postInitialisation");
+		if (Py_IsInitialized())
+			Py_Finalize();
+		break;
+	}
+	default: {
+		break;
+	}
+	}
+	
 	return ret;
 }
 
-void PluginLoader::LoadPluginJson(std::string name, Plugin& plg, bool print) {
+void PluginLoader::LoadPluginJson(std::string name, Plugin*& plg, bool print) {
 	std::string plgPath = "./temp/plugin/" + name.substr(0, name.size() - 4);
 	std::ifstream json(plgPath + "/info.json", std::ios::in | std::ios::_Nocreate);
 	if (!json.is_open())
@@ -119,17 +166,28 @@ void PluginLoader::LoadPluginJson(std::string name, Plugin& plg, bool print) {
 	try {
 		if (!root["extid"].isString())
 			throw PLError_JsonError(plgPath + ": json.extid must be string", true);
-		plg.extid = root["extid"].asString();
-		plg.title = root["title"].isString() ? root["title"].asString() : plg.extid;
-		plg.description = root["description"].asString();
+		plg->extid = root["extid"].asString();
+		plg->title = root["title"].isString() ? root["title"].asString() : plg->extid;
+		plg->description = root["description"].asString();
 		if (!root["sdk"].isString())
 			throw PLError_ApiError(plgPath + ": json.sdk must exist", true);
-		plg.sdk = root["sdk"].asString();
+		auto sdk = root["sdk"].asString();
+		plg->sdk = sdk;
+		if (sdk == "c++")
+			plg->api = PluginAPI::CPP;
+		else if (sdk == "c#")
+			plg->api = PluginAPI::CS;
+		else if (sdk == "java")
+			plg->api = PluginAPI::JAVA;
+		else if (sdk == "python")
+			plg->api = PluginAPI::PYTHON;
+		else if (sdk == "lua")
+			plg->api = PluginAPI::LUA;
 		value = root["author"];
 		if (!value.isArray())
 			throw PLError_JsonError(plgPath + ": json.author must be array", true);
 		for (int i = 0; i < value.size(); i++)
-			plg.author.push_back(value[i].asString());
+			plg->author.push_back(value[i].asString());
 	}
 	catch (PLError_JsonError t) {
 		this->sc->Log("PluginLoader ERROR: " + t.str);
@@ -149,9 +207,9 @@ void PluginLoader::LoadPluginJson(std::string name, Plugin& plg, bool print) {
 		str >> t;
 		this->sc->Log(
 			"Plugin Info(" + t + ")" +
-			"\n\tID   : " + plg.extid + 
-			"\n\tName : " + plg.title +
-			"\n\tAPI  : " + plg.sdk
+			"\n\tID   : " + plg->extid +
+			"\n\tName : " + plg->title +
+			"\n\tAPI  : " + plg->sdk
 		);
 	}
 }
