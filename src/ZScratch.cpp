@@ -42,9 +42,7 @@ int main(int argc, char **argv) {
 	result = app->exec();
 
 	//Memory release
-	delete sc;
-	delete mainWnd;
-	delete app;
+	delete sc, mainWnd, app;
 
 	return result;
 }

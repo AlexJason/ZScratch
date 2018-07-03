@@ -40,34 +40,4 @@ class DLLAPI Input;
 
 #include "class.h"
 
-/*//The Utility Enum Classes
-enum class WindowShowMode { NORMAL, MAX, MIN, FULLSCREEN };
-
-//The Value Classes
-typedef unsigned char	Byte;
-typedef void			*Handle;
-typedef Handle			QObject;
-typedef void(*PaintFunc)(Handle);
-
-//The Window Utility Classes
-class DLLAPI Color;
-class DLLAPI Point;
-class DLLAPI Rect;
-
-//The Window Form Classes
-class DLLAPI Application;
-class DLLAPI BaseWidget;
-class DLLAPI Window;
-class DLLAPI Widget;
-class DLLAPI Button;
-
-//The Window Painting Functions
-DLLAPI void		DrawRectangle(Handle ph, Point x, Point y, Color fill);
-DLLAPI void		DrawRectangle(Handle ph, Point x, Point y, Color frame, Color fill);
-DLLAPI void		DrawShape(Handle ph, Point point[], size_t s, Color fill);
-DLLAPI void		DrawShape(Handle ph, Point point[], size_t s, Color frame, Color fill);
-
-//The Class Definition
-#include "class.h"*/
-
 #endif // GUI_H
