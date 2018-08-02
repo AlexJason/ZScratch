@@ -90,9 +90,9 @@
     <IntDir>..\build\zscratch_debug_win64</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\bin</OutDir>
+    <OutDir>..\bin\</OutDir>
     <TargetName>ZScratch</TargetName>
-    <IntDir>..\build\zscratch_release_win64</IntDir>
+    <IntDir>..\build\zscratch_release_win64\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -149,6 +149,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -222,6 +223,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\bin\config\style.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\lib\x64\gui.lib" />
+    <Library Include="..\lib\x64\lib_json.lib" />
+    <Library Include="..\lib\x64\Lua.lib" />
+    <Library Include="..\lib\x64\python3.lib" />
+    <Library Include="..\lib\x64\python36.lib" />
+    <Library Include="..\lib\x64\tinyxmlSTL.lib" />
+    <Library Include="..\lib\x64\_tkinter.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

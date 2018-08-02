@@ -14,24 +14,44 @@
 #include "../gui.h"
 #include "../class.h"
 
-void Application_FromArg(Handle *obj, int argc, char **argv) {
+#include <iostream>
+
+void Application_FromArg(_Out Handle *obj, _In int argc, _In char **argv) {
 	(*obj) = new Application(argc, argv);
 }
-void Point_FromInt(Handle *obj, int x, int y) {
+void Application_Exec(_Out Handle *obj) {
+	static_cast<Application*>(*obj)->exec();
+}
+void Point_FromInt(_Out Handle *obj, _In int x, _In int y) {
 	(*obj) = new Point(x, y);
 }
-void Rect_FromPoint(Handle *obj, Handle p0, Handle p1) {
+void Point_SetXFromInt(_In_Out Handle *obj, _In int x) {
+	static_cast<Point*>(*obj)->x = x;
+}
+void Point_SetYFromInt(_In_Out Handle *obj, _In int y) {
+	static_cast<Point*>(*obj)->y = y;
+}
+void Point_GetXAsInt(_In Handle obj, _Out int *x) {
+	*x = static_cast<Point*>(obj)->x;
+}
+void Point_GetYAsInt(_In Handle obj, _Out int *y) {
+	*y = static_cast<Point*>(obj)->y;
+}
+void Rect_FromPoint(_Out Handle *obj, _In Handle p0, _In Handle p1) {
 	Point *lt = static_cast<Point*>(p0);
 	Point *rb = static_cast<Point*>(p1);
 	(*obj) = new Rect(*lt, *rb);
 }
-void Rect_FromPos(Handle *obj, int x0, int y0, int x1, int y1) {
+void Rect_FromPos(_Out Handle *obj, _In int x0, _In int y0, _In int x1, _In int y1) {
 	(*obj) = new Rect(Point(x0, y0), Point(x1, y1));
 }
-void Window_FromRect(Handle *obj, Handle rc) {
+void Window_FromRect(_Out Handle *obj, _In Handle rc) {
 	Rect *prc = static_cast<Rect*>(rc);
 	(*obj) = new Window(*prc);
 }
-void Window_SetWindowShowMode(Handle *obj, ShowMode sm) {
+void Window_SetWindowShowMode(_In_Out Handle *obj, _In ShowMode sm) {
 	static_cast<Window*>(*obj)->SetWindowShowMode(static_cast<WindowShowMode>(sm));
+}
+void Window_Show(_In_Out Handle *obj) {
+	static_cast<Window*>(*obj)->Show();
 }

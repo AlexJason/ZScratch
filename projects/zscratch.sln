@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zscratch.app", "zscratch_vs
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zscratch.plugin.cpp", "plugin.cpp_vs2017.vcxproj", "{45E2CBC7-D9E3-4EE1-9876-25E3AB9537E3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gui_c", "..\gui_c\gui_c.vcxproj", "{45388A63-958F-4CCE-84F0-FEBC88DC05B8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gui_c", "gui_c.vcxproj", "{45388A63-958F-4CCE-84F0-FEBC88DC05B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

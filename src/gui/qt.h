@@ -22,7 +22,7 @@ class qtMainWindow :public QMainWindow {
 	Q_OBJECT
 public:
 	explicit qtMainWindow(QWidget *parent = nullptr);
-	virtual void paintEvent(QPaintEvent *event);
+	//virtual void paintEvent(QPaintEvent *event);
 public:
 	//PaintFunc* func;
 signals:
@@ -34,15 +34,13 @@ class qtWidget :public QWidget {
 	Q_OBJECT
 public:
 	explicit qtWidget(QWidget *parent = nullptr);
-	virtual void paintEvent(QPaintEvent *event);
+	//virtual void paintEvent(QPaintEvent *event);
 public:
 	//PaintFunc* func;
 signals:
 
 public slots:
 };
-
-void WidgetShow(Handle w, WindowShowMode s = WindowShowMode::NORMAL);
 
 
 #endif // QTC_H

@@ -169,7 +169,7 @@ void PluginLoader::LoadPluginJson(string name, Plugin*& plg, bool print) {
 		value = root["author"];
 		if (!value.isArray())
 			throw PLError_JsonError(plgPath + ": json.author must be array", true);
-		for (int i = 0; i < value.size(); i++)
+		for (int i = 0; i < (int)value.size(); i++)
 			plg->author.push_back(value[i].asString());
 	}
 	catch (PLError_JsonError t) {

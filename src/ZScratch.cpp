@@ -30,12 +30,8 @@ int main(int argc, char **argv) {
 	sc->Log("Initializing program.");
 
 	//Qt window form
-	Window *mainWnd = new Window();//QWindow
-	mainWnd->setTitle(title.c_str(), title.size() + 1);
-	mainWnd->setPaintEvent([](Handle ph)->void {});
-	mainWnd->setClickEvent([](Handle mh)->void {});
-	mainWnd->setMoveEvent([](Handle mh)->void {});
-	mainWnd->Show(WindowShowMode::MAX);
+	Window *mainWnd = new Window(Rect(Point(0, 0), Point(100, 100)));
+	mainWnd->Show();
 
 	//Main application
 	sc->AppMain(argc, argv);

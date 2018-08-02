@@ -34,12 +34,16 @@ PluginCpp::PluginCpp() :Plugin() {
 */
 PluginPython::PluginPython() :Plugin() {
 	this->preInitialisation = [this](InitialisationEvent e)->void {
-		
+		PyEval_CallFunction(this->py_preInitialisation, "");
 	};
 	this->Initialisation = [this](InitialisationEvent e)->void {
-		this->plg->Initialisation(e);
+		PyEval_CallFunction(this->py_Initialisation, "");
 	};
 	this->postInitialisation = [this](InitialisationEvent e)->void {
-		this->plg->postInitialisation(e);
+		PyEval_CallFunction(this->py_postInitialisation, "");
 	};
+}
+
+PluginPython::~PluginPython() {
+
 }

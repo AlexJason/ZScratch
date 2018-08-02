@@ -22,15 +22,45 @@
 extern "C" {
 #endif
 
+#ifndef _In
+#define _In
+#endif
+#ifndef _Out
+#define _Out
+#endif
+#ifndef _In_Out
+#define _In_Out
+#endif
+
 	typedef void *Handle;
 	enum ShowMode { SW_NORMAL, SW_MAX, SW_MIN, SW_FULLSCREEN };
 
-	void CDLL Application_FromArg(Handle *obj, int argc, char **argv);
-	void CDLL Point_FromInt(Handle *obj, int x, int y);
-	void CDLL Rect_FromPoint(Handle *obj, Handle p0, Handle p1);
-	void CDLL Rect_FromPos(Handle *obj, int x0, int y0, int x1, int y1);
-	void CDLL Window_FromRect(Handle *obj, Handle rc);
-	void CDLL Window_SetWindowShowMode(Handle *obj, ShowMode sm);
+	void CDLL Application_FromArg(_Out Handle *obj, _In int argc, _In char **argv);
+	void CDLL Application_Exec(_Out Handle *obj);
+	void CDLL Point_FromInt(_Out Handle *obj, _In int x, _In int y);
+	void CDLL Point_SetXFromInt(_In_Out Handle *obj, _In int x);
+	void CDLL Point_SetYFromInt(_In_Out Handle *obj, _In int y);
+	void CDLL Point_GetXAsInt(_In Handle obj, _Out int *x);
+	void CDLL Point_GetYAsInt(_In Handle obj, _Out int *y);
+	void CDLL Rect_FromPoint(_Out Handle *obj, _In Handle p0, _In Handle p1);
+	void CDLL Rect_FromPos(_Out Handle *obj, _In int x0, _In int y0, _In int x1, _In int y1);
+	void CDLL Rect_SetLeftTopFromPoint(_In_Out Handle *obj, _In Handle p);
+	void CDLL Rect_SetRightBottomFromPoint(_In_Out Handle *obj, _In Handle p);
+	void CDLL Rect_GetLeftTopAsPoint(_In Handle obj, _Out Handle *p);
+	void CDLL Rect_GetRightBottomAsPoint(_In Handle obj, _Out Handle *p);
+	void CDLL Window_FromRect(_Out Handle *obj, _In Handle rc);
+	void CDLL Window_SetRectFromRect(_Out Handle *obj, _In Handle rc);
+	void CDLL Window_GetRectAsRect(_In Handle obj, _Out Handle *rc);
+	void CDLL Window_SetWindowShowMode(_In_Out Handle *obj, _In ShowMode sm);
+	void CDLL Window_GetWindowShowMode(_In Handle obj, _Out ShowMode *sm);
+	void CDLL Window_Show(_In_Out Handle *obj);
+	void CDLL Window_ShowFullScreen(_In_Out Handle *obj);
+	void CDLL Window_ShowMaximum(_In_Out Handle *obj);
+	void CDLL Window_ShowMinimum(_In_Out Handle *obj);
+	void CDLL Widget_FromRect(_Out Handle *obj, _In_Out Handle *parent, _In Handle rc);
+	void CDLL Widget_SetRectFromRect(_In Handle obj, _In Handle rc);
+	void CDLL Widget_GetRectAsRect(_In Handle obj, _Out Handle rc);
+	void CDLL Widget_Show(_In_Out Handle *obj);
 
 #ifdef __cplusplus
 }

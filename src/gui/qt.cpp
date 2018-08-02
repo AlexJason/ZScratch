@@ -18,22 +18,22 @@ qtMainWindow::qtMainWindow(QWidget *parent): QMainWindow(parent) {
 
 }
 
-void qtMainWindow::paintEvent(QPaintEvent *event) {
+/*void qtMainWindow::paintEvent(QPaintEvent *event) {
 	QPainter *p = new QPainter(this);
 	//(*this->func)((void*)p);
 	//delete p;
-}
+}*/
 
 qtWidget::qtWidget(QWidget *parent) : QWidget(parent)
 {
 
 }
 
-void qtWidget::paintEvent(QPaintEvent *event) {
+/*void qtWidget::paintEvent(QPaintEvent *event) {
 	QPainter *p = new QPainter(this);
 	//(*this->func)((void*)p);
 	//delete p;
-}
+}*/
 
 void WidgetShow(Handle h, WindowShowMode s) {
 	qtWidget *w = (qtWidget*)h;

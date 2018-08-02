@@ -16,6 +16,9 @@
     <Filter Include="src\pluginloader">
       <UniqueIdentifier>{e91ac46a-63c2-4dfb-87e1-a3258e836ce2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{afced14c-432b-489f-8b22-21827e05e602}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\scratch\Scratch.cpp">
@@ -195,5 +198,28 @@
     <None Include="..\bin\config\style.json">
       <Filter>config</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\lib\x64\_tkinter.lib">
+      <Filter>lib</Filter>
+    </Library>
+    <Library Include="..\lib\x64\gui.lib">
+      <Filter>lib</Filter>
+    </Library>
+    <Library Include="..\lib\x64\Lua.lib">
+      <Filter>lib</Filter>
+    </Library>
+    <Library Include="..\lib\x64\python3.lib">
+      <Filter>lib</Filter>
+    </Library>
+    <Library Include="..\lib\x64\python36.lib">
+      <Filter>lib</Filter>
+    </Library>
+    <Library Include="..\lib\x64\tinyxmlSTL.lib">
+      <Filter>lib</Filter>
+    </Library>
+    <Library Include="..\lib\x64\lib_json.lib">
+      <Filter>lib</Filter>
+    </Library>
   </ItemGroup>
 </Project>

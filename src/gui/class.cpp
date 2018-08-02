@@ -47,6 +47,7 @@ int Application::exec() {
 
 BaseWidget::BaseWidget(Rect rc) {
 	this->rc = rc;
+	this->qWidget = new qtWidget();
 }
 
 void BaseWidget::Show() {

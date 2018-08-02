@@ -73,8 +73,8 @@ public:
 
 class PluginPython :public Plugin {
 public:
-	PluginPython() {};
-	~PluginPython() {};
+	PluginPython();
+	~PluginPython();
 	PyObject *pModule;
 	PyObject *pDict;
 	PyObject *py_preInitialisation;
